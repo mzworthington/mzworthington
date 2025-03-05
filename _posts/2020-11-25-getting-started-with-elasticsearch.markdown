@@ -9,7 +9,7 @@ tags:
   - Tech
 tech: 
     - Elasticsearch
-code: https://github.com/worthington10TW/ElasticsearchBrownBag
+code: https://github.com/mzworthington/ElasticsearchBrownBag
 image: /assets/2020-11-25-getting-started-with-elasticsearch/elastic-elasticsearch-logo.webp
 published: true
 ---
@@ -22,7 +22,7 @@ I recently engaged with a client that wanted to improve their search relevance a
 
 We wanted to be as visible as possible, and open for anyone interested to look at what we are doing. Many of the engineering team had not worked with Lucene based search engines before. I remember when I first used lucene, I felt pretty lost. So I threw together some lunch and learns and opened them up to everyone that wanted to pop by and learn the basics of Elasticsearch. 
 
-[The deck that went with the workshop can be found here](https://hackmd.io/@worthington10tw/S16Ds3ycv#/){:target="_blank"  rel="noreferrer"} and there is a GitHub repo that will help spin up a single node instance and populate the search engine with some test data, written in C# & dotnet core.
+[The deck that went with the workshop can be found here](https://hackmd.io/@mzworthington/S16Ds3ycv#/){:target="_blank"  rel="noreferrer"} and there is a GitHub repo that will help spin up a single node instance and populate the search engine with some test data, written in C# & dotnet core.
 
 The goal of this post is to cover the basic architecture of Elastisearch, in future posts I'll dive into individual features (Like the search query DSL).
 
@@ -30,7 +30,7 @@ The running example of the workshop is a fictitious university consisting of tra
 
 Also, modelling your data on how your users will use the systems is vital, in most cases the best search model will not be a mirror copy of your database models. 
 
-[If you want to code along with this post you pop over to the code repo that was used during the workshop](https://github.com/worthington10TW/ElasticsearchBrownBag){:target="_blank"  rel="noreferrer"}
+[If you want to code along with this post you pop over to the code repo that was used during the workshop](https://github.com/mzworthington/ElasticsearchBrownBag){:target="_blank"  rel="noreferrer"}
 
 ### Elasticsearch
 
@@ -536,4 +536,4 @@ Spin up everything by using the command `docker-compose up`.
 
 Have fun 🎉🎉
 
-[The deck from the talk can be found here](https://hackmd.io/@worthington10tw/S16Ds3ycv#/){:target="_blank"  rel="noreferrer"}
+[The deck from the talk can be found here](https://hackmd.io/@mzworthington/S16Ds3ycv#/){:target="_blank"  rel="noreferrer"}

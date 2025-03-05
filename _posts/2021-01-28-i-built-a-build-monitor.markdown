@@ -9,7 +9,7 @@ tags:
     - CI/CD 
     - Path to Production
 image: /assets/2021-01-28-i-built-a-build-monitor/lonely.gif
-code: https://github.com/worthington10TW/gpio-build-monitor
+code: https://github.com/mzworthington/gpio-build-monitor
 tech:
     - CircleCI
     - Raspberry-pi
@@ -161,4 +161,4 @@ And my first iteration is done!
 
 **Python 3.8**
 
-`pip3 install git+https://github.com/worthington10TW/gpio-build-monitor#egg=monitor`
+`pip3 install git+https://github.com/mzworthington/gpio-build-monitor#egg=monitor`

@@ -11,10 +11,10 @@ tech:
   - Jekyll
   - Ruby
   - Github Actions
-code: https://github.com/worthington10tw/worthington10tw
+code: https://github.com/mzworthington/mzworthington
 ---
 
-So, I've thrown together a new blog. This is how I built it and how I ended on this tech stack. Pop over to [my github page](https://github.com/worthington10tw) to view the code.
+So, I've thrown together a new blog. This is how I built it and how I ended on this tech stack. Pop over to [my github page](https://github.com/mzworthington) to view the code.
 
 <!--more-->
 

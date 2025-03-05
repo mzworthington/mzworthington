@@ -10,7 +10,7 @@ tech:
   - CircleCi
   - VueJS
   - Heroku
-code: https://github.com/worthington10TW/hello-karta/tree/complete
+code: https://github.com/mzworthington/hello-karta/tree/complete
 image: /assets/2019-10-01-get-to-production/circle.webp
 published: true
 ---
@@ -107,25 +107,25 @@ curl --version
 
 Then we forked and cloned the repo
 
-[![Fork](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/Fork.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/Fork.png)
+[![Fork](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/Fork.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/Fork.png)
 
-[![Clone](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/Clone.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/Clone.png)
+[![Clone](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/Clone.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/Clone.png)
 
 We then followed the project on CircleCI
 
-[![Clone](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/Follow.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/Follow.png)
+[![Clone](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/Follow.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/Follow.png)
 
 And generated a token 
 
-[![CreateToken](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/CreateToken.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/CreateToken.png)
+[![CreateToken](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/CreateToken.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/CreateToken.png)
 
 At this point everyone should have all the dependencies required, the accounts setup and our basic pipeline running.
 
-[![FirstPipeline](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/FirstPipelineCombined.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/plan/FirstPipelineCombined.png)
+[![FirstPipeline](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/FirstPipelineCombined.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/plan/FirstPipelineCombined.png)
 
-The [code provided](https://github.com/worthington10TW/hello-karta/tree/master) contained [a script](https://github.com/worthington10TW/hello-karta/blob/master/.scripts/app-builder.sh) to get us up and running, this script created a heroku application and added the relevant environment variables to circleCI.
+The [code provided](https://github.com/mzworthington/hello-karta/tree/master) contained [a script](https://github.com/mzworthington/hello-karta/blob/master/.scripts/app-builder.sh) to get us up and running, this script created a heroku application and added the relevant environment variables to circleCI.
 
-The repository also contained a [.vue folder](https://github.com/worthington10TW/hello-karta/blob/master/.vue/preset.json) that allowed the vue CLI to create the same application for everyone in the workshop by running `vue create --preset ./hello-karta/.vue hello-karta`.
+The repository also contained a [.vue folder](https://github.com/mzworthington/hello-karta/blob/master/.vue/preset.json) that allowed the vue CLI to create the same application for everyone in the workshop by running `vue create --preset ./hello-karta/.vue hello-karta`.
 
 We also had a Dockerfile that runs the application, a basic pipeline that spits out today's date (but does nothing with the code), and a couple of scripts (One to deploy the application and another to ping the application).
 
@@ -135,7 +135,7 @@ We could then start building our
 
 #### Build
 
-[![Build](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/1.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/1.png)
+[![Build](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/1.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/1.png)
 
 `Build` might not be the greatest name for this stage, and there is an argument to say that this stage isnt actually necessary. The workshop was designed to be language agnostic and show a possible path to prod of an application, this stage simply installed the dependencies. 
 
@@ -143,49 +143,49 @@ We introduced the concept of caching. By caching our node_modules folder we redu
 
 #### Code quality gate
 
-[![Quality gate](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/2.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/2.png)
+[![Quality gate](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/2.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/2.png)
 
 We then ran a simple code quality gate, these are usually pretty quick and ensure fast feedback. 
 
 #### Test automation
 
-[![Test](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/3.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/3.png)
+[![Test](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/3.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/3.png)
 
 We then can fan-out. We run our application unit tests, whilst at the same time running our much more expensive e2e cypress tests.
 
 #### Publish
 
-[![Publish](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/4.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/4.png)
+[![Publish](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/4.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/4.png)
 
 We can now create our deployable application.  
 
 #### Deploy to staging
 
-[![Staging](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/5.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/6.png)
+[![Staging](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/5.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/6.png)
 
 Deploying our artifact to our staging environment using the script provided.
 
 #### Smoke tests and E2E tests
 
-[![Smoke](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/6.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/6.png)
+[![Smoke](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/6.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/6.png)
 
 We then ping our application to make sure its up and run our Cypress suite against the newly deployed application.
 
 #### Manual approval
 
-[![Manual gate](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/7.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/7.png)
+[![Manual gate](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/7.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/7.png)
 
 We then have a our manual gate. Our application does not currently have the ability to hide features not ready for release using feature toggles. Therefore to ensure that the decision to release a feature still remains a business decision and not a technical one we implement a manual approval stage. 
 
 #### Deploy to prod
 
-[![Production](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/8.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/9.png)
+[![Production](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/8.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/9.png)
 
 We then deploy the same artifact that we deployed to staging to production, using the same script and deployment method.
 
 #### Check our application works
 
-[![Pipeline](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/pipeline.png)](https://raw.githubusercontent.com/worthington10TW/hello-karta/master/pitch/pipeline/pipeline.png)
+[![Pipeline](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/pipeline.png)](https://raw.githubusercontent.com/mzworthington/hello-karta/master/pitch/pipeline/pipeline.png)
 
 We finally check our application is up and running in the same way we checked that staging was up and running, using the same ping script.
 
@@ -242,8 +242,8 @@ workflows:
 
 And thats our path to production. To recap we created a VueJS application with Mocha unit tests and Cypress E2E tests, using CircleCI and pipelines as code to install, lint, test and deploy our application. Our application is deployed to Heroku and served using docker over multiple environments.
 
-[The deck from the talk can be found here](https://hackmd.io/@worthington10tw/SJ3B5o0CK#/){:target="_blank"  rel="noreferrer"} (Recently migrated from [gitpitch](https://gitpitch.github.io/gitpitch/#/free-trial){:target="_blank"  rel="noreferrer"} to [hackmd](https://hackmd.io/){:target="_blank"  rel="noreferrer"})
+[The deck from the talk can be found here](https://hackmd.io/@mzworthington/SJ3B5o0CK#/){:target="_blank"  rel="noreferrer"} (Recently migrated from [gitpitch](https://gitpitch.github.io/gitpitch/#/free-trial){:target="_blank"  rel="noreferrer"} to [hackmd](https://hackmd.io/){:target="_blank"  rel="noreferrer"})
 
-[The starting code from the workshop can be found here](https://github.com/worthington10TW/hello-karta/tree/master){:target="_blank"  rel="noreferrer"}
+[The starting code from the workshop can be found here](https://github.com/mzworthington/hello-karta/tree/master){:target="_blank"  rel="noreferrer"}
 
-[The finished code from the workshop can be found here](https://github.com/worthington10TW/hello-karta/tree/complete){:target="_blank"  rel="noreferrer"}
+[The finished code from the workshop can be found here](https://github.com/mzworthington/hello-karta/tree/complete){:target="_blank"  rel="noreferrer"}

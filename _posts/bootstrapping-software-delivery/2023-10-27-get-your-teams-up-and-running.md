@@ -8,7 +8,7 @@ tags:
   - Guides
   - Leadership
   - Getting started
-code: https://github.com/worthington10TW/setup/tree/master/scripts
+code: https://github.com/mzworthington/setup/tree/master/scripts
 ---
 
 Joining a new team is often painful and slow. Often you have to work out who to talk to, what software to install, request to be invited to meetings, hunt around for access to environments and repositories, and many more tasks. Without clear documentation, things will fall through the cracks giving vastly different onboarding experiences to new joiners. This post's goal is to streamline your JML process, delivering value faster.
@@ -137,7 +137,7 @@ Consider automating
 
 I have a couple of scripts that I find useful when setting up a new machine or updating my tools. These can be easily altered for your needs. The first pull down all relevant git repositories that I am currently working on, I run the script at least daily to pull down the latest changes, keeping my local repos up to date with the origin.
 
-#### [Repo script](https://github.com/worthington10TW/setup/blob/master/scripts/repos.sh)
+#### [Repo script](https://github.com/mzworthington/setup/blob/master/scripts/repos.sh)
 
 ```bash
 #!/usr/bin/env bash
@@ -146,7 +146,7 @@ set -eu
 readonly vcs_uri="git@${GITHUB_HOST:-github.com}:"
 readonly script_dir="$(dirname "${0}")/../.."
 readonly -a projects=(
-# List your github repos here "userId/repo", e.g "worthington10TW/setup"
+# List your github repos here "userId/repo", e.g "mzworthington/setup"
 )
 
 function fetch() {
@@ -179,7 +179,7 @@ function main() {
 main "$@"
 ```
 
-#### [Software Script](https://github.com/worthington10TW/setup/blob/master/bootstrap/bootstrap.sh)
+#### [Software Script](https://github.com/mzworthington/setup/blob/master/bootstrap/bootstrap.sh)
 
 I use a Mac with [Homebrew](https://brew.sh/) as my package manager. If you find yourself in a team of Mac users this script could be useful. I tend to create a repo for common tools and scripts, however different teams have their own toolset. When the teams toolsets start to evole I encourage the teams to have their own Brewfile within their repos. This gives the teams visibility of all the tools used within the products and feeds into the wider technology register for the organisation. Keeping this in source code allows everyone to easily keep their software up-to-date and consistent across the team.
 
