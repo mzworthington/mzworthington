@@ -3,13 +3,6 @@ title: About
 permalink: /about/
 layout: about
 ---
-
 Hi 👋,
 
-I'm Matthew, a security specialist and tech principal @[Thoughtworks](https://www.thoughtworks.com/){:target="_blank"}.
-
-Over the last 17 years I've been a contractor, consultant and full time employee. I've worked in a broad range of domains, including; public sector, music, fashion & photography, advertising & ecommerce, finance & banking, risk analysis, hospitality, medical, publishing and travel.
-
-I've played a variety of roles, some of these include; chief architect, head of engineering, tech lead, principal engineer, trainer, technical support, infra engineer, technical business analyst and full stack engineer.
-
-Currently my passion lies in building safe and autonomous teams, with a focus on team wellbeing and growth, increasing flow and decreasing time to value.
+Seasoned technology leader, bringing 18 years of extensive experience in contracting, consulting, and full-time roles. My career has traversed a wide array of domains, including public sector, finance, and digital commerce, with leadership positions such as Chief Architect and Head of Engineering. My current professional focus centers on cultivating high-performing, autonomous teams, with a strong emphasis on team wellbeing, professional development, and enhancing time-to-value.
