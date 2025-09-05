@@ -2,6 +2,93 @@
 layout: default
 ---
 
+<article>
+   <header>
+     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+   </header>
+   <section itemprop="articleBody">
+     {{ content }}
+   </section>
+   <section>
+     <h2>Experience</h2>
+     <ul style="list-style:none;">
+      {% for job in site.data.experience %}
+        <li>
+           <h3>
+            {% if job.link %} 
+            <a href={{job.link}} target="_blank"> {{job.name}}</a> 
+            {% else %} 
+            {{job.name}}
+            {% endif %}              
+
+            - {{job.role}}
+            </h3>
+
+            {% if job.domain %} 
+            <i>{{job.domain}} </i>
+            {% endif %}
+
+            {% if job.date %} 
+            <i> | {{job.date}} </i>
+            {% endif %}  
+
+            {% if job.location %} 
+            <i> | {{job.location}}</i>
+            {% endif %} 
+            
+            {% if job.description and job.description != blank %}
+            <p>{{job.description}}</p>
+            {% endif %}
+
+            {% if job.projects and job.projects.size != 0 %}
+            <ul style="list-style:none;">
+            {% for project in job.projects %}
+               <li>
+                  {% if project.link %} 
+                  <h4><a rel="noreferrer" href={{project.link}} target="_blank"> {{project.name}}</a> - {{project.role}}</h4>
+                  {% else %} 
+                  <h4>{{project.name}} - {{project.role}}</h4>
+                  {% endif %}
+
+                  {% if project.domain %} 
+                  <i>{{project.domain}}</i>
+                  {% endif %}              
+                  
+                  {% if project.description %} 
+                  <span>{{project.description | newline_to_br | mardownify}}</span>
+                  {% endif %} 
+
+                  {% if project.location %} 
+                  <br/>
+                  <i>{{project.location}}</i>
+                  <br/>
+                  {% endif %}  
+
+                  <hr/>
+               </li>
+            {% endfor %} 
+            </ul>
+            {% endif %}
+
+            {% if job.tech and job.tech.size != 0 %}
+            <h4>Tech</h4>
+               {% for tech in job.tech %}
+                <span class="chip"> {{tech}}</span>      
+               {% endfor %}
+            {% endif %} 
+
+            <hr/>
+        </li>
+      {% endfor %}
+      </ul>
+   </section>
+<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+<!-- ---
+layout: default
+---
+
 {%- if page.title -%}
 <h1 >{{ page.title }}</h1>
 {%- endif -%}
@@ -11,4 +98,4 @@ layout: default
       {% capture category_name %}{{ category | first }}{% endcapture %}
       {% include list_posts.html category_name=category_name %}
    {%- endfor -%}
-{%- endif -%}
+{%- endif -%} -->
