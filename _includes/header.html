@@ -2,7 +2,7 @@
    {%- assign default_paths = site.pages | map: "path" -%}
    {%- assign page_paths = site.header_pages | default: default_paths -%}
    {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-   <nav aria-label="header navigation">
+   <!-- <nav aria-label="header navigation">
       <ul>
          <li>
             <a class="button" href="{{ "/" | relative_url }}">Home</a>
@@ -19,7 +19,7 @@
             <a class="button" target="_blank" href="{{ 'feed.xml' | relative_url }}">Subscribe</a>
          </li>
       </ul>
-   </nav>
+   </nav> -->
    <img loading="eager" alt="{{ site.title | escape }}" src="{{ page.image | default: site.author.picture }}" />
    <h1>{{ site.title | escape }}</h1>
    <h2>{{ site.description}}</h2>
