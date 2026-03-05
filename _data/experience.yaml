@@ -6,28 +6,28 @@
   projects:
     - name: Product Delivery & Velocity
       description: |
-        - Scaled Delivery Efficiency: Re-engineered the end-to-end product lifecycle, achieving a *3x increase in feature delivery* year-on-year.
-        - *Strategic Alignment*: Implemented a company-wide Lean Value Tree (LVT), connecting discovery and MVP development directly to high-level business goals through traceable metrics.
-        - *Organisational Design*: Reduced cross-team dependencies by optimising team topology and streamlining the "Discovery to Rollout" pipeline.
-        - *Deployment Frequency*: Accelerated release cycles by implementing automated testing and CI/CD enhancements, significantly increasing deployment confidence.
+        - Scaled Delivery Efficiency: Re-engineered the end-to-end product lifecycle, achieving a <b>3x increase in feature delivery</b> year-on-year.
+        - <b>Strategic Alignment</b>: Implemented a company-wide <b>Lean Value Tree (LVT)</b>, connecting discovery and MVP development directly to high-level business goals through traceable metrics.
+        - <b>Organisational Design</b>: Reduced cross-team dependencies by optimising team topology and streamlining the "Discovery to Rollout" pipeline.
+        - <b>Deployment Frequency</b>: Accelerated release cycles by implementing automated testing and CI/CD enhancements, significantly increasing deployment confidence.
     - name: Reliability & Infrastructure
       description: |
-        - Unified Observability: Orchestrated the rollout of a centralised observability platform across thousands of microservices.
-        - Automated Incident Response: Reduced Root Cause Analysis (RCA) time by deploying an automated, multi-cloud service map for real-time incident tracking.
-        - Global Infrastructure: Integrated all major cloud providers and PaaS suppliers into a unified developer platform.
-        - Real-time FinOps: Established granular cloud-spend visibility with real-time budget tracking from individual teams to vertical business units.
+        - <b>Unified Observability</b>: Orchestrated the rollout of a centralised observability platform across <b>thousands of microservices</b>.
+        - <b>Automated Incident Response</b>: Reduced Root Cause Analysis (RCA) time by deploying an automated, multi-cloud service map for real-time incident tracking.
+        - <b>Global Infrastructure</b>: Integrated all major cloud providers and PaaS suppliers into a unified developer platform.
+        - <b>Real-time FinOps</b>: Established granular cloud-spend visibility with real-time budget tracking from individual teams to vertical business units.
     - name: Developer Experience (DevEx) & Platform Engineering
       description: |
-        - *Internal Developer Platform (IDP)*: Launched a "single pane of glass" platform to unify workflows for developers, platform engineers, and operations.
-        - *Golden Path Automation*: Standardised the developer journey with automated repository creation, authentication, and infrastructure provisioning.
-        - *Knowledge Management*: Centralised technical documentation, API dictionaries, and the company Tech Radar to promote engineering standards.
-        - *Governance as Code*: Built a vendor onboarding framework via IaC, reducing onboarding lead time to one week.
+        - <b>Internal Developer Platform (IDP)</b>: Launched a "single pane of glass" platform to unify workflows for developers, platform engineers, and operations.
+        - <b>Golden Path Automation</b>: Standardised the developer journey with automated repository creation, authentication, and infrastructure provisioning.
+        - <b>Knowledge Management</b>: Centralised technical documentation, API dictionaries, and the company Tech Radar to promote engineering standards.
+        - <b>Governance as Code</b>: Built a vendor onboarding framework via IaC, reducing onboarding lead time to <b>one wee</b>.
     - name: Strategic Operations & M&A
       description: |
-        - *Acquisition Due Diligence*: Conducted deep-dive technical audits for three organisations, evaluating code quality, infrastructure risk, and integration roadmaps.
-        - *Streamlined Procurement*: Managed end-to-end vendor lifecycles (POV/POC to contract negotiation). Successfully onboarded four major vendors using reusable IaC frameworks.
-        - *Global Leadership*: Led and mentored cross-functional teams across three countries and four regional offices.
-        - *Community Building*: Hosted the company’s first external tech meetup and established a centralised technical library to foster a culture of continuous learning.
+        - <b>Acquisition Due Diligence</b>: Conducted deep-dive technical audits for three organisations, evaluating code quality, infrastructure risk, and integration roadmaps.
+        - <b>Streamlined Procurement</b>: Managed end-to-end vendor lifecycles (POV/POC to contract negotiation). Successfully onboarded four major vendors using reusable IaC frameworks.
+        - <b>Global Leadership</b>: Led and mentored cross-functional teams across <b>three countries and four regional offices</b>.
+        - <b>Community Building</b>: Hosted the company’s first external tech meetup and established a centralised technical library to foster a culture of continuous learning.
 - name: Thoughtworks
   date: Apr 2018 - March 2025
   link: https://www.thoughtworks.com
