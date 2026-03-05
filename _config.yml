@@ -1,4 +1,4 @@
-title: Ramblings of a developer
+title: Agile Engineering. Reliable Results
 author:
   name: M Z Worthington
   email: matt@siliconpanda.com
@@ -46,4 +46,5 @@ exclude:
   - scripts/
   - .gitignore/
   - .ruby-version/
+
   - Brewfile/
