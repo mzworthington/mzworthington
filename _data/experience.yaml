@@ -21,7 +21,7 @@
         - <b>Internal Developer Platform (IDP)</b>: Launched a "single pane of glass" platform to unify workflows for developers, platform engineers, and operations.
         - <b>Golden Path Automation</b>: Standardised the developer journey with automated repository creation, authentication, and infrastructure provisioning.
         - <b>Knowledge Management</b>: Centralised technical documentation, API dictionaries, and the company Tech Radar to promote engineering standards.
-        - <b>Governance as Code</b>: Built a vendor onboarding framework via IaC, reducing onboarding lead time to <b>one wee</b>.
+        - <b>Governance as Code</b>: Built a vendor onboarding framework via IaC, reducing onboarding lead time to <b>one week</b>.
     - name: Strategic Operations & M&A
       description: |
         - <b>Acquisition Due Diligence</b>: Conducted deep-dive technical audits for three organisations, evaluating code quality, infrastructure risk, and integration roadmaps.
