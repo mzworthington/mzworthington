@@ -6,7 +6,7 @@
   projects:
     - name: Product Delivery & Velocity
       description: |
-        - Scaled Delivery Efficiency: Re-engineered the end-to-end product lifecycle, achieving a <b>3x increase in feature delivery</b> year-on-year.
+        - <b>Scaled Delivery Efficiency</b>: Re-engineered the end-to-end product lifecycle, achieving a <b>3x increase in feature delivery</b> year-on-year.
         - <b>Strategic Alignment</b>: Implemented a company-wide <b>Lean Value Tree (LVT)</b>, connecting discovery and MVP development directly to high-level business goals through traceable metrics.
         - <b>Organisational Design</b>: Reduced cross-team dependencies by optimising team topology and streamlining the "Discovery to Rollout" pipeline.
         - <b>Deployment Frequency</b>: Accelerated release cycles by implementing automated testing and CI/CD enhancements, significantly increasing deployment confidence.
