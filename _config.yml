@@ -26,12 +26,6 @@ permalink: /:categories/:title
 collections:
   category:
     output: true
-defaults:
-  -
-    scope:
-      path: "about"
-    values:
-      layout: "about"
 exclude:
   - .sass-cache/
   - .jekyll-cache/
