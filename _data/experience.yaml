@@ -3,6 +3,10 @@
   link: https://betway.com
   role: Head of Development & Platform Engineering
   domain: Sports & iGaming
+  description: |
+    Reporting directly to the Chief Product Officer, led a company-wide engineering transformation across product delivery, infrastructure, and developer experience. 
+    Achieved a 3x year-on-year increase in feature delivery, unified observability across thousands of microservices, and launched an Internal Developer Platform that standardised the full developer journey. 
+    Simultaneously drove technical due diligence for three acquisitions and led cross-functional teams across three countries and four regional offices.
   projects:
     - name: Product Delivery & Velocity
       description: |
