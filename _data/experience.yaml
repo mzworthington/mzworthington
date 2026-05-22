@@ -4,8 +4,8 @@
   role: Head of Development & Platform Engineering
   domain: Sports & iGaming
   description: |
-    Reporting directly to the Chief Product Officer, led a company-wide engineering transformation across product delivery, infrastructure, and developer experience. 
-    Achieved a 3x year-on-year increase in feature delivery, unified observability across thousands of microservices, and launched an Internal Developer Platform that standardised the full developer journey. 
+    Reporting directly to the Chief Product Officer, led a company-wide engineering transformation across product engeering & delivery, platform & infrastructure, including developer experience. 
+    Achieved a 3x year-on-year increase in feature delivery, unified observability across a vast multicloud tech estate, and launched an Internal Developer Platform that standardised the full developer journey. 
     Simultaneously drove technical due diligence for three acquisitions and led cross-functional teams across three countries and four regional offices.
   projects:
     - name: Product Delivery & Velocity
@@ -16,7 +16,7 @@
         - <b>Deployment Frequency</b>: Accelerated release cycles by implementing automated testing and CI/CD enhancements, significantly increasing deployment confidence.
     - name: Reliability & Infrastructure
       description: |
-        - <b>Unified Observability</b>: Orchestrated the rollout of a centralised observability platform across <b>thousands of microservices</b>.
+        - <b>Unified Observability</b>: Orchestrated the rollout of a centralised observability platform across vast multicloud tech estate.
         - <b>Automated Incident Response</b>: Reduced Root Cause Analysis (RCA) time by deploying an automated, multi-cloud service map for real-time incident tracking.
         - <b>Global Infrastructure</b>: Integrated all major cloud providers and PaaS suppliers into a unified developer platform.
         - <b>Real-time FinOps</b>: Established granular cloud-spend visibility with real-time budget tracking from individual teams to vertical business units.
