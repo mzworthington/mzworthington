@@ -47,7 +47,7 @@ redirect_from: /about/
             {% for project in job.projects %}
                <li>
                   {% if project.link %} 
-                  <h4><a rel="noreferrer" href={{project.link}} target="_blank"> {{project.name}}</a>{% if project.role %} - {{project.role}}{% endif %}</h4>
+                  <h4><a rel="noreferrer" href={{project.link}} target="_blank"> {{project.name}}</a>{% if project.role and project.role.size > 0 %} - {{project.role}}{% endif %}</h4>
                   {% else %} 
                   <h4>{{project.name}} - {{project.role}}</h4>
                   {% endif %}
