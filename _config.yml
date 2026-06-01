@@ -2,16 +2,16 @@ title: Agile Engineering. Reliable Results
 author:
   name: M Z Worthington
   email: matt@siliconpanda.com
-  twitter: worthington10
+  # twitter: worthington10
   picture: /assets/me.webp
 description: >- 
   Thanks for popping by.
 baseurl: ""
 url: "https://mzworthington.co.uk"
 social_links:
-  twitter: worthington10
+  # twitter: worthington10
   github:  mzworthington
-  instagram: worthington10
+  # instagram: worthington10
   linkedin: worthington10
 excerpt_separator: <!--more-->
 locale: en_GB
