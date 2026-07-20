@@ -7,4 +7,4 @@ Seasoned technology leader, bringing 20 years of extensive experience. Positions
 
 Strong focus on enhancing time-to-value, our customers, the product, and cultivating high-performing teams. With emphasis on team wellbeing, professional development.
 
-Checkout my side project, [Blueprint]([https://duckduckgo.com](https://blueprint.mzworthington.co.uk/)).
+Checkout my side project, [Blueprint](https://blueprint.mzworthington.co.uk/).
