@@ -1,15 +1,15 @@
-@charset "utf-8";
+@use "sass:color";
 
 $brand-color:           #bcbfc6 !default;
-$brand-color-light:     lighten($brand-color, 5%) !default;
-$brand-color-dark:      darken($brand-color, 35%) !default;
+$brand-color-light:     color.adjust($brand-color, $lightness: 5%) !default;
+$brand-color-dark:      color.adjust($brand-color, $lightness: -35%) !default;
 
 $site-title-color:      $brand-color-light !default;
 
 $text-color:            #caccd2 !default;
 $background-color:      #485063 !default;
-$background-color-light:     lighten($background-color, 5%) !default;
-$background-color-dark:      darken($background-color, 15%) !default;
+$background-color-light:     color.adjust($background-color, $lightness: 5%) !default;
+$background-color-dark:      color.adjust($background-color, $lightness: -15%) !default;
 $code-background-color: #343d52 !default;
 
 $link-base-color:       #A8FEFF !default;
@@ -20,10 +20,10 @@ $border-color-01:       $brand-color-dark !default;
 $border-color-02:       $brand-color-light !default;
 $border-color-03:       $brand-color !default;
 
-$table-text-color:      lighten($text-color, 21%) !default;
-$table-zebra-color:     lighten($background-color, 4%) !default;
-$table-header-bg-color: lighten($background-color, 10%) !default;
-$table-header-border:   lighten($background-color, 21%) !default;
+$table-text-color:      color.adjust($text-color, $lightness: 21%) !default;
+$table-zebra-color:     color.adjust($background-color, $lightness: 4%) !default;
+$table-header-bg-color: color.adjust($background-color, $lightness: 10%) !default;
+$table-header-border:   color.adjust($background-color, $lightness: 21%) !default;
 $table-border-color:    $border-color-01 !default;
 
 

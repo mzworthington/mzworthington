@@ -1,3 +1,21 @@
+# title: My Blog
+# email: you@example.com
+# description: >-
+#   A personal blog built with Jekyll and hosted on GitHub Pages.
+# baseurl: ""
+# url: ""
+
+# theme: minima
+
+# plugins:
+#   - jekyll-feed
+#   - jekyll-seo-tag
+
+# header_pages:
+#   - about.md
+
+# markdown: kramdown
+
 title: Agile Engineering. Reliable Results
 author:
   name: M Z Worthington
@@ -28,6 +46,7 @@ collections:
   category:
     output: true
 exclude:
+  - README.md
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -38,8 +57,5 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - scripts/
-  - .gitignore/
-  - .ruby-version/
-
-  - Brewfile/
+  - bin/
+  - mise.toml

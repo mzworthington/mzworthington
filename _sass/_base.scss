@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "skins/dark" as *;
+@use "initialize" as *;
+
 html {
   font-size: $base-font-size;
   scroll-behavior: smooth;
@@ -58,7 +62,7 @@ ol,
 dl,
 figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: math.div($spacing-unit, 2);
 }
 
 hr {
@@ -130,7 +134,7 @@ a {
 blockquote {
   color: $brand-color;
   border-left: 4px solid $border-color-01;
-  padding-left: $spacing-unit / 2;
+  padding-left: math.div($spacing-unit, 2);
   @include relative-font-size(1.125);
   font-style: italic;
 
@@ -219,7 +223,7 @@ table {
   }
   th,
   td {
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+    padding: math.div($spacing-unit, 3) math.div($spacing-unit, 2);
   }
   th {
     background-color: $table-header-bg-color;

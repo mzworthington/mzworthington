@@ -35,8 +35,3 @@ $on-large:         $on-laptop !default;
 @mixin relative-font-size($ratio) {
   font-size: #{$ratio}rem;
 }
-
-@import
-  "base",
-  "layout"
-;

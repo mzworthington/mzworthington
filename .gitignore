@@ -2,7 +2,7 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-.DS_Store
-vendor/
+vendor/bundle/
 .bundle/
-Brewfile.lock.json
+*.gem
+.DS_Store

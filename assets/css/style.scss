@@ -3,6 +3,7 @@
 # only Main files contain this front matter, not partials.
 ---
 
-@import
-  "skins/dark",
-  "initialize";
+@use "skins/dark";
+@use "initialize";
+@use "base";
+@use "layout";
