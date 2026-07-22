@@ -1,0 +1,168 @@
+<section id="experience" aria-labelledby="experience-heading">
+  <h2 id="experience-heading">Experience</h2>
+
+  <nav aria-label="Companies">
+    <ul>
+      {% for job in site.data.experience %}
+        {% assign slug = job.slug | default: job.name | slugify %}
+        <li>
+          <a href="#experience-{{ slug }}">
+            {% if job.start %}
+              <time datetime="{% if job.current %}{{ job.start }}/{% else %}{{ job.start }}/{{ job.end }}{% endif %}">
+                {% assign start_year = job.start | slice: 0, 4 %}
+                {% if job.current %}
+                  {{ start_year }} – Present
+                {% elsif job.end %}
+                  {{ start_year }} – {{ job.end | slice: 0, 4 }}
+                {% else %}
+                  {{ start_year }}
+                {% endif %}
+              </time>
+            {% endif %}
+            {{ job.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <section aria-label="Employment history">
+    {% for job in site.data.experience %}
+      {% assign slug = job.slug | default: job.name | slugify %}
+      <section id="experience-{{ slug }}" aria-labelledby="experience-{{ slug }}-heading" tabindex="-1">
+        <header>
+          <h3 id="experience-{{ slug }}-heading">
+            {% if job.link %}
+              <a href="{{ job.link }}" rel="external">{{ job.name }}</a>
+            {% else %}
+              {{ job.name }}
+            {% endif %}
+          </h3>
+          <p>
+            {% if job.role %}<span>{{ job.role }}</span>{% endif %}
+            {% if job.start %}
+              ·
+              <time datetime="{% if job.current %}{{ job.start }}/{% else %}{{ job.start }}/{{ job.end }}{% endif %}">
+                {% assign start_label = job.start | append: "-01" | date: "%b %Y" %}
+                {% if job.current %}
+                  {{ start_label }} – Present
+                {% else %}
+                  {{ start_label }} – {{ job.end | append: "-01" | date: "%b %Y" }}
+                {% endif %}
+              </time>
+            {% endif %}
+          </p>
+          {% if job.domain or job.location %}
+            <p>
+              {% if job.domain %}<span>{{ job.domain }}</span>{% endif %}
+              {% if job.location %}
+                {% if job.domain %} · {% endif %}
+                <span>{{ job.location }}</span>
+              {% endif %}
+            </p>
+          {% endif %}
+        </header>
+
+        {% if job.description and job.description != blank %}
+          <div>{{ job.description | newline_to_br | markdownify }}</div>
+        {% endif %}
+
+        {% if job.projects and job.projects.size > 0 %}
+          <details>
+            <summary>Projects</summary>
+            <ul>
+              {% for project in job.projects %}
+                <li>
+                  <article>
+                    <header>
+                      <h4>
+                        {% if project.link %}
+                          <a href="{{ project.link }}"{% if project.link contains 'http' %} rel="external" target="_blank"{% endif %}>{{ project.name }}</a>
+                        {% else %}
+                          {{ project.name }}
+                        {% endif %}
+                      </h4>
+                      {% if project.role or project.start or project.location or project.domain %}
+                        <p>
+                          {% if project.role %}<span>{{ project.role }}</span>{% endif %}
+                          {% if project.start %}
+                            {% if project.role %} · {% endif %}
+                            <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                              {% assign project_start = project.start | append: "-01" | date: "%b %Y" %}
+                              {% if project.current %}
+                                {{ project_start }} – Present
+                              {% elsif project.end %}
+                                {{ project_start }} – {{ project.end | append: "-01" | date: "%b %Y" }}
+                              {% else %}
+                                {{ project_start }}
+                              {% endif %}
+                            </time>
+                          {% endif %}
+                          {% if project.location %}
+                            {% if project.role or project.start %} · {% endif %}
+                            <span>{{ project.location }}</span>
+                          {% endif %}
+                          {% if project.domain %}
+                            {% if project.role or project.start or project.location %} · {% endif %}
+                            <span>{{ project.domain }}</span>
+                          {% endif %}
+                        </p>
+                      {% endif %}
+                    </header>
+                    {% if project.description and project.description != blank %}
+                      <div>{{ project.description | markdownify }}</div>
+                    {% endif %}
+                  </article>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        {% endif %}
+
+        {% if job.tech and job.tech.size > 0 %}
+          <aside aria-label="Technologies used">
+            <h4>Tech</h4>
+            <ul>
+              {% for tech in job.tech %}
+                <li>{{ tech }}</li>
+              {% endfor %}
+            </ul>
+          </aside>
+        {% endif %}
+      </section>
+    {% endfor %}
+  </section>
+</section>
+
+<script>
+  (function () {
+    var nav = document.querySelector("section#experience > nav");
+    if (!nav) return;
+
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+    var sections = links
+      .map(function (link) { return document.querySelector(link.getAttribute("href")); })
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var id = entry.target.id;
+          links.forEach(function (link) {
+            if (link.getAttribute("href") === "#" + id) {
+              link.setAttribute("aria-current", "location");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        });
+      },
+      { rootMargin: "-15% 0px -65% 0px", threshold: 0 }
+    );
+
+    sections.forEach(function (section) { observer.observe(section); });
+  })();
+</script>

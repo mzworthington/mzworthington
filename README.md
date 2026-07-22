@@ -3,8 +3,8 @@ title: Home
 permalink: /
 layout: default
 ---
-Seasoned technology leader, bringing 20 years of extensive experience. Positions include Head of engineering, development, platform-engineering, Chief Architect. Over a wide array of domains, including; music, fashion, publishing, sports & iGaming, public sector, finance, and digital commerce.
+Engineering leader with twenty years building and scaling software organisations — from music and fashion publishing to banking, public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture at organisations from Resident Advisor and Thoughtworks to Betway, with a consistent focus on delivery speed, reliability, and developer experience.
 
-Strong focus on enhancing time-to-value, our customers, the product, and cultivating high-performing teams. With emphasis on team wellbeing, professional development.
+I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work — including wellbeing and professional growth, not as perks but as part of how good software gets built.
 
-Checkout my side project, [Blueprint](https://blueprint.mzworthington.co.uk/).
+Check out my side project, [Blueprint](https://blueprint.mzworthington.co.uk/).

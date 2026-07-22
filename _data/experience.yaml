@@ -1,5 +1,6 @@
 - name: SuperGroup/ Betway Global
-  date: March 2025
+  start: 2025-03
+  current: true
   link: https://betway.com
   role: Head of Development & Platform Engineering
   domain: Sports & iGaming
@@ -33,41 +34,48 @@
         - <b>Global Leadership</b>: Led and mentored cross-functional teams across <b>three countries and four regional offices</b>.
         - <b>Community Building</b>: Hosted the company’s first external tech meetup and established a centralised technical library to foster a culture of continuous learning.
 - name: Thoughtworks
-  date: Apr 2018 - March 2025
+  start: 2018-04
+  end: 2025-03
   link: https://www.thoughtworks.com
   role: Multiple roles
-  domain: Leading global technology consultancy 
+  domain: Leading global technology consultancy
+  description: |
+    Seven years at a leading global technology consultancy, delivering large-scale transformation across retail, banking, public sector, travel, fashion, and social impact.
+    Operated as Technical Principal, engagement lead, trainer, and architect—shaping multi-year technical vision, building high-performing teams, and embedding modern delivery practices across client organisations worldwide.
   projects:
   - name: UK leading online marketplace
+    start: 2023-11
+    end: 2025-03
     location: UK
     role: Technical Principal
     description: |
-       Nov 2023- Ongoing
+      Engaged with the UK's leading online marketplace to define and deliver the next phase of their customer experience transformation.
+      Initial discovery highlighted a significant opportunity to improve end-to-end journeys across operational, marketing, and product touchpoints for millions of users.
 
-       Our initial discovery highlighted an opportunity to drastically improve customer experience. 
+      Key contributor to:
 
-       Key contributor to
-       - Development a CX strategy for their next multi-year transformation
-       - Identification of critical operational and marketing use cases
-       - Build vs buy analysis- including 20+ CRM suppliers and tech assessment for existing products
-       - Defined CX target architecture, backed by tech strategy and policies
-       - Leading and shaping multi-team implementation
+      - Developing a multi-year CX strategy to guide their next transformation wave
+      - Identifying critical operational and marketing use cases that would deliver measurable customer value
+      - Running build-vs-buy analysis across 20+ CRM suppliers and assessing existing product capabilities
+      - Defining a target CX architecture underpinned by technology strategy, standards, and governance policies
+      - Leading and shaping multi-team implementation as the programme moves from strategy into delivery
   - name: Public Sector Demand
     location: UK
     role: Technical Pre-Sales Partner
     description: |
-      Security & Cross Government
+      Technical pre-sales partner for public-sector demand across security and cross-government programmes.
+      Supported bid teams in translating complex technical requirements into credible, assurance-ready solutions aligned with NCSC guidance and the Cyber Assessment Framework (CAF).
+      Helped shape proposals that balanced innovation with the stability, data sovereignty, and accreditation expectations of critical national infrastructure clients.
   - name: Public sector
     location: UK
     role: Technical Principal & Architect
     description: |
-       Responsible for crafting and implementing multi-team, multi-year technical vision. 
-
-       Leading a team of over 100, split into cross functional, multi disciplined teams. Organised around products.
+       Responsible for crafting and implementing a multi-team, multi-year technical vision for a major UK public-sector programme.
+       Led a team of over 100 people organised into cross-functional, product-aligned squads delivering citizen-facing services at national scale.
 
        Strong focus on security, data privacy, and stability. Guided by <a target="_blank" href="https://www.ncsc.gov.uk/collection/caf/cni-introduction">NCSC</a> and aligned to The Cyber Assessment Framework (CAF), assured with automated governance. Provisioning CNI with modern software delivery practices.
 
-       Operating an accessible service assessed by The Central Digital and Data Office (CDDO) against a <a target="_blank" href="https://www.gov.uk/service-manual/service-assessments">GDS Service Assessment</a>, following <a target="_blank" href="https://www.gov.uk/guidance/the-technology-code-of-practice">The Technology Code Of Practice</a> 
+       Operating an accessible service assessed by The Central Digital and Data Office (CDDO) against a <a target="_blank" href="https://www.gov.uk/service-manual/service-assessments">GDS Service Assessment</a>, following <a target="_blank" href="https://www.gov.uk/guidance/the-technology-code-of-practice">The Technology Code Of Practice</a>.
   - name: Thoughtworks university
     location: Remote (Global)
     role: Trainer
@@ -81,38 +89,51 @@
     link: https://www.thoughtworks.com/en-gb/clients/bestsecret
     role: Lead engineer
     description: |
-      Improved software delivery performance and DevEx.
+      Europe's leading members-only destination for premium and luxury off-price fashion, serving millions of members across 28 countries.
+      Led engineering improvements to software delivery performance and developer experience across a high-traffic ecommerce platform balancing rapid assortment turnover with brand-equity protection.
+      Focused on accelerating release cadence, reducing cross-team friction, and embedding practices that would scale with BestSecret's continued growth from offline retailer to tech-driven online marketplace.
   - name: Travel (OTA)
     location: Remote (UK)
     role: Lead engineer and SME
     description: |
-       Search engine design and implementation
+       Lead engineer and subject-matter expert for a major online travel agency's search platform.
+       Designed and implemented search capabilities powering discovery across flights, stays, and packages for millions of travellers.
+       Balanced relevance, performance, and commercial outcomes in a highly competitive market where search quality directly drives conversion and revenue.
   - name: Trainer
     location: Remote (UK)
     role: Course creator
     description: |
-      9 week immersive course including; lean inception, user research and delivery. Structured around best practice concluding in a real production application.
+      Led the delivery of an immersive nine-week training programme covering lean inception, user research, and modern software delivery practices.
+      Structured around industry best practice, the course culminated in students shipping a real production application—giving career changers and graduates hands-on experience of the full delivery lifecycle.
     link: /training/course/training-in-pseudo-situ
   - name: Tieto EVRY- Banking
     location: Bergen (Norway), Oslo (Norway), Kiev (Ukraine) & Bengaluru (India)
     role: Engagement & Tech lead
     link: https://www.thoughtworks.com/en-gb/clients/tietoevry
     description: |
-      Legacy displacement of Core Banking system.
+      Partnered with Tietoevry Banking Essentials on the Next Generation (NX) Core programme—a major modernisation of a core banking platform first launched in 1981, processing billions of dollars in transactions daily.
+      As engagement and tech lead across teams in Norway, Ukraine, and India, helped transform a 200+ person waterfall programme into an agile, DevOps-driven organisation.
 
-      Focus on <a target="_blank" href="https://teamtopologies.com/">team topologies</a>, domain driven design, developer experience and software delivery performance, assessed against the <a target="_blank" href="https://www.amazon.co.uk/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">4 key metrics</a>
+      Focus on <a target="_blank" href="https://teamtopologies.com/">team topologies</a>, domain driven design, developer experience and software delivery performance, assessed against the <a target="_blank" href="https://www.amazon.co.uk/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">4 key metrics</a>—cutting lead time to deploy from 60 days to five and increasing deployment frequency from one release in eight years to over 100 in two.
   - name: Legal publishing 
     location: London (UK) & Raleigh (USA)
     role: Tech lead
-    description: Search engine design and implementation
+    description: |
+      Tech lead for search engine design and implementation within a global legal publishing organisation spanning London and Raleigh.
+      Delivered high-performance search capabilities across vast corpora of legal and professional content, enabling practitioners to find authoritative material quickly and reliably.
   - name: One Million Mentors
     location: London (UK)
     role: Hacknight organiser and contributor
     link: https://www.thoughtworks.com/en-gb/clients/one-million-mentors
+    description: |
+      Organised and contributed to hacknights building a digital mentoring platform for One Million Mentors—a UK charity connecting young people with volunteer mentors to improve employability and life outcomes.
+      Supported delivery of a mobile-friendly platform enabling mentors, mentees, and coordinators to register and match at scale, with safeguarding and data security embedded from day one.
   - name: Medical/ Healthcare
     location: Manchester (UK) & London (UK)
     role: C# & .Net SME & Engineer
-    description: Event driven architecture design and implementation
+    description: |
+      C# and .NET subject-matter expert for event-driven architecture design and implementation in a medical and healthcare context.
+      Helped teams decouple services, improve resilience, and handle high-throughput clinical and operational workflows while meeting the security and compliance expectations of healthcare data.
 
   tech:
     - Java
@@ -147,11 +168,14 @@
 
 - name: Ormsby Street
   link: https://www.ormsbystreet.com/
-  date: Mar 2016 - Apr 2018
+  start: 2016-03
+  end: 2018-04
   role: Principal engineer
   location: London (UK)
   description: | 
-    Building high throughput systems and heavy data processing. Ensured smooth transfer during acquisition.
+    Principal engineer at a London fintech SaaS company helping small businesses manage credit risk and cash flow through CreditHQ and CreditFocus.
+    Built high-throughput data processing pipelines and APIs on Azure, synthesising Companies House, D&B, and operational data to give SMEs actionable insight into customer and supplier financial health.
+    Played a central role in spinning CreditHQ out from its origins as a Barclays subscription product into an independent platform, ensuring continuity through technology transition and international expansion—including a Deutsche Bank partnership in Germany.
   domain: Finance & business insight
   tech:
     - C#
@@ -166,12 +190,14 @@
 
 - name: Resident Advisor
   location: London (UK) & Berlin (Germany)
-  date: Jan 2015 - Feb 2016
+  start: 2015-01
+  end: 2016-02
   link: https://ra.co/
   role: Software Engineer & Architect
   description: |
-    Resident Advisor is your global guide to clubs, DJs, tickets, news and rave culture.
-    Custom Authorization, Custom Authentication, High traffic enviroments.
+    Software engineer and architect at Resident Advisor (RA)—the world's leading independent platform for electronic music discovery, events, and ticketing, reaching millions of fans across 50 countries.
+    Designed and implemented custom authentication and authorisation services for high-traffic environments powering RA's editorial, listings, and RA Tickets products.
+    Supported a platform trusted by clubs, promoters, and festivals to run events from discovery through door management and resale.
   domain: Music, publishing & events
   tech:
     - C#
@@ -180,10 +206,12 @@
 - name: SiliconPanda
   location: London (UK)
   domain: Web Agency
-  date: July 2014 - Apr 2018
+  start: 2014-07
+  end: 2018-04
   role: Founder
   description: | 
-    Web design agency with a multi tenant CMS at its core.
+    Founded a web design agency built around a multi-tenant CMS enabling rapid delivery of client sites from a shared platform core.
+    Delivered bespoke digital experiences for agency clients while maintaining a reusable content, media, and search foundation on Azure—including media services, table storage, and messaging for scalable multi-tenancy.
   tech:
     - C#
     - dotnet core
@@ -198,10 +226,13 @@
 
 - name: Intelligent Reach
   location: London (UK)
-  date: Feb 2014 - Jan 2015
+  start: 2014-02
+  end: 2015-01
   link: https://www.intelligentreach.com/
   role: Senior Software Engineer
-  description: A complete Product & Data Feed Management platform, to boost your product visibility, expand commerce connectivity and enhance performance
+  description: |
+    Senior software engineer at Intelligent Reach, a cloud-based product data and feed management platform used by retailers and brands to optimise, test, and distribute catalogue data across 1,400+ marketing and marketplace channels.
+    Built features across the .NET stack supporting feed syndication, content experimentation, and marketplace connectivity—helping commerce teams improve product visibility without relying on internal IT for every channel integration.
   domain: E-commerce
   tech:
     - Big data 
@@ -213,11 +244,14 @@
 
 - name: Dazed Digital 
   location: London (UK)
-  date: June 2013 - Feb 2014
+  start: 2013-06
+  end: 2014-02
   link: https://www.dazeddigital.com/
   role: Senior Software Engineer
   domain: Fashion & photography publishing
-  description: Custom CMS. Rich media. Azure migration
+  description: |
+    Senior software engineer during a pivotal Azure migration for Dazed Digital—the daily-updated online home of Dazed, one of the world's most influential independent fashion, art, and culture magazines.
+    Evolved a custom CMS and rich-media publishing stack (including Kaltura video) to support groundbreaking editorial, interactive projects, and high-traffic campaign content.
   tech:
     - Azure
     - Kaltura
@@ -226,24 +260,26 @@
 
 - name: AEI Media
   location: London (UK)
-  date: Jan 2012 - June 2013
+  start: 2012-01
+  end: 2013-06
   link: https://aei.co.uk/
   role: Principal Developer
   domain: Music, streaming, events & e-commerce
   description: |
-    Principal developer for AEI Media- holding company for a variety of bass music companies. Ranging from streaming, events, news, label, publishings, distribution, etc.
-    Lead developer at drum&bassArena, multichannel bass music brand. 
+    Principal developer for AEI Media—the holding company behind Drum&BassArena, UKF, and a portfolio of bass music brands spanning streaming, events, news, labels, publishing, and distribution.
+    Led technical delivery across multiple revenue streams, from live video and download stores to label portals and distributor reporting, serving one of electronic music's most engaged global communities.
+    Lead developer at drum&bassArena, a multichannel bass music brand reaching tens of millions of fans worldwide.
 
 - name: Drum&BassArena
   location: London (UK)
-  date: Jan 2012 - June 2013
+  start: 2012-01
+  end: 2013-06
   link: https://breakbeat.co.uk/
   role: Lead developer
   domain: Music & e-commerce
   description: | 
-    Services including; news, events, blogs, live video streaming, 
-    high quality music downloadstore, 
-    portals and reporting services for distributors and labels.
+    Lead developer for Drum&BassArena—the pioneering online drum & bass community founded in 1996, now part of AEI Music's portfolio of brands reaching over 100 million electronic music fans.
+    Built and maintained services spanning news, events, blogs, live video streaming, a high-quality download store, and B2B portals for distributors and labels—unifying content, commerce, and community on a .NET and Lucene stack.
   tech:
     - C#
     - .Net
@@ -253,11 +289,13 @@
 
 - name: Financial software ltd
   location: London (UK)
-  date: Oct 2010 - Dec 2011
+  start: 2010-10
+  end: 2011-12
   link: https://www.financialsoftware.co.uk/
   domain: Finance
   description: |
-    Award-winning capital gains calculation and investment tax management backed by unrivalled expertise.
+    Technical analyst and developer at Financial Software Ltd, creators of CGiX—the industry's leading capital gains and investment tax management solution, trusted by major wealth managers since 1994.
+    Contributed to HMRC-compliant reporting, portfolio calculations, and rich-client features on a .NET and Silverlight stack, helping advisers automate accurate tax insight at scale.
   role: Technical analyst & developer
   tech:
     - C#
@@ -268,9 +306,11 @@
 
 - name: Mayflower Collection
   location: London (UK)
-  date: Jul 2006 - Oct 2010
+  start: 2006-07
+  end: 2010-10
   link: https://www.mayflowerhotel.co.uk/
   domain: Travel & hospitality
   role: IT support & developer
   description: |
-    In house reservation system development (with WISH technologies integrations)
+    In-house developer and IT support at a boutique London hotel, building and extending reservation systems integrated with WISH Technologies.
+    Delivered practical software improvements that kept front-of-house and booking operations running smoothly in a hospitality environment where reliability directly shaped guest experience.
