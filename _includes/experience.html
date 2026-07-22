@@ -1,7 +1,7 @@
 <section id="experience" aria-labelledby="experience-heading">
   <h2 id="experience-heading">Experience</h2>
 
-  <nav aria-label="Companies">
+  <nav aria-label="Employment timeline">
     <ul>
       {% for job in site.data.experience %}
         {% assign slug = job.slug | default: job.name | slugify %}
@@ -21,6 +21,31 @@
             {% endif %}
             {{ job.name }}
           </a>
+          {% if job.projects and job.projects.size > 0 %}
+            <details>
+              <summary>
+                Projects
+                {% if job.projects.size > 1 %}
+                  <span>({{ job.projects.size }})</span>
+                {% endif %}
+              </summary>
+              <ul aria-label="Projects at {{ job.name }}">
+                {% for project in job.projects %}
+                  {% assign project_slug = project.slug | default: project.name | slugify %}
+                  <li>
+                    <a href="#experience-{{ slug }}-project-{{ project_slug }}">
+                      {% if project.start %}
+                        <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                          {{ project.start | slice: 0, 4 }}
+                        </time>
+                      {% endif %}
+                      {{ project.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
@@ -69,53 +94,82 @@
 
         {% if job.projects and job.projects.size > 0 %}
           <details>
-            <summary>Projects</summary>
-            <ul>
-              {% for project in job.projects %}
-                <li>
-                  <article>
-                    <header>
-                      <h4>
-                        {% if project.link %}
-                          <a href="{{ project.link }}"{% if project.link contains 'http' %} rel="external" target="_blank"{% endif %}>{{ project.name }}</a>
-                        {% else %}
-                          {{ project.name }}
+            <summary>
+              Projects
+              {% if job.projects.size > 1 %}
+                <span>({{ job.projects.size }})</span>
+              {% endif %}
+            </summary>
+
+            {% if job.projects.size > 1 %}
+              <nav aria-label="Projects at {{ job.name }}">
+                <ul>
+                  {% for project in job.projects %}
+                    {% assign project_slug = project.slug | default: project.name | slugify %}
+                    <li>
+                      <a href="#experience-{{ slug }}-project-{{ project_slug }}">
+                        {% if project.start %}
+                          <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                            {{ project.start | slice: 0, 4 }}
+                          </time>
                         {% endif %}
-                      </h4>
-                      {% if project.role or project.start or project.location or project.domain %}
-                        <p>
-                          {% if project.role %}<span>{{ project.role }}</span>{% endif %}
-                          {% if project.start %}
-                            {% if project.role %} · {% endif %}
-                            <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
-                              {% assign project_start = project.start | append: "-01" | date: "%b %Y" %}
-                              {% if project.current %}
-                                {{ project_start }} – Present
-                              {% elsif project.end %}
-                                {{ project_start }} – {{ project.end | append: "-01" | date: "%b %Y" }}
-                              {% else %}
-                                {{ project_start }}
-                              {% endif %}
-                            </time>
-                          {% endif %}
-                          {% if project.location %}
-                            {% if project.role or project.start %} · {% endif %}
-                            <span>{{ project.location }}</span>
-                          {% endif %}
-                          {% if project.domain %}
-                            {% if project.role or project.start or project.location %} · {% endif %}
-                            <span>{{ project.domain }}</span>
-                          {% endif %}
-                        </p>
+                        {{ project.name }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            {% endif %}
+
+            {% for project in job.projects %}
+              {% assign project_slug = project.slug | default: project.name | slugify %}
+              <section
+                id="experience-{{ slug }}-project-{{ project_slug }}"
+                aria-labelledby="experience-{{ slug }}-project-{{ project_slug }}-heading"
+                tabindex="-1"
+              >
+                <article>
+                  <header>
+                    <h5 id="experience-{{ slug }}-project-{{ project_slug }}-heading">
+                      {% if project.link %}
+                        <a href="{{ project.link }}"{% if project.link contains 'http' %} rel="external" target="_blank"{% endif %}>{{ project.name }}</a>
+                      {% else %}
+                        {{ project.name }}
                       {% endif %}
-                    </header>
-                    {% if project.description and project.description != blank %}
-                      <div>{{ project.description | markdownify }}</div>
+                    </h5>
+                    {% if project.role or project.start or project.location or project.domain %}
+                      <p>
+                        {% if project.role %}<span>{{ project.role }}</span>{% endif %}
+                        {% if project.start %}
+                          {% if project.role %} · {% endif %}
+                          <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                            {% assign project_start_year = project.start | slice: 0, 4 %}
+                            {% if project.current %}
+                              {{ project_start_year }} – Present
+                            {% elsif project.end %}
+                              {{ project_start_year }} – {{ project.end | slice: 0, 4 }}
+                            {% else %}
+                              {{ project_start_year }}
+                            {% endif %}
+                          </time>
+                        {% endif %}
+                        {% if project.location %}
+                          {% if project.role or project.start %} · {% endif %}
+                          <span>{{ project.location }}</span>
+                        {% endif %}
+                        {% if project.domain %}
+                          {% if project.role or project.start or project.location %} · {% endif %}
+                          <span>{{ project.domain }}</span>
+                        {% endif %}
+                      </p>
                     {% endif %}
-                  </article>
-                </li>
-              {% endfor %}
-            </ul>
+                  </header>
+                  {% if project.description and project.description != blank %}
+                    <div>{{ project.description | markdownify }}</div>
+                  {% endif %}
+                </article>
+              </section>
+            {% endfor %}
           </details>
         {% endif %}
 
@@ -136,33 +190,130 @@
 
 <script>
   (function () {
-    var nav = document.querySelector("section#experience > nav");
-    if (!nav) return;
+    var experience = document.querySelector("section#experience");
+    if (!experience) return;
 
-    var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
-    var sections = links
-      .map(function (link) { return document.querySelector(link.getAttribute("href")); })
-      .filter(Boolean);
+    var employmentHistory = experience.querySelector('[aria-label="Employment history"]');
+    var timelineNav = experience.querySelector("nav");
+    var mobileQuery = window.matchMedia("(max-width: 799px)");
 
-    if (!sections.length) return;
+    function openDetailsForTarget(target) {
+      if (!target) return;
+      var projectsDetails = target.closest('[aria-label="Employment history"] details');
+      if (projectsDetails) projectsDetails.open = true;
+      if (target.id && timelineNav) {
+        var timelineLink = timelineNav.querySelector('a[href="#' + target.id + '"]');
+        if (timelineLink) {
+          var timelineDetails = timelineLink.closest("details");
+          if (timelineDetails) timelineDetails.open = true;
+        }
+      }
+    }
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var id = entry.target.id;
-          links.forEach(function (link) {
-            if (link.getAttribute("href") === "#" + id) {
-              link.setAttribute("aria-current", "location");
-            } else {
-              link.removeAttribute("aria-current");
-            }
+    function openDetailsForHash() {
+      if (!window.location.hash) return;
+      openDetailsForTarget(document.querySelector(window.location.hash));
+    }
+
+    function wireScrollSpy(nav) {
+      var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+      var sections = links
+        .map(function (link) { return document.querySelector(link.getAttribute("href")); })
+        .filter(Boolean);
+
+      if (!sections.length) return;
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var id = entry.target.id;
+            links.forEach(function (link) {
+              if (link.getAttribute("href") === "#" + id) {
+                link.setAttribute("aria-current", "location");
+                var timelineDetails = link.closest("details");
+                if (timelineDetails) timelineDetails.open = true;
+              } else {
+                link.removeAttribute("aria-current");
+              }
+            });
           });
-        });
-      },
-      { rootMargin: "-15% 0px -65% 0px", threshold: 0 }
-    );
+        },
+        { rootMargin: "-15% 0px -65% 0px", threshold: 0 }
+      );
 
-    sections.forEach(function (section) { observer.observe(section); });
+      sections.forEach(function (section) { observer.observe(section); });
+    }
+
+    function setActiveProject(link, projectsContainer) {
+      var target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+
+      projectsContainer.querySelectorAll(":scope > section").forEach(function (section) {
+        section.classList.remove("is-active");
+      });
+      target.classList.add("is-active");
+
+      projectsContainer.querySelectorAll('nav a[href^="#"]').forEach(function (navLink) {
+        navLink.removeAttribute("aria-current");
+      });
+      link.setAttribute("aria-current", "location");
+    }
+
+    function wireProjectTabs(container) {
+      var nav = container.querySelector("nav");
+      var projects = container.querySelectorAll(":scope > section");
+      if (!nav || !projects.length) return;
+
+      var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+
+      function activateFromHash() {
+        var hash = window.location.hash;
+        var activeLink = links.find(function (link) { return link.getAttribute("href") === hash; });
+        if (hash) openDetailsForHash();
+        setActiveProject(activeLink || links[0], container);
+      }
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          if (!mobileQuery.matches) return;
+          event.preventDefault();
+          setActiveProject(link, container);
+          history.replaceState(null, "", link.getAttribute("href"));
+        });
+      });
+
+      activateFromHash();
+      window.addEventListener("hashchange", function () {
+        if (mobileQuery.matches) activateFromHash();
+      });
+
+      mobileQuery.addEventListener("change", function () {
+        if (mobileQuery.matches) {
+          activateFromHash();
+        } else {
+          projects.forEach(function (section) { section.classList.remove("is-active"); });
+          links.forEach(function (link) { link.removeAttribute("aria-current"); });
+        }
+      });
+    }
+
+    if (timelineNav) {
+      wireScrollSpy(timelineNav);
+      timelineNav.querySelectorAll('a[href*="-project-"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+          openDetailsForTarget(document.querySelector(link.getAttribute("href")));
+        });
+      });
+    }
+
+    openDetailsForHash();
+    window.addEventListener("hashchange", openDetailsForHash);
+
+    if (employmentHistory) {
+      Array.prototype.slice
+        .call(employmentHistory.querySelectorAll(":scope > section > details"))
+        .forEach(wireProjectTabs);
+    }
   })();
 </script>

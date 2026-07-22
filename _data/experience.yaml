@@ -60,6 +60,8 @@
       - Defining a target CX architecture underpinned by technology strategy, standards, and governance policies
       - Leading and shaping multi-team implementation as the programme moves from strategy into delivery
   - name: Public Sector Demand
+    start: 2023-09
+    end: 2025-03
     location: UK
     role: Technical Pre-Sales Partner
     description: |
@@ -67,6 +69,8 @@
       Supported bid teams in translating complex technical requirements into credible, assurance-ready solutions aligned with NCSC guidance and the Cyber Assessment Framework (CAF).
       Helped shape proposals that balanced innovation with the stability, data sovereignty, and accreditation expectations of critical national infrastructure clients.
   - name: Public sector
+    start: 2022-03
+    end: 2023-09
     location: UK
     role: Technical Principal & Architect
     description: |
@@ -77,6 +81,8 @@
 
        Operating an accessible service assessed by The Central Digital and Data Office (CDDO) against a <a target="_blank" href="https://www.gov.uk/service-manual/service-assessments">GDS Service Assessment</a>, following <a target="_blank" href="https://www.gov.uk/guidance/the-technology-code-of-practice">The Technology Code Of Practice</a>.
   - name: Thoughtworks university
+    start: 2021-08
+    end: 2022-01
     location: Remote (Global)
     role: Trainer
     description: |
@@ -85,14 +91,18 @@
       Established in 2005, TWU has always continuously evolved, and since 2022 has grown into a remote learning program that supports the entire first-year graduate experience.
     link: https://www.thoughtworks.com/en-gb/careers/graduates
   - name: BestSecret- Fashion Ecommerce 
+    start: 2021-02  
+    end: 2021-08
     location: Munich (Germany) & Remote
-    link: https://www.thoughtworks.com/en-gb/clients/bestsecret
     role: Lead engineer
+    link: https://www.thoughtworks.com/en-gb/clients/bestsecret
     description: |
       Europe's leading members-only destination for premium and luxury off-price fashion, serving millions of members across 28 countries.
       Led engineering improvements to software delivery performance and developer experience across a high-traffic ecommerce platform balancing rapid assortment turnover with brand-equity protection.
       Focused on accelerating release cadence, reducing cross-team friction, and embedding practices that would scale with BestSecret's continued growth from offline retailer to tech-driven online marketplace.
   - name: Travel (OTA)
+    start: 2020-10
+    end: 2021-02
     location: Remote (UK)
     role: Lead engineer and SME
     description: |
@@ -100,6 +110,8 @@
        Designed and implemented search capabilities powering discovery across flights, stays, and packages for millions of travellers.
        Balanced relevance, performance, and commercial outcomes in a highly competitive market where search quality directly drives conversion and revenue.
   - name: Trainer
+    start: 2020-07
+    end: 2020-10
     location: Remote (UK)
     role: Course creator
     description: |
@@ -107,6 +119,8 @@
       Structured around industry best practice, the course culminated in students shipping a real production application, giving career changers and graduates hands-on experience of the full delivery lifecycle.
     link: /training/course/training-in-pseudo-situ
   - name: Tieto EVRY- Banking
+    start: 2019-05
+    end: 2020-07
     location: Bergen (Norway), Oslo (Norway), Kiev (Ukraine) & Bengaluru (India)
     role: Engagement & Tech lead
     link: https://www.thoughtworks.com/en-gb/clients/tietoevry
@@ -116,12 +130,16 @@
 
       Focus on <a target="_blank" href="https://teamtopologies.com/">team topologies</a>, domain driven design, developer experience and software delivery performance, assessed against the <a target="_blank" href="https://www.amazon.co.uk/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">4 key metrics</a>, cutting lead time to deploy from 60 days to five and increasing deployment frequency from one release in eight years to over 100 in two.
   - name: Legal publishing 
+    start: 2018-07
+    end: 2019-05
     location: London (UK) & Raleigh (USA)
     role: Tech lead
     description: |
       Tech lead for search engine design and implementation within a global legal publishing organisation spanning London and Raleigh.
       Delivered high-performance search capabilities across vast corpora of legal and professional content, enabling practitioners to find authoritative material quickly and reliably.
   - name: One Million Mentors
+    start: 2018-08
+    end: 2019-01
     location: London (UK)
     role: Hacknight organiser and contributor
     link: https://www.thoughtworks.com/en-gb/clients/one-million-mentors
@@ -129,6 +147,8 @@
       Organised and contributed to hacknights building a digital mentoring platform for One Million Mentors, a UK charity connecting young people with volunteer mentors to improve employability and life outcomes.
       Supported delivery of a mobile-friendly platform enabling mentors, mentees, and coordinators to register and match at scale, with safeguarding and data security embedded from day one.
   - name: Medical/ Healthcare
+    start: 2018-04
+    end: 2018-07
     location: Manchester (UK) & London (UK)
     role: C# & .Net SME & Engineer
     description: |
