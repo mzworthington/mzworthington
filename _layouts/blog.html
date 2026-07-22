@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article>
+  <header>
+    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+  </header>
+  {%- if site.posts.size > 0 -%}
+    {{ content }}
+    {%- include list_posts.html ungrouped=true -%}
+    {%- for category_page in site.category -%}
+      {%- include list_posts.html category_name=category_page.category -%}
+    {%- endfor -%}
+  {%- endif -%}
+</article>

@@ -1,46 +1,62 @@
-{% assign category_name = include.category_name | default: "" %}
-{% assign pretty_category_name = category_name | replace: "-", " " | capitalize %}
-{% assign category_posts = site.categories[category_name] %}
+{% if include.ungrouped %}
+  {% assign group_categories = site.category | map: "category" %}
+  {% assign sorted_posts = site.posts | sort: "date" | reverse %}
+  {% assign show_section = false %}
+  {% for post in sorted_posts %}
+    {% unless group_categories contains post.category %}
+      {% assign show_section = true %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% else %}
+  {% assign category_name = include.category_name | default: "" %}
+  {% assign pretty_category_name = category_name | replace: "-", " " | capitalize %}
+  {% assign sorted_posts = site.categories[category_name] %}
+  {% assign show_section = sorted_posts.size > 0 %}
 
-{%- if category_posts.size > 0 -%}
   {% if category_name == "bootstrapping-software-delivery" %}
-    {% assign sorted_posts = category_posts | sort: "date" %}
+    {% assign sorted_posts = sorted_posts | sort: "date" %}
   {% else %}
-    {% assign sorted_posts = category_posts | sort: "date" | reverse %}
+    {% assign sorted_posts = sorted_posts | sort: "date" | reverse %}
   {% endif %}
+{% endif %}
 
-  <section class="posts">
-    {% if page.category == category_name %}
+{%- if show_section -%}
+  <section>
+    {% if include.ungrouped %}
+    {% elsif page.category == category_name %}
       <h2>
-        <a href="{{ "/" | relative_url }}">../</a>{{ category_name | replace: "-", " " | capitalize  }}
+        <a href="{{ "/" | relative_url }}">../</a>{{ category_name | replace: "-", " " | capitalize }}
       </h2>
       <p>
-        {{content}}
+        {{ content }}
       </p>
     {% else %}
       <h2>
-        <a arial-label="Go to '{{ pretty_category_name }}' landing page" href="{{ category_name | relative_url }}">{{ pretty_category_name }}</a>
+        <a aria-label="Go to '{{ pretty_category_name }}' landing page" href="{{ category_name | relative_url }}">{{ pretty_category_name }}</a>
       </h2>
     {% endif %}
-      <ul>
+    <ul>
       {% for post in sorted_posts %}
-      <li>
-        <h2>
+        {% if include.ungrouped %}
+          {% if group_categories contains post.category %}
+            {% continue %}
+          {% endif %}
+        {% endif %}
+        <li>
           <a href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
+            <h3>{{ post.title | escape }}</h3>
+            {% if post.excerpt and post.excerpt != blank %}
+              <p>{{ post.excerpt | strip_html }}</p>
+            {% endif %}
+            <footer>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+              ·
+              {%- include read_time.html content=post.content -%}
+            </footer>
           </a>
-      </h2>
-      <p>
-        {%- assign date_format = "%b %-d, %Y" -%}
-        <span>🗓 {{ post.date | date: date_format }} </span> 
-        {%- include read_time.html content=post.content -%}
-    </p>
-    <p>
-      {{ post.excerpt }}
-    </p>
-      </li>
+        </li>
       {% endfor %}
-      </ul>
-      <hr/>
+    </ul>
   </section>
 {%- endif -%}

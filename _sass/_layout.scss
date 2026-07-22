@@ -98,21 +98,94 @@ main{
   }
 }
 
-.posts {
-  padding-bottom: $footer-size;
-  ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-left: 0;
-    align-items: flex-start;
-    // justify-content: flex-start;
-    justify-content: center;
+article > section {
+  > h2 {
+    margin-top: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit * 0.75;
+    text-align: left;
   }
 
-  li {
-    display: inline-block;
+  > ul:has(> li > a > h3) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    align-items: stretch;
+    gap: $spacing-unit * 0.75;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    padding-bottom: $spacing-unit;
+
+    li {
+      list-style: none;
+      height: 11rem;
+      margin: 0;
+      padding: 0;
+      border: 1px solid $border-color-01;
+      border-radius: 0.5em;
+      background-color: $background-color-light;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &:has(> a:hover),
+      &:has(> a:focus-visible) {
+        border-color: $link-base-color;
+        box-shadow:
+          0 0 0.65rem rgba($link-base-color, 0.45),
+          0 0 1.25rem rgba($link-base-color, 0.2);
+      }
+
+      > a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: $spacing-unit * 0.5 $spacing-unit * 0.6;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        h3 {
+          margin-top: 0;
+          margin-bottom: $spacing-unit * 0.2;
+          font-size: $small-font-size;
+          line-height: 1.25;
+          color: $link-base-color;
+        }
+
+        &:hover h3,
+        &:focus-visible h3 {
+          color: $link-hover-color;
+        }
+
+        > p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
+          flex: 1;
+          font-size: $small-font-size * 0.85;
+          color: $text-color;
+          line-height: 1.35;
+          margin: 0;
+        }
+
+        footer {
+          margin-top: auto;
+          padding-top: $spacing-unit * 0.25;
+          font-size: $small-font-size * 0.8;
+          color: $brand-color;
+          line-height: 1.2;
+        }
+      }
+    }
   }
+}
+
+article > section:last-of-type > ul:has(> li > a > h3) {
+  padding-bottom: $footer-size;
 }
 
 
@@ -187,10 +260,12 @@ article {
       @include relative-font-size(1.0625);
     }
 
-    ul, ol{
+    ul,
+    ol {
       margin: 1em;
     }
-    ul{
+
+    ul:not(:has(> li > a > h3)) {
       list-style: circle;
     }
   
@@ -217,13 +292,6 @@ article {
 }
 
 @media screen and (min-width: $on-large) {
-  .posts {
-    li {
-      height: $post-card-height;
-      width: $post-card-width;
-      padding: 1em;
-    }
-  }
   main {
     padding: 2em 3em 0;
   }

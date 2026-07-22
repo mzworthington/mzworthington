@@ -29,22 +29,22 @@
                   <span>({{ job.projects.size }})</span>
                 {% endif %}
               </summary>
-              <ul aria-label="Projects at {{ job.name }}">
-                {% for project in job.projects %}
-                  {% assign project_slug = project.slug | default: project.name | slugify %}
-                  <li>
-                    <a href="#experience-{{ slug }}-project-{{ project_slug }}">
-                      {% if project.start %}
-                        <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
-                          {{ project.start | slice: 0, 4 }}
-                        </time>
-                      {% endif %}
-                      {{ project.name }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
             </details>
+            <ul aria-label="Projects at {{ job.name }}">
+              {% for project in job.projects %}
+                {% assign project_slug = project.slug | default: project.name | slugify %}
+                <li>
+                  <a href="#experience-{{ slug }}-project-{{ project_slug }}">
+                    {% if project.start %}
+                      <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                        {{ project.start | slice: 0, 4 }}
+                      </time>
+                    {% endif %}
+                    {{ project.name }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
           {% endif %}
         </li>
       {% endfor %}
@@ -100,7 +100,9 @@
                 <span>({{ job.projects.size }})</span>
               {% endif %}
             </summary>
+          </details>
 
+          <div>
             {% if job.projects.size > 1 %}
               <nav aria-label="Projects at {{ job.name }}">
                 <ul>
@@ -170,7 +172,7 @@
                 </article>
               </section>
             {% endfor %}
-          </details>
+          </div>
         {% endif %}
 
         {% if job.tech and job.tech.size > 0 %}
@@ -188,132 +190,39 @@
   </section>
 </section>
 
-<script>
-  (function () {
-    var experience = document.querySelector("section#experience");
-    if (!experience) return;
-
-    var employmentHistory = experience.querySelector('[aria-label="Employment history"]');
-    var timelineNav = experience.querySelector("nav");
-    var mobileQuery = window.matchMedia("(max-width: 799px)");
-
-    function openDetailsForTarget(target) {
-      if (!target) return;
-      var projectsDetails = target.closest('[aria-label="Employment history"] details');
-      if (projectsDetails) projectsDetails.open = true;
-      if (target.id && timelineNav) {
-        var timelineLink = timelineNav.querySelector('a[href="#' + target.id + '"]');
-        if (timelineLink) {
-          var timelineDetails = timelineLink.closest("details");
-          if (timelineDetails) timelineDetails.open = true;
-        }
+<style>
+  {% for job in site.data.experience %}
+    {% assign slug = job.slug | default: job.name | slugify %}
+    section#experience:has(#experience-{{ slug }}:target) > nav a[href="#experience-{{ slug }}"] {
+      color: #A8FEFF;
+      font-weight: 600;
+    }
+    section#experience:has(#experience-{{ slug }}:target) > nav a[href="#experience-{{ slug }}"] time {
+      color: inherit;
+      opacity: 0.85;
+    }
+    section#experience:has(#experience-{{ slug }}:target) > nav > ul > li:has(> a[href="#experience-{{ slug }}"])::before {
+      background-color: #A8FEFF;
+      box-shadow: 0 0 0 2px #A8FEFF;
+    }
+    {% for project in job.projects %}
+      {% assign project_slug = project.slug | default: project.name | slugify %}
+      {% capture project_id %}experience-{{ slug }}-project-{{ project_slug }}{% endcapture %}
+      section#experience:has(#{{ project_id }}:target) > nav a[href="#{{ project_id }}"] {
+        color: #A8FEFF;
+        font-weight: 600;
       }
-    }
-
-    function openDetailsForHash() {
-      if (!window.location.hash) return;
-      openDetailsForTarget(document.querySelector(window.location.hash));
-    }
-
-    function wireScrollSpy(nav) {
-      var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
-      var sections = links
-        .map(function (link) { return document.querySelector(link.getAttribute("href")); })
-        .filter(Boolean);
-
-      if (!sections.length) return;
-
-      var observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            var id = entry.target.id;
-            links.forEach(function (link) {
-              if (link.getAttribute("href") === "#" + id) {
-                link.setAttribute("aria-current", "location");
-                var timelineDetails = link.closest("details");
-                if (timelineDetails) timelineDetails.open = true;
-              } else {
-                link.removeAttribute("aria-current");
-              }
-            });
-          });
-        },
-        { rootMargin: "-15% 0px -65% 0px", threshold: 0 }
-      );
-
-      sections.forEach(function (section) { observer.observe(section); });
-    }
-
-    function setActiveProject(link, projectsContainer) {
-      var target = document.querySelector(link.getAttribute("href"));
-      if (!target) return;
-
-      projectsContainer.querySelectorAll(":scope > section").forEach(function (section) {
-        section.classList.remove("is-active");
-      });
-      target.classList.add("is-active");
-
-      projectsContainer.querySelectorAll('nav a[href^="#"]').forEach(function (navLink) {
-        navLink.removeAttribute("aria-current");
-      });
-      link.setAttribute("aria-current", "location");
-    }
-
-    function wireProjectTabs(container) {
-      var nav = container.querySelector("nav");
-      var projects = container.querySelectorAll(":scope > section");
-      if (!nav || !projects.length) return;
-
-      var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
-
-      function activateFromHash() {
-        var hash = window.location.hash;
-        var activeLink = links.find(function (link) { return link.getAttribute("href") === hash; });
-        if (hash) openDetailsForHash();
-        setActiveProject(activeLink || links[0], container);
+      section#experience:has(#{{ project_id }}:target) > nav a[href="#{{ project_id }}"] time {
+        color: inherit;
+        opacity: 0.85;
       }
-
-      links.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-          if (!mobileQuery.matches) return;
-          event.preventDefault();
-          setActiveProject(link, container);
-          history.replaceState(null, "", link.getAttribute("href"));
-        });
-      });
-
-      activateFromHash();
-      window.addEventListener("hashchange", function () {
-        if (mobileQuery.matches) activateFromHash();
-      });
-
-      mobileQuery.addEventListener("change", function () {
-        if (mobileQuery.matches) {
-          activateFromHash();
-        } else {
-          projects.forEach(function (section) { section.classList.remove("is-active"); });
-          links.forEach(function (link) { link.removeAttribute("aria-current"); });
-        }
-      });
-    }
-
-    if (timelineNav) {
-      wireScrollSpy(timelineNav);
-      timelineNav.querySelectorAll('a[href*="-project-"]').forEach(function (link) {
-        link.addEventListener("click", function () {
-          openDetailsForTarget(document.querySelector(link.getAttribute("href")));
-        });
-      });
-    }
-
-    openDetailsForHash();
-    window.addEventListener("hashchange", openDetailsForHash);
-
-    if (employmentHistory) {
-      Array.prototype.slice
-        .call(employmentHistory.querySelectorAll(":scope > section > details"))
-        .forEach(wireProjectTabs);
-    }
-  })();
-</script>
+      section#experience:has(#{{ project_id }}:target) > nav > ul > li > details + ul > li:has(a[href="#{{ project_id }}"])::before {
+        background-color: #A8FEFF;
+        border-color: #A8FEFF;
+      }
+      section#experience:has(#{{ project_id }}:target) > nav > ul > li:has(> ul a[href="#{{ project_id }}"]) > details:not([open]) + ul {
+        display: block;
+      }
+    {% endfor %}
+  {% endfor %}
+</style>

@@ -1,3 +1,3 @@
 {% assign content = include.content | default: "" %}
 {% assign words = content | number_of_words %}
-<span class="read-time" title="Estimated read time">📖 {% if words < 360 %} 1 min {% else %} {{ words | divided_by:180 }} mins {% endif %}</span>
+<span title="Estimated read time">📖 {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} mins{% endif %}</span>
