@@ -10,7 +10,7 @@ if ! command -v mise >/dev/null 2>&1; then
 fi
 
 if [[ ! -f Gemfile.lock ]]; then
-  echo "error: Gemfile.lock not found — run ./bin/bootstrap first" >&2
+  echo "error: Gemfile.lock not found, run ./bin/bootstrap first" >&2
   exit 1
 fi
 

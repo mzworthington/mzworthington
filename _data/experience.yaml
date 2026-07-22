@@ -41,7 +41,7 @@
   domain: Leading global technology consultancy
   description: |
     Seven years at a leading global technology consultancy, delivering large-scale transformation across retail, banking, public sector, travel, fashion, and social impact.
-    Operated as Technical Principal, engagement lead, trainer, and architect—shaping multi-year technical vision, building high-performing teams, and embedding modern delivery practices across client organisations worldwide.
+    Operated as Technical Principal, engagement lead, trainer, and architect, shaping multi-year technical vision, building high-performing teams, and embedding modern delivery practices across client organisations worldwide.
   projects:
   - name: UK leading online marketplace
     start: 2023-11
@@ -104,17 +104,17 @@
     role: Course creator
     description: |
       Led the delivery of an immersive nine-week training programme covering lean inception, user research, and modern software delivery practices.
-      Structured around industry best practice, the course culminated in students shipping a real production application—giving career changers and graduates hands-on experience of the full delivery lifecycle.
+      Structured around industry best practice, the course culminated in students shipping a real production application, giving career changers and graduates hands-on experience of the full delivery lifecycle.
     link: /training/course/training-in-pseudo-situ
   - name: Tieto EVRY- Banking
     location: Bergen (Norway), Oslo (Norway), Kiev (Ukraine) & Bengaluru (India)
     role: Engagement & Tech lead
     link: https://www.thoughtworks.com/en-gb/clients/tietoevry
     description: |
-      Partnered with Tietoevry Banking Essentials on the Next Generation (NX) Core programme—a major modernisation of a core banking platform first launched in 1981, processing billions of dollars in transactions daily.
+      Partnered with Tietoevry Banking Essentials on the Next Generation (NX) Core programme, a major modernisation of a core banking platform first launched in 1981, processing billions of dollars in transactions daily.
       As engagement and tech lead across teams in Norway, Ukraine, and India, helped transform a 200+ person waterfall programme into an agile, DevOps-driven organisation.
 
-      Focus on <a target="_blank" href="https://teamtopologies.com/">team topologies</a>, domain driven design, developer experience and software delivery performance, assessed against the <a target="_blank" href="https://www.amazon.co.uk/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">4 key metrics</a>—cutting lead time to deploy from 60 days to five and increasing deployment frequency from one release in eight years to over 100 in two.
+      Focus on <a target="_blank" href="https://teamtopologies.com/">team topologies</a>, domain driven design, developer experience and software delivery performance, assessed against the <a target="_blank" href="https://www.amazon.co.uk/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">4 key metrics</a>, cutting lead time to deploy from 60 days to five and increasing deployment frequency from one release in eight years to over 100 in two.
   - name: Legal publishing 
     location: London (UK) & Raleigh (USA)
     role: Tech lead
@@ -126,7 +126,7 @@
     role: Hacknight organiser and contributor
     link: https://www.thoughtworks.com/en-gb/clients/one-million-mentors
     description: |
-      Organised and contributed to hacknights building a digital mentoring platform for One Million Mentors—a UK charity connecting young people with volunteer mentors to improve employability and life outcomes.
+      Organised and contributed to hacknights building a digital mentoring platform for One Million Mentors, a UK charity connecting young people with volunteer mentors to improve employability and life outcomes.
       Supported delivery of a mobile-friendly platform enabling mentors, mentees, and coordinators to register and match at scale, with safeguarding and data security embedded from day one.
   - name: Medical/ Healthcare
     location: Manchester (UK) & London (UK)
@@ -175,7 +175,7 @@
   description: | 
     Principal engineer at a London fintech SaaS company helping small businesses manage credit risk and cash flow through CreditHQ and CreditFocus.
     Built high-throughput data processing pipelines and APIs on Azure, synthesising Companies House, D&B, and operational data to give SMEs actionable insight into customer and supplier financial health.
-    Played a central role in spinning CreditHQ out from its origins as a Barclays subscription product into an independent platform, ensuring continuity through technology transition and international expansion—including a Deutsche Bank partnership in Germany.
+    Played a central role in spinning CreditHQ out from its origins as a Barclays subscription product into an independent platform, ensuring continuity through technology transition and international expansion, including a Deutsche Bank partnership in Germany.
   domain: Finance & business insight
   tech:
     - C#
@@ -195,7 +195,7 @@
   link: https://ra.co/
   role: Software Engineer & Architect
   description: |
-    Software engineer and architect at Resident Advisor (RA)—the world's leading independent platform for electronic music discovery, events, and ticketing, reaching millions of fans across 50 countries.
+    Software engineer and architect at Resident Advisor (RA), the world's leading independent platform for electronic music discovery, events, and ticketing, reaching millions of fans across 50 countries.
     Designed and implemented custom authentication and authorisation services for high-traffic environments powering RA's editorial, listings, and RA Tickets products.
     Supported a platform trusted by clubs, promoters, and festivals to run events from discovery through door management and resale.
   domain: Music, publishing & events
@@ -211,7 +211,7 @@
   role: Founder
   description: | 
     Founded a web design agency built around a multi-tenant CMS enabling rapid delivery of client sites from a shared platform core.
-    Delivered bespoke digital experiences for agency clients while maintaining a reusable content, media, and search foundation on Azure—including media services, table storage, and messaging for scalable multi-tenancy.
+    Delivered bespoke digital experiences for agency clients while maintaining a reusable content, media, and search foundation on Azure, including media services, table storage, and messaging for scalable multi-tenancy.
   tech:
     - C#
     - dotnet core
@@ -232,7 +232,7 @@
   role: Senior Software Engineer
   description: |
     Senior software engineer at Intelligent Reach, a cloud-based product data and feed management platform used by retailers and brands to optimise, test, and distribute catalogue data across 1,400+ marketing and marketplace channels.
-    Built features across the .NET stack supporting feed syndication, content experimentation, and marketplace connectivity—helping commerce teams improve product visibility without relying on internal IT for every channel integration.
+    Built features across the .NET stack supporting feed syndication, content experimentation, and marketplace connectivity, helping commerce teams improve product visibility without relying on internal IT for every channel integration.
   domain: E-commerce
   tech:
     - Big data 
@@ -250,7 +250,7 @@
   role: Senior Software Engineer
   domain: Fashion & photography publishing
   description: |
-    Senior software engineer during a pivotal Azure migration for Dazed Digital—the daily-updated online home of Dazed, one of the world's most influential independent fashion, art, and culture magazines.
+    Senior software engineer during a pivotal Azure migration for Dazed Digital, the daily-updated online home of Dazed, one of the world's most influential independent fashion, art, and culture magazines.
     Evolved a custom CMS and rich-media publishing stack (including Kaltura video) to support groundbreaking editorial, interactive projects, and high-traffic campaign content.
   tech:
     - Azure
@@ -266,7 +266,7 @@
   role: Principal Developer
   domain: Music, streaming, events & e-commerce
   description: |
-    Principal developer for AEI Media—the holding company behind Drum&BassArena, UKF, and a portfolio of bass music brands spanning streaming, events, news, labels, publishing, and distribution.
+    Principal developer for AEI Media, the holding company behind Drum&BassArena, UKF, and a portfolio of bass music brands spanning streaming, events, news, labels, publishing, and distribution.
     Led technical delivery across multiple revenue streams, from live video and download stores to label portals and distributor reporting, serving one of electronic music's most engaged global communities.
     Lead developer at drum&bassArena, a multichannel bass music brand reaching tens of millions of fans worldwide.
 
@@ -278,8 +278,8 @@
   role: Lead developer
   domain: Music & e-commerce
   description: | 
-    Lead developer for Drum&BassArena—the pioneering online drum & bass community founded in 1996, now part of AEI Music's portfolio of brands reaching over 100 million electronic music fans.
-    Built and maintained services spanning news, events, blogs, live video streaming, a high-quality download store, and B2B portals for distributors and labels—unifying content, commerce, and community on a .NET and Lucene stack.
+    Lead developer for Drum&BassArena, the pioneering online drum & bass community founded in 1996, now part of AEI Music's portfolio of brands reaching over 100 million electronic music fans.
+    Built and maintained services spanning news, events, blogs, live video streaming, a high-quality download store, and B2B portals for distributors and labels, unifying content, commerce, and community on a .NET and Lucene stack.
   tech:
     - C#
     - .Net
@@ -294,7 +294,7 @@
   link: https://www.financialsoftware.co.uk/
   domain: Finance
   description: |
-    Technical analyst and developer at Financial Software Ltd, creators of CGiX—the industry's leading capital gains and investment tax management solution, trusted by major wealth managers since 1994.
+    Technical analyst and developer at Financial Software Ltd, creators of CGiX, the industry's leading capital gains and investment tax management solution, trusted by major wealth managers since 1994.
     Contributed to HMRC-compliant reporting, portfolio calculations, and rich-client features on a .NET and Silverlight stack, helping advisers automate accurate tax insight at scale.
   role: Technical analyst & developer
   tech:
