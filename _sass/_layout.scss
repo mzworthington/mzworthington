@@ -46,7 +46,11 @@ body > header {
   }
   img {
     border-radius: 50%;
-    max-width: $header-image-size;
+    width: $header-image-size;
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     margin: $header-margin;
   }
 }
