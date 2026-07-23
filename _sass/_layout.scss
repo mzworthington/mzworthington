@@ -102,13 +102,19 @@ main{
   }
 }
 
-article > section {
-  > h2 {
-    margin-top: $spacing-unit * 1.5;
-    margin-bottom: $spacing-unit * 0.75;
-    text-align: left;
-  }
+article > h2,
+article > section > h2 {
+  margin-top: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit * 0.75;
+  text-align: left;
+  @include relative-font-size(1.75);
 
+  @media screen and (min-width: $on-large) {
+    @include relative-font-size(2);
+  }
+}
+
+article > section {
   > ul:has(> li > a > h3) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
@@ -239,7 +245,7 @@ article {
   
     h2 {
       @include relative-font-size(1.75);
-  
+
       @media screen and (min-width: $on-large) {
         @include relative-font-size(2);
       }

@@ -1,0 +1,14 @@
+- title: Blueprint
+  description: |
+    A local-first visual canvas for systems architecture, with bi-directional sync between diagrams and YAML schemas, plus a CLI that generates layouts from your codebase.
+  link: https://blueprint.mzworthington.co.uk
+
+- title: GPIO build monitor
+  description: |
+    A Raspberry Pi desk light that shows CI status at a glance, aggregating GitHub Actions and CircleCI across your repos.
+  link: https://github.com/mzworthington/gpio-build-monitor
+
+- title: Setup
+  description: |
+    Bootstrap scripts and helpers for machine setup, pairing, installing software, and getting new projects off the ground quickly.
+  link: https://github.com/mzworthington/setup
