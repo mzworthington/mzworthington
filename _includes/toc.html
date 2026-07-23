@@ -169,7 +169,7 @@
 
         {% if rootAttributes %}
             {% assign nodes = jekyll_toc | split: '>' %}
-            {% capture jekyll_toc %}<nav id="toc"><{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}></nav><a class="go-to-top" href="#toc">🔝</a><hr/>{% endcapture %}
+            {% capture jekyll_toc %}<nav id="toc"><{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}></nav><a class="go-to-top" href="#toc" aria-label="Back to table of contents">🔝</a><hr/>{% endcapture %}
         {% endif %}
     {% endif %}
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc -}}

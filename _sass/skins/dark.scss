@@ -1,12 +1,12 @@
 @use "sass:color";
 
-$brand-color:           #bcbfc6 !default;
+$brand-color:           #d8dadd !default;
 $brand-color-light:     color.adjust($brand-color, $lightness: 5%) !default;
 $brand-color-dark:      color.adjust($brand-color, $lightness: -35%) !default;
 
 $site-title-color:      $brand-color-light !default;
 
-$text-color:            #caccd2 !default;
+$text-color:            #d6d8dc !default;
 $background-color:      #485063 !default;
 $background-color-light:     color.adjust($background-color, $lightness: 5%) !default;
 $background-color-dark:      color.adjust($background-color, $lightness: -15%) !default;

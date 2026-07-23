@@ -8,7 +8,7 @@ layout: default
      {%- if page.category -%}
      {% assign category_name = page.category | default: "" %}
      {% assign pretty_category_name = category_name | replace: "-", " " | capitalize %}
-     <p><a arial-label="Go to '{{ pretty_category_name }}' landing page"  href="{{ category_name | relative_url }}">{{ pretty_category_name }}</a></p>
+     <p><a aria-label="Go to '{{ pretty_category_name }}' landing page" href="{{ category_name | relative_url }}">{{ pretty_category_name }}</a></p>
      {% endif %}
      <p>
         {%- assign date_format = "%b %-d, %Y" -%}
@@ -34,5 +34,5 @@ layout: default
    {{ content }}
    {%- include get_the_code.html -%}
   </section>
-  <data arial-label="{{ page.title | escape }}" class="u-url" href="{{ page.url | relative_url }}" hidden></data>
+  <a class="u-url visually-hidden" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
 </article>
