@@ -5,6 +5,16 @@
 $timeline-width: 12rem;
 $timeline-gap: math.div($spacing-unit * 1.5, $base-font-size) * 1rem;
 $timeline-dot-size: 0.65em;
+$timeline-track-inset: 0.75em;
+$mobile-sticky-nav-height: 4.5rem;
+$project-sticky-nav-height: 3.5rem;
+
+@mixin sticky-timeline-nav($top: 0, $z-index: 10) {
+  position: sticky;
+  top: $top;
+  z-index: $z-index;
+  background-color: $background-color;
+}
 
 @mixin timeline-nav-links {
   a {
@@ -35,25 +45,110 @@ $timeline-dot-size: 0.65em;
   }
 }
 
+@mixin timeline-nav-horizontal-list {
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  list-style: none;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(#{$timeline-track-inset} + #{$timeline-dot-size} / 2 - 1px);
+    height: 2px;
+    background-color: $border-color-01;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
 @mixin timeline-nav-items {
   > ul > li {
     position: relative;
     flex: 0 0 auto;
     display: block;
-    padding: 0 1.25em 1.25em 0;
+    padding: 0 1.25em calc(#{$timeline-track-inset} + #{$timeline-dot-size} + 0.25em) 0;
 
     &::before {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.35em;
+      bottom: $timeline-track-inset;
       width: $timeline-dot-size;
       height: $timeline-dot-size;
       border-radius: 50%;
       background-color: $brand-color;
       border: 2px solid $background-color;
-      transform: translateY(50%);
+      z-index: 1;
     }
+  }
+}
+
+@mixin projects-toggle {
+  cursor: pointer;
+  list-style: none;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  .projects-toggle__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.45em 1em 0.45em 0.85em;
+    border: 1px solid $link-base-color;
+    border-radius: 1.5em;
+    background-color: $background-color-light;
+    color: $link-base-color;
+    font-size: $small-font-size;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 0.15em;
+      transition: transform 0.15s ease;
+    }
+  }
+
+  &:hover .projects-toggle__chip {
+    background-color: $link-base-color;
+    border-color: $link-base-color;
+    color: $background-color;
+
+    .projects-toggle__count {
+      background-color: rgba($background-color, 0.2);
+      color: inherit;
+    }
+  }
+
+  .projects-toggle__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.4em;
+    padding: 0.1em 0.5em;
+    border-radius: 1em;
+    background-color: $background-color;
+    color: $link-base-color;
+    font-size: 0.85em;
+    font-weight: 600;
+    line-height: 1.4;
   }
 }
 
@@ -97,19 +192,21 @@ section#experience {
     margin-bottom: $spacing-unit;
 
     ul {
-      display: flex;
-      gap: 0;
-      margin: 0;
-      padding: 0 0 0.75em;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      list-style: none;
-      border-bottom: 2px solid $border-color-01;
+      @include timeline-nav-horizontal-list;
     }
 
     @include timeline-nav-items;
     @include timeline-nav-links;
+
+    > ul > li.is-active::before {
+      background-color: $link-base-color;
+      box-shadow: 0 0 0 2px $link-base-color;
+    }
+
+    > ul > li > details > ul > li.is-active::before {
+      background-color: $link-base-color;
+      border-color: $link-base-color;
+    }
 
     > ul > li > details {
       margin: 0.35em 0 0;
@@ -130,39 +227,50 @@ section#experience {
         transform: rotate(90deg);
       }
 
-      &:not([open]) + ul {
-        display: none;
+      > ul {
+        list-style: none;
+        margin: 0.35em 0 0;
+        padding: 0.35em 0 0;
+        border-top: 1px solid $border-color-01;
+
+        > li {
+          position: relative;
+          padding: 0.35em 0 0 0.85em;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65em;
+            width: calc(#{$timeline-dot-size} * 0.75);
+            height: calc(#{$timeline-dot-size} * 0.75);
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid $brand-color;
+          }
+
+          &.is-active::before {
+            background-color: $link-base-color;
+            border-color: $link-base-color;
+          }
+
+          a {
+            font-size: 0.9em;
+            opacity: 0.9;
+            white-space: normal;
+          }
+        }
       }
     }
+  }
 
-    > ul > li > details + ul {
-      list-style: none;
-      margin: 0.35em 0 0;
-      padding: 0.35em 0 0;
-      border-top: 1px solid $border-color-01;
+  nav a.is-active {
+    color: $link-base-color;
+    font-weight: 600;
 
-      > li {
-        position: relative;
-        padding: 0.35em 0 0 0.85em;
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0.65em;
-          width: calc(#{$timeline-dot-size} * 0.75);
-          height: calc(#{$timeline-dot-size} * 0.75);
-          border-radius: 50%;
-          background-color: transparent;
-          border: 2px solid $brand-color;
-        }
-
-        a {
-          font-size: 0.9em;
-          opacity: 0.9;
-          white-space: normal;
-        }
-      }
+    time {
+      color: inherit;
+      opacity: 0.85;
     }
   }
 
@@ -208,149 +316,156 @@ section#experience {
       > details {
         margin: math.div($spacing-unit, 2) 0;
 
-        > summary {
-          @include accordion-summary;
-          color: $link-base-color;
-          font-size: $small-font-size;
-          padding: 0.5em 0;
-          @include relative-font-size(1);
-
-          span {
-            color: $brand-color;
-            font-weight: normal;
-          }
+        > summary.projects-toggle {
+          @include projects-toggle;
         }
 
-        &[open] > summary {
-          margin-bottom: 0.5em;
+        &:not([open]) > .projects-panel {
+          display: none;
+        }
 
-          &::before {
+        &[open] > summary.projects-toggle {
+          margin-bottom: 0.75em;
+
+          .projects-toggle__chip::before {
             transform: rotate(90deg);
           }
         }
 
-        &:not([open]) + div {
-          display: none;
-        }
+        .projects-panel {
+          > nav {
+            margin-bottom: math.div($spacing-unit, 2);
 
-        &:not([open]) + div:has(> section:target) {
-          display: block;
-        }
-      }
-
-      > details + div {
-        > nav {
-          margin-bottom: math.div($spacing-unit, 2);
-
-          ul {
-            display: flex;
-            gap: 0;
-            margin: 0;
-            padding: 0 0 0.75em;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            list-style: none;
-            border-bottom: 2px solid $border-color-01;
-          }
-
-          @include timeline-nav-items;
-          @include timeline-nav-links;
-        }
-
-        > section {
-          scroll-margin-top: 1.5em;
-
-          &:not(:last-child) {
-            margin-bottom: $spacing-unit;
-            padding-bottom: $spacing-unit;
-            border-bottom: 1px solid $border-color-01;
-          }
-
-          article {
-            header {
-              margin-bottom: math.div($spacing-unit, 2);
-              text-align: left;
-
-              h5 {
-                @include relative-font-size(1.125);
-                margin-top: 0;
-                margin-bottom: 0.25em;
-              }
-
-              p {
-                color: $brand-color;
-                font-size: $small-font-size;
-                margin-bottom: 0;
-              }
+            ul {
+              @include timeline-nav-horizontal-list;
             }
 
-            > div {
-              font-size: $small-font-size;
-              line-height: $base-line-height;
+            @include timeline-nav-items;
+            @include timeline-nav-links;
 
-              p {
+            > ul > li.is-active::before {
+              background-color: $link-base-color;
+              box-shadow: 0 0 0 2px $link-base-color;
+            }
+          }
+
+          > section {
+            scroll-margin-top: 1.5em;
+
+            &:not(:last-child) {
+              margin-bottom: $spacing-unit;
+              padding-bottom: $spacing-unit;
+              border-bottom: 1px solid $border-color-01;
+            }
+
+            article {
+              header {
                 margin-bottom: math.div($spacing-unit, 2);
+                text-align: left;
 
-                &:last-child {
+                h5 {
+                  @include relative-font-size(1.125);
+                  margin-top: 0;
+                  margin-bottom: 0.25em;
+                }
+
+                p {
+                  color: $brand-color;
+                  font-size: $small-font-size;
                   margin-bottom: 0;
                 }
               }
 
-              ul,
-              ol {
-                margin: 0.5em 0 0.5em 1.25em;
-                padding: 0;
-              }
+              > div {
+                font-size: $small-font-size;
+                line-height: $base-line-height;
 
-              ul {
-                list-style: disc;
-              }
+                p {
+                  margin-bottom: math.div($spacing-unit, 2);
 
-              ol {
-                list-style: decimal;
-              }
-
-              li {
-                margin-bottom: 0.35em;
-
-                &:last-child {
-                  margin-bottom: 0;
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
                 }
-              }
 
-              a {
-                color: $link-base-color;
+                ul,
+                ol {
+                  margin: 0.5em 0 0.5em 1.25em;
+                  padding: 0;
+                }
+
+                ul {
+                  list-style: disc;
+                }
+
+                ol {
+                  list-style: decimal;
+                }
+
+                li {
+                  margin-bottom: 0.35em;
+
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+                }
+
+                a {
+                  color: $link-base-color;
+                }
               }
             }
           }
         }
       }
+    }
+  }
+
+  > nav {
+    > ul > li > details,
+    > ul > li > details > ul {
+      display: none;
+    }
+  }
+
+  > section > section > details .projects-panel:has(> nav) {
+    > nav {
+      @include sticky-timeline-nav(0, 10);
+      padding-top: 0.35em;
+      padding-bottom: 0.25em;
+    }
+
+    > section {
+      scroll-margin-top: calc(#{$project-sticky-nav-height} + 0.5rem);
     }
   }
 
   @media screen and (max-width: #{ $on-large - 1px }) {
-    > section > section > details + div:has(> nav) {
-      > section {
-        display: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: 0;
-
-        &:target {
-          display: block;
-        }
-      }
-
-      &:not(:has(> section:target)) > section:first-of-type {
-        display: block;
-      }
+    > nav {
+      @include sticky-timeline-nav(0, 20);
+      padding-top: 0.35em;
+      margin-left: -1em;
+      margin-right: -1em;
+      padding-left: 1em;
+      padding-right: 1em;
     }
-  }
 
-  @media screen and (min-width: $on-large) {
-    > section > section > details + div > nav {
-      display: none;
+    > section > section {
+      scroll-margin-top: $mobile-sticky-nav-height;
+    }
+
+    > section > section > details .projects-panel:has(> nav) {
+      > nav {
+        top: $mobile-sticky-nav-height;
+        margin-left: -1em;
+        margin-right: -1em;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+
+      > section {
+        scroll-margin-top: calc(#{$mobile-sticky-nav-height} + #{$project-sticky-nav-height} + 0.5rem);
+      }
     }
   }
 
@@ -394,16 +509,18 @@ section#experience {
       grid-column: 1;
       grid-row: 1;
       margin-bottom: 0;
-      position: sticky;
-      top: 1.5em;
+      @include sticky-timeline-nav(1.5em, 10);
       align-self: start;
 
       ul {
         flex-direction: column;
         overflow-x: visible;
         padding: 0 0 0 1.25em;
-        border-bottom: 0;
         border-left: 2px solid $border-color-01;
+
+        &::before {
+          display: none;
+        }
       }
 
       > ul > li {
@@ -420,7 +537,7 @@ section#experience {
           padding-bottom: 0;
         }
 
-        > details + ul {
+        > details > ul {
           margin: 0.35em 0 0;
           padding: 0 0 0 1em;
           border-top: 0;

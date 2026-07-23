@@ -29,22 +29,22 @@
                   <span>({{ job.projects.size }})</span>
                 {% endif %}
               </summary>
+              <ul aria-label="Projects at {{ job.name }}">
+                {% for project in job.projects %}
+                  {% assign project_slug = project.slug | default: project.name | slugify %}
+                  <li>
+                    <a href="#experience-{{ slug }}-project-{{ project_slug }}">
+                      {% if project.start %}
+                        <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                          {{ project.start | slice: 0, 4 }}
+                        </time>
+                      {% endif %}
+                      {{ project.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
             </details>
-            <ul aria-label="Projects at {{ job.name }}">
-              {% for project in job.projects %}
-                {% assign project_slug = project.slug | default: project.name | slugify %}
-                <li>
-                  <a href="#experience-{{ slug }}-project-{{ project_slug }}">
-                    {% if project.start %}
-                      <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
-                        {{ project.start | slice: 0, 4 }}
-                      </time>
-                    {% endif %}
-                    {{ project.name }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
           {% endif %}
         </li>
       {% endfor %}
@@ -94,85 +94,87 @@
 
         {% if job.projects and job.projects.size > 0 %}
           <details>
-            <summary>
-              Projects
-              {% if job.projects.size > 1 %}
-                <span>({{ job.projects.size }})</span>
-              {% endif %}
+            <summary class="projects-toggle">
+              <span class="projects-toggle__chip">
+                <span class="projects-toggle__label">View projects</span>
+                {% if job.projects.size > 1 %}
+                  <span class="projects-toggle__count">{{ job.projects.size }}</span>
+                {% endif %}
+              </span>
             </summary>
-          </details>
 
-          <div>
-            {% if job.projects.size > 1 %}
-              <nav aria-label="Projects at {{ job.name }}">
-                <ul>
-                  {% for project in job.projects %}
-                    {% assign project_slug = project.slug | default: project.name | slugify %}
-                    <li>
-                      <a href="#experience-{{ slug }}-project-{{ project_slug }}">
-                        {% if project.start %}
-                          <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
-                            {{ project.start | slice: 0, 4 }}
-                          </time>
+            <div class="projects-panel">
+              {% if job.projects.size > 1 %}
+                <nav aria-label="Projects at {{ job.name }}">
+                  <ul>
+                    {% for project in job.projects %}
+                      {% assign project_slug = project.slug | default: project.name | slugify %}
+                      <li>
+                        <a href="#experience-{{ slug }}-project-{{ project_slug }}">
+                          {% if project.start %}
+                            <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                              {{ project.start | slice: 0, 4 }}
+                            </time>
+                          {% endif %}
+                          {{ project.name }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </nav>
+              {% endif %}
+
+              {% for project in job.projects %}
+                {% assign project_slug = project.slug | default: project.name | slugify %}
+                <section
+                  id="experience-{{ slug }}-project-{{ project_slug }}"
+                  aria-labelledby="experience-{{ slug }}-project-{{ project_slug }}-heading"
+                  tabindex="-1"
+                >
+                  <article>
+                    <header>
+                      <h5 id="experience-{{ slug }}-project-{{ project_slug }}-heading">
+                        {% if project.link %}
+                          <a href="{{ project.link }}"{% if project.link contains 'http' %} rel="external" target="_blank"{% endif %}>{{ project.name }}</a>
+                        {% else %}
+                          {{ project.name }}
                         {% endif %}
-                        {{ project.name }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </nav>
-            {% endif %}
-
-            {% for project in job.projects %}
-              {% assign project_slug = project.slug | default: project.name | slugify %}
-              <section
-                id="experience-{{ slug }}-project-{{ project_slug }}"
-                aria-labelledby="experience-{{ slug }}-project-{{ project_slug }}-heading"
-                tabindex="-1"
-              >
-                <article>
-                  <header>
-                    <h5 id="experience-{{ slug }}-project-{{ project_slug }}-heading">
-                      {% if project.link %}
-                        <a href="{{ project.link }}"{% if project.link contains 'http' %} rel="external" target="_blank"{% endif %}>{{ project.name }}</a>
-                      {% else %}
-                        {{ project.name }}
+                      </h5>
+                      {% if project.role or project.start or project.location or project.domain %}
+                        <p>
+                          {% if project.role %}<span>{{ project.role }}</span>{% endif %}
+                          {% if project.start %}
+                            {% if project.role %} · {% endif %}
+                            <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
+                              {% assign project_start_year = project.start | slice: 0, 4 %}
+                              {% if project.current %}
+                                {{ project_start_year }} – Present
+                              {% elsif project.end %}
+                                {{ project_start_year }} – {{ project.end | slice: 0, 4 }}
+                              {% else %}
+                                {{ project_start_year }}
+                              {% endif %}
+                            </time>
+                          {% endif %}
+                          {% if project.location %}
+                            {% if project.role or project.start %} · {% endif %}
+                            <span>{{ project.location }}</span>
+                          {% endif %}
+                          {% if project.domain %}
+                            {% if project.role or project.start or project.location %} · {% endif %}
+                            <span>{{ project.domain }}</span>
+                          {% endif %}
+                        </p>
                       {% endif %}
-                    </h5>
-                    {% if project.role or project.start or project.location or project.domain %}
-                      <p>
-                        {% if project.role %}<span>{{ project.role }}</span>{% endif %}
-                        {% if project.start %}
-                          {% if project.role %} · {% endif %}
-                          <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
-                            {% assign project_start_year = project.start | slice: 0, 4 %}
-                            {% if project.current %}
-                              {{ project_start_year }} – Present
-                            {% elsif project.end %}
-                              {{ project_start_year }} – {{ project.end | slice: 0, 4 }}
-                            {% else %}
-                              {{ project_start_year }}
-                            {% endif %}
-                          </time>
-                        {% endif %}
-                        {% if project.location %}
-                          {% if project.role or project.start %} · {% endif %}
-                          <span>{{ project.location }}</span>
-                        {% endif %}
-                        {% if project.domain %}
-                          {% if project.role or project.start or project.location %} · {% endif %}
-                          <span>{{ project.domain }}</span>
-                        {% endif %}
-                      </p>
+                    </header>
+                    {% if project.description and project.description != blank %}
+                      <div>{{ project.description | markdownify }}</div>
                     {% endif %}
-                  </header>
-                  {% if project.description and project.description != blank %}
-                    <div>{{ project.description | markdownify }}</div>
-                  {% endif %}
-                </article>
-              </section>
-            {% endfor %}
-          </div>
+                  </article>
+                </section>
+              {% endfor %}
+            </div>
+          </details>
         {% endif %}
 
         {% if job.tech and job.tech.size > 0 %}
@@ -190,39 +192,4 @@
   </section>
 </section>
 
-<style>
-  {% for job in site.data.experience %}
-    {% assign slug = job.slug | default: job.name | slugify %}
-    section#experience:has(#experience-{{ slug }}:target) > nav a[href="#experience-{{ slug }}"] {
-      color: #A8FEFF;
-      font-weight: 600;
-    }
-    section#experience:has(#experience-{{ slug }}:target) > nav a[href="#experience-{{ slug }}"] time {
-      color: inherit;
-      opacity: 0.85;
-    }
-    section#experience:has(#experience-{{ slug }}:target) > nav > ul > li:has(> a[href="#experience-{{ slug }}"])::before {
-      background-color: #A8FEFF;
-      box-shadow: 0 0 0 2px #A8FEFF;
-    }
-    {% for project in job.projects %}
-      {% assign project_slug = project.slug | default: project.name | slugify %}
-      {% capture project_id %}experience-{{ slug }}-project-{{ project_slug }}{% endcapture %}
-      section#experience:has(#{{ project_id }}:target) > nav a[href="#{{ project_id }}"] {
-        color: #A8FEFF;
-        font-weight: 600;
-      }
-      section#experience:has(#{{ project_id }}:target) > nav a[href="#{{ project_id }}"] time {
-        color: inherit;
-        opacity: 0.85;
-      }
-      section#experience:has(#{{ project_id }}:target) > nav > ul > li > details + ul > li:has(a[href="#{{ project_id }}"])::before {
-        background-color: #A8FEFF;
-        border-color: #A8FEFF;
-      }
-      section#experience:has(#{{ project_id }}:target) > nav > ul > li:has(> ul a[href="#{{ project_id }}"]) > details:not([open]) + ul {
-        display: block;
-      }
-    {% endfor %}
-  {% endfor %}
-</style>
+<script src="{{ '/assets/js/experience.js' | relative_url }}" defer></script>
