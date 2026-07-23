@@ -45,6 +45,8 @@ permalink: /:categories/:title
 collections:
   category:
     output: true
+include:
+  - _headers
 exclude:
   - README.md
   - .sass-cache/

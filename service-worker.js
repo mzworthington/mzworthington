@@ -1,4 +1,4 @@
-const cacheName = "mzworthington-v2";
+const cacheName = "mzworthington-v3";
 
 const precacheResources = [
   "/",
@@ -17,6 +17,10 @@ const precacheResources = [
   "/assets/js/experience.js",
 ];
 
+function isStaticAsset(url) {
+  return url.origin === self.location.origin && url.pathname.startsWith("/assets/");
+}
+
 async function precache(cache) {
   await Promise.all(
     precacheResources.map(async (url) => {
@@ -27,6 +31,42 @@ async function precache(cache) {
       }
     })
   );
+}
+
+async function staleWhileRevalidate(request) {
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(request);
+
+  const networkResponsePromise = fetch(request)
+    .then((response) => {
+      if (response.ok) {
+        cache.put(request, response.clone());
+      }
+
+      return response;
+    })
+    .catch(() => cachedResponse);
+
+  return cachedResponse || networkResponsePromise;
+}
+
+async function networkFirst(request) {
+  try {
+    return await fetch(request);
+  } catch (_error) {
+    const cache = await caches.open(cacheName);
+    const cachedResponse = await cache.match(request);
+    if (cachedResponse) return cachedResponse;
+
+    if (request.mode === "navigate") {
+      return cache.match("/offline.html");
+    }
+
+    return new Response("Offline", {
+      status: 503,
+      statusText: "Service Unavailable",
+    });
+  }
 }
 
 self.addEventListener("install", (event) => {
@@ -54,24 +94,12 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
-  event.respondWith(
-    (async () => {
-      try {
-        return await fetch(event.request);
-      } catch (_error) {
-        const cache = await caches.open(cacheName);
-        const cachedResponse = await cache.match(event.request);
-        if (cachedResponse) return cachedResponse;
+  const requestUrl = new URL(event.request.url);
 
-        if (event.request.mode === "navigate") {
-          return cache.match("/offline.html");
-        }
+  if (isStaticAsset(requestUrl)) {
+    event.respondWith(staleWhileRevalidate(event.request));
+    return;
+  }
 
-        return new Response("Offline", {
-          status: 503,
-          statusText: "Service Unavailable",
-        });
-      }
-    })()
-  );
+  event.respondWith(networkFirst(event.request));
 });

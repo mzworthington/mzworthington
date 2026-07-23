@@ -1,0 +1,11 @@
+# Applied by hosts that support _headers (e.g. Cloudflare Pages, Netlify).
+# GitHub Pages ignores this file and always serves max-age=600.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable

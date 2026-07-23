@@ -4,7 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#D8DADD">
 {%- seo -%}
-<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+{%- assign hero_image = page.image | default: site.author.picture -%}
+{%- assign styles_url = "/assets/css/style.css" | relative_url -%}
+<link rel="preload" href="{{ styles_url }}" as="style">
+<link rel="stylesheet" href="{{ styles_url }}">
+{%- if hero_image -%}
+<link rel="preload" href="{{ hero_image | relative_url }}" as="image" type="image/webp" fetchpriority="high">
+{%- endif -%}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/apple-touch-icon.png" | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon-32x32.png" | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon-16x16.png" | relative_url }}">
