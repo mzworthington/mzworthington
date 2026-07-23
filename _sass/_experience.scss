@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:color";
 @use "skins/dark" as *;
 @use "initialize" as *;
 
@@ -7,7 +8,7 @@ $timeline-gap: math.div($spacing-unit * 1.5, $base-font-size) * 1rem;
 $timeline-dot-size: 0.65em;
 $timeline-track-inset: 0.75em;
 $mobile-sticky-nav-height: 4.5rem;
-$project-sticky-nav-height: 3.5rem;
+$project-sticky-nav-height: 4.25rem;
 
 @mixin sticky-timeline-nav($top: 0, $z-index: 10) {
   position: sticky;
@@ -36,7 +37,7 @@ $project-sticky-nav-height: 3.5rem;
     }
 
     &::after {
-      display: none;
+      content: none;
     }
 
     &:hover {
@@ -49,26 +50,15 @@ $project-sticky-nav-height: 3.5rem;
   display: flex;
   gap: 0;
   margin: 0;
-  padding: 0;
+  padding: 0 0.75em;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
+  scroll-padding-inline: 0.75em;
   list-style: none;
   position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: calc(#{$timeline-track-inset} + #{$timeline-dot-size} / 2 - 1px);
-    height: 2px;
-    background-color: $border-color-01;
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
 @mixin timeline-nav-items {
@@ -200,7 +190,7 @@ section#experience {
 
     > ul > li.is-active::before {
       background-color: $link-base-color;
-      box-shadow: 0 0 0 2px $link-base-color;
+      border-color: $link-base-color;
     }
 
     > ul > li > details > ul > li.is-active::before {
@@ -264,6 +254,12 @@ section#experience {
     }
   }
 
+  nav a {
+    &::after {
+      content: none;
+    }
+  }
+
   nav a.is-active {
     color: $link-base-color;
     font-weight: 600;
@@ -279,10 +275,8 @@ section#experience {
       scroll-margin-top: 1.5em;
       margin-bottom: $spacing-unit * 1.5;
       padding-bottom: $spacing-unit;
-      border-bottom: 1px solid $border-color-01;
 
       &:last-child {
-        border-bottom: 0;
         padding-bottom: 0;
       }
 
@@ -345,7 +339,7 @@ section#experience {
 
             > ul > li.is-active::before {
               background-color: $link-base-color;
-              box-shadow: 0 0 0 2px $link-base-color;
+              border-color: $link-base-color;
             }
           }
 
@@ -355,7 +349,6 @@ section#experience {
             &:not(:last-child) {
               margin-bottom: $spacing-unit;
               padding-bottom: $spacing-unit;
-              border-bottom: 1px solid $border-color-01;
             }
 
             article {
@@ -431,8 +424,17 @@ section#experience {
   > section > section > details .projects-panel:has(> nav) {
     > nav {
       @include sticky-timeline-nav(0, 10);
-      padding-top: 0.35em;
-      padding-bottom: 0.25em;
+      padding-top: 1em;
+      padding-bottom: 0.75em;
+
+      > ul {
+        padding-top: 0.35em;
+        padding-bottom: 0.2em;
+      }
+
+      > ul > li {
+        padding-top: 0.25em;
+      }
     }
 
     > section {
@@ -443,11 +445,20 @@ section#experience {
   @media screen and (max-width: #{ $on-large - 1px }) {
     > nav {
       @include sticky-timeline-nav(0, 20);
+      background-color: $background-color-light;
+      overflow: visible;
       padding-top: 0.35em;
+      padding-bottom: 0.5em;
       margin-left: -1em;
       margin-right: -1em;
       padding-left: 1em;
       padding-right: 1em;
+      border-bottom: 1px solid $border-color-01;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+
+      > ul > li::before {
+        border-color: $background-color-light;
+      }
     }
 
     > section > section {
@@ -457,10 +468,29 @@ section#experience {
     > section > section > details .projects-panel:has(> nav) {
       > nav {
         top: $mobile-sticky-nav-height;
+        background-color: color.adjust($background-color-light, $lightness: -4%);
+        overflow: visible;
         margin-left: -1em;
         margin-right: -1em;
+        padding-top: 1em;
         padding-left: 1em;
         padding-right: 1em;
+        padding-bottom: 0.75em;
+
+        > ul {
+          padding-top: 0.35em;
+          padding-bottom: 0.2em;
+        }
+
+        > ul > li {
+          padding-top: 0.25em;
+        }
+        border-bottom: 1px solid $border-color-01;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+
+        > ul > li::before {
+          border-color: color.adjust($background-color-light, $lightness: -4%);
+        }
       }
 
       > section {
@@ -509,13 +539,14 @@ section#experience {
       grid-column: 1;
       grid-row: 1;
       margin-bottom: 0;
+      overflow: visible;
       @include sticky-timeline-nav(1.5em, 10);
       align-self: start;
 
       ul {
         flex-direction: column;
-        overflow-x: visible;
-        padding: 0 0 0 1.25em;
+        overflow: visible;
+        padding: 1em 0.5em 0 1.5em;
         border-left: 2px solid $border-color-01;
 
         &::before {

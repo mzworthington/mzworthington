@@ -74,15 +74,21 @@
     return getFocusedSectionAt(getJobSections(), getEmploymentStickyOffset());
   }
 
-  function scrollTimelineToActive(panel) {
-    var activeItem = panel.querySelector("nav li.is-active");
-    var list = panel.querySelector("nav ul");
+  function scrollNavTimelineToActive(nav) {
+    if (!nav) return;
+
+    var activeItem = nav.querySelector("ul > li.is-active");
+    var list = nav.querySelector("ul");
     if (!activeItem || !list) return;
 
     var listRect = list.getBoundingClientRect();
     var itemRect = activeItem.getBoundingClientRect();
+    var edgePadding = 12;
 
-    if (itemRect.left >= listRect.left && itemRect.right <= listRect.right) {
+    if (
+      itemRect.left >= listRect.left + edgePadding &&
+      itemRect.right <= listRect.right - edgePadding
+    ) {
       return;
     }
 
@@ -93,6 +99,10 @@
       left: Math.max(0, targetLeft),
       behavior: "smooth",
     });
+  }
+
+  function scrollTimelineToActive(panel) {
+    scrollNavTimelineToActive(panel && panel.querySelector(":scope > nav"));
   }
 
   function scrollToProjectSection(section) {
@@ -114,6 +124,10 @@
     if (projectSection) {
       markActive("#" + projectSection.id);
       if (scrollTimeline && panel) scrollTimelineToActive(panel);
+    }
+
+    if (scrollTimeline) {
+      scrollNavTimelineToActive(experience.querySelector(":scope > nav"));
     }
   }
 
@@ -161,12 +175,12 @@
     var current = getActiveState();
 
     if (current.jobId === nextJobId && current.projectId === nextProjectId) {
+      scrollNavTimelineToActive(experience.querySelector(":scope > nav"));
       if (panel && projectSection) scrollTimelineToActive(panel);
       return;
     }
 
-    applyActiveState(jobSection, projectSection, panel);
-    if (panel && projectSection) scrollTimelineToActive(panel);
+    applyActiveState(jobSection, projectSection, panel, { scrollTimeline: true });
   }
 
   function onScroll() {
@@ -196,6 +210,7 @@
 
     if (target.matches("section[id^='experience-']")) {
       markActive("#" + target.id);
+      scrollNavTimelineToActive(experience.querySelector(":scope > nav"));
     }
   }
 
