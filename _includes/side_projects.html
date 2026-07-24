@@ -1,8 +1,17 @@
-{%- if site.data.side_projects and site.data.side_projects.size > 0 -%}
+{%- assign side_projects_data = site.data.side_projects -%}
+{%- if side_projects_data.projects -%}
+  {%- assign side_projects = side_projects_data.projects -%}
+{%- else -%}
+  {%- assign side_projects = side_projects_data -%}
+{%- endif -%}
+{%- if side_projects and side_projects.size > 0 -%}
 <section aria-label="Side projects">
   <h2>Side projects</h2>
+  {%- if side_projects_data.intro and side_projects_data.intro != blank -%}
+    <p>{{ side_projects_data.intro | strip }}</p>
+  {%- endif -%}
   <ul>
-    {%- for project in site.data.side_projects -%}
+    {%- for project in side_projects -%}
       {%- assign project_link = project.link | strip -%}
       {%- assign is_external = false -%}
       {%- if project_link contains '://' -%}

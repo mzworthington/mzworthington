@@ -1,19 +1,23 @@
-- title: Blueprint
-  description: |
-    A local-first visual canvas for systems architecture, with bi-directional sync between diagrams and YAML schemas, plus a CLI that generates layouts from your codebase.
-  link: https://blueprint.mzworthington.co.uk
+intro: |
+  I build alongside the teams I lead, focused on the same problems I prioritise as an engineering leader: architecture clarity, developer experience, delivery standards, and operational visibility.
 
-- title: Agent Lifecycle Kit
-  description: |
-    Shared standards and playbooks for AI-assisted development — spec, TDD, architecture, stack profiles, and handover templates for consistent agent workflows across projects.
-  link: https://github.com/mzworthington/agent-lifecycle-kit
+projects:
+  - title: Blueprint
+    description: |
+      Local-first architecture canvas with bi-directional diagram and YAML sync, plus a CLI that scans your codebase to generate system maps.
+    link: https://blueprint.mzworthington.co.uk
 
-- title: Setup
-  description: |
-    Bootstrap scripts and helpers for machine setup, pairing, installing software, and getting new projects off the ground quickly.
-  link: https://github.com/mzworthington/setup
-  
-- title: GPIO build monitor
-  description: |
-    A Raspberry Pi desk light that shows CI status at a glance, aggregating GitHub Actions and CircleCI across your repos.
-  link: https://github.com/mzworthington/gpio-build-monitor
+  - title: Agent Lifecycle Kit
+    description: |
+      Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.
+    link: https://github.com/mzworthington/agent-lifecycle-kit
+
+  - title: Setup
+    description: |
+      Bootstrap scripts for machine setup, pairing, installing tooling, and getting a new project environment running quickly.
+    link: https://github.com/mzworthington/setup
+
+  - title: GPIO build monitor
+    description: |
+      A Raspberry Pi desk light that shows GitHub Actions and CircleCI status at a glance across your repos.
+    link: https://github.com/mzworthington/gpio-build-monitor

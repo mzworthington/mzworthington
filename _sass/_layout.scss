@@ -206,6 +206,10 @@ article > section[aria-label="Side projects"] > ul:has(> li > a > h3) {
     flex: 0 0 12rem;
     scroll-snap-align: start;
   }
+
+  li > a footer {
+    font-weight: 600;
+  }
 }
 
 article > section:last-of-type > ul:has(> li > a > h3) {

@@ -7,7 +7,7 @@ $timeline-width: 12rem;
 $timeline-gap: math.div($spacing-unit * 1.5, $base-font-size) * 1rem;
 $timeline-dot-size: 0.65em;
 $timeline-track-inset: 0.75em;
-$mobile-sticky-nav-height: 4.5rem;
+$mobile-sticky-nav-height: 5.25rem;
 $project-sticky-nav-height: 4.25rem;
 
 @mixin sticky-timeline-nav($top: 0, $z-index: 10) {
@@ -15,6 +15,30 @@ $project-sticky-nav-height: 4.25rem;
   top: $top;
   z-index: $z-index;
   background-color: $background-color;
+}
+
+@mixin mobile-sticky-timeline-nav-bar($background, $top: 0, $z-index: 20) {
+  @include sticky-timeline-nav($top, $z-index);
+  background-color: $background;
+  overflow: visible;
+  margin-left: -1em;
+  margin-right: -1em;
+  padding: 1em 1em 0.75em;
+  border-bottom: 1px solid $border-color-01;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+
+  > ul {
+    margin: 0;
+    padding: 0.35em 0.75em 0.2em;
+  }
+
+  > ul > li {
+    padding-top: 0.25em;
+
+    &::before {
+      border-color: $background;
+    }
+  }
 }
 
 @mixin timeline-nav-links {
@@ -432,57 +456,25 @@ section#experience {
 
   @media screen and (max-width: #{ $on-large - 1px }) {
     > nav {
-      @include sticky-timeline-nav(0, 20);
-      background-color: $background-color-light;
-      overflow: visible;
-      padding-top: 0.35em;
-      padding-bottom: 0.5em;
-      margin-left: -1em;
-      margin-right: -1em;
-      padding-left: 1em;
-      padding-right: 1em;
-      border-bottom: 1px solid $border-color-01;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-
-      > ul > li::before {
-        border-color: $background-color-light;
-      }
+      @include mobile-sticky-timeline-nav-bar($background-color-light);
     }
 
     > section > section {
-      scroll-margin-top: $mobile-sticky-nav-height;
+      scroll-margin-top: var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height});
     }
 
     > section > section > details .projects-panel:has(> nav) {
       > nav {
-        top: $mobile-sticky-nav-height;
-        background-color: color.adjust($background-color-light, $lightness: -4%);
-        overflow: visible;
-        margin-left: -1em;
-        margin-right: -1em;
-        padding-top: 1em;
-        padding-left: 1em;
-        padding-right: 1em;
-        padding-bottom: 0.75em;
-
-        > ul {
-          padding-top: 0.35em;
-          padding-bottom: 0.2em;
-        }
-
-        > ul > li {
-          padding-top: 0.25em;
-        }
-        border-bottom: 1px solid $border-color-01;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-
-        > ul > li::before {
-          border-color: color.adjust($background-color-light, $lightness: -4%);
-        }
+        @include mobile-sticky-timeline-nav-bar(
+          color.adjust($background-color-light, $lightness: -4%),
+          var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height})
+        );
       }
 
       > section {
-        scroll-margin-top: calc(#{$mobile-sticky-nav-height} + #{$project-sticky-nav-height} + 0.5rem);
+        scroll-margin-top: calc(
+          var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height}) + #{$project-sticky-nav-height} + 0.5rem
+        );
       }
     }
   }

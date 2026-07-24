@@ -5,6 +5,7 @@
   var mobileQuery = window.matchMedia("(max-width: 799px)");
   var syncingFromScroll = false;
   var scrollRaf = null;
+  var stickyOffsetRaf = null;
 
   function getJobSections() {
     return experience.querySelectorAll(":scope > section > section[id^='experience-']");
@@ -34,8 +35,34 @@
     });
   }
 
+  function getEmploymentNav() {
+    return experience.querySelector(":scope > nav");
+  }
+
+  function updateStickyNavOffsets() {
+    if (!mobileQuery.matches) {
+      experience.style.removeProperty("--employment-sticky-nav-height");
+      return;
+    }
+
+    var employmentNav = getEmploymentNav();
+    if (!employmentNav) return;
+
+    var height = Math.ceil(employmentNav.getBoundingClientRect().height);
+    experience.style.setProperty("--employment-sticky-nav-height", height + "px");
+  }
+
+  function scheduleStickyNavOffsetUpdate() {
+    if (stickyOffsetRaf) return;
+
+    stickyOffsetRaf = window.requestAnimationFrame(function () {
+      stickyOffsetRaf = null;
+      updateStickyNavOffsets();
+    });
+  }
+
   function getEmploymentStickyOffset() {
-    var employmentNav = experience.querySelector(":scope > nav");
+    var employmentNav = getEmploymentNav();
 
     if (employmentNav && mobileQuery.matches) {
       return employmentNav.getBoundingClientRect().bottom + 8;
@@ -247,6 +274,7 @@
 
   function bindDetailsToggle(details) {
     details.addEventListener("toggle", function () {
+      scheduleStickyNavOffsetUpdate();
       window.requestAnimationFrame(updateActiveFromScroll);
     });
   }
@@ -255,8 +283,20 @@
   experience.querySelectorAll("section[id^='experience-'] > details").forEach(bindDetailsToggle);
 
   closeAllProjectDetails();
+  updateStickyNavOffsets();
   syncFromHash();
   window.addEventListener("hashchange", syncFromHash);
   window.addEventListener("scroll", onScroll, { passive: true });
-  mobileQuery.addEventListener("change", syncFromHash);
+  window.addEventListener("resize", scheduleStickyNavOffsetUpdate);
+  mobileQuery.addEventListener("change", function () {
+    scheduleStickyNavOffsetUpdate();
+    syncFromHash();
+  });
+
+  if (typeof ResizeObserver !== "undefined") {
+    var employmentNav = getEmploymentNav();
+    if (employmentNav) {
+      new ResizeObserver(scheduleStickyNavOffsetUpdate).observe(employmentNav);
+    }
+  }
 })();
