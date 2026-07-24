@@ -12,3 +12,8 @@
   description: |
     Bootstrap scripts and helpers for machine setup, pairing, installing software, and getting new projects off the ground quickly.
   link: https://github.com/mzworthington/setup
+
+- title: Agent Lifecycle Kit
+  description: |
+    Shared standards and playbooks for AI-assisted development — spec, TDD, architecture, stack profiles, and handover templates for consistent agent workflows across projects.
+  link: https://github.com/mzworthington/agent-lifecycle-kit
