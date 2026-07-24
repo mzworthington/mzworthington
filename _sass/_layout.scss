@@ -194,6 +194,20 @@ article > section {
   }
 }
 
+article > section[aria-label="Side projects"] > ul:has(> li > a > h3) {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
+
+  li {
+    flex: 0 0 12rem;
+    scroll-snap-align: start;
+  }
+}
+
 article > section:last-of-type > ul:has(> li > a > h3) {
   padding-bottom: $footer-size;
 }
