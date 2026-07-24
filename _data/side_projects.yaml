@@ -3,17 +3,17 @@
     A local-first visual canvas for systems architecture, with bi-directional sync between diagrams and YAML schemas, plus a CLI that generates layouts from your codebase.
   link: https://blueprint.mzworthington.co.uk
 
-- title: GPIO build monitor
+- title: Agent Lifecycle Kit
   description: |
-    A Raspberry Pi desk light that shows CI status at a glance, aggregating GitHub Actions and CircleCI across your repos.
-  link: https://github.com/mzworthington/gpio-build-monitor
+    Shared standards and playbooks for AI-assisted development — spec, TDD, architecture, stack profiles, and handover templates for consistent agent workflows across projects.
+  link: https://github.com/mzworthington/agent-lifecycle-kit
 
 - title: Setup
   description: |
     Bootstrap scripts and helpers for machine setup, pairing, installing software, and getting new projects off the ground quickly.
   link: https://github.com/mzworthington/setup
-
-- title: Agent Lifecycle Kit
+  
+- title: GPIO build monitor
   description: |
-    Shared standards and playbooks for AI-assisted development — spec, TDD, architecture, stack profiles, and handover templates for consistent agent workflows across projects.
-  link: https://github.com/mzworthington/agent-lifecycle-kit
+    A Raspberry Pi desk light that shows CI status at a glance, aggregating GitHub Actions and CircleCI across your repos.
+  link: https://github.com/mzworthington/gpio-build-monitor
