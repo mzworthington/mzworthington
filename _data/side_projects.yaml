@@ -12,10 +12,10 @@ projects:
       Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.
     link: https://github.com/mzworthington/agent-lifecycle-kit
 
-  - title: Setup
+  - title: dotfiles
     description: |
-      Bootstrap scripts for machine setup, pairing, installing tooling, and getting a new project environment running quickly.
-    link: https://github.com/mzworthington/setup
+      Personal macOS machine setup: shell config, Homebrew and mise tooling, and bootstrap scripts for a fresh machine.
+    link: https://github.com/mzworthington/dotfiles
 
   - title: GPIO build monitor
     description: |
