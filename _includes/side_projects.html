@@ -1,40 +1,43 @@
 {%- assign side_projects_data = site.data.side_projects -%}
-{%- if side_projects_data.projects -%}
-  {%- assign side_projects = side_projects_data.projects -%}
-{%- else -%}
-  {%- assign side_projects = side_projects_data -%}
-{%- endif -%}
-{%- if side_projects and side_projects.size > 0 -%}
-<section aria-label="Side projects">
-  <h2>Side projects</h2>
+{%- if side_projects_data.groups or side_projects_data.projects -%}
+<section aria-label="Open source">
+  <h2>Open source</h2>
   {%- if side_projects_data.intro and side_projects_data.intro != blank -%}
     <p>{{ side_projects_data.intro | strip }}</p>
   {%- endif -%}
-  <ul>
-    {%- for project in side_projects -%}
-      {%- assign project_link = project.link | strip -%}
-      {%- assign is_external = false -%}
-      {%- if project_link contains '://' -%}
-        {%- assign is_external = true -%}
-      {%- endif -%}
-      <li>
-        <a
-          href="{{ project_link | escape }}"
-          {%- if is_external %} target="_blank" rel="noopener noreferrer"{% endif -%}
-        >
-          <h3>{{ project.title | escape }}</h3>
-          {%- if project.description and project.description != blank -%}
-            <p>{{ project.description | strip }}</p>
+
+  {%- for group in side_projects_data.groups -%}
+    <section class="side-project-group" aria-label="{{ group.title | escape }}">
+      <header class="side-project-group__header">
+        <h3 class="side-project-group__title">
+          {%- assign group_link = group.link | strip -%}
+          {%- if group_link != blank -%}
+            <a
+              href="{{ group_link | escape }}"
+              {%- if group_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif -%}
+            >{{ group.title | escape }}</a>
+          {%- else -%}
+            {{ group.title | escape }}
           {%- endif -%}
-          {%- if project_link != blank -%}
-            <footer>
-              {%- assign link_display = project_link | remove: 'https://' | remove: 'http://' | remove: 'www.' -%}
-              {{ link_display | escape }}
-            </footer>
-          {%- endif -%}
-        </a>
-      </li>
-    {%- endfor -%}
-  </ul>
+        </h3>
+        {%- if group.description and group.description != blank -%}
+          <p class="side-project-group__description">{{ group.description | strip }}</p>
+        {%- endif -%}
+      </header>
+      <ul class="side-project-cards">
+        {%- for item in group.projects -%}
+          {%- include side_project_card.html project=item -%}
+        {%- endfor -%}
+      </ul>
+    </section>
+  {%- endfor -%}
+
+  {%- if side_projects_data.projects and side_projects_data.projects.size > 0 -%}
+    <ul class="side-project-cards">
+      {%- for project in side_projects_data.projects -%}
+        {%- include side_project_card.html project=project -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
 </section>
 {%- endif -%}

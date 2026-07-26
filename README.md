@@ -7,4 +7,4 @@ Engineering leader with twenty years building and scaling software organisations
 
 I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work, including wellbeing and professional growth, not as perks but as part of how good software gets built.
 
-Check out my side project, [Blueprint](https://blueprint.mzworthington.co.uk/).
+Check out [Blueprint](https://blueprint.mzworthington.co.uk/) — Canvas, CLI, BlueprintSpec, TraceLens, and ChaosLens for living systems architecture.

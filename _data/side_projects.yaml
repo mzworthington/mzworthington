@@ -1,12 +1,38 @@
 intro: |
   I build alongside the teams I lead, focused on the same problems I prioritise as an engineering leader: architecture clarity, developer experience, delivery standards, and operational visibility.
 
-projects:
+groups:
   - title: Blueprint
     description: |
-      Local-first architecture canvas with bi-directional diagram and YAML sync, plus a CLI that scans your codebase to generate system maps.
+      See and edit systems architecture as living diagrams that stay faithful to BlueprintSpec.
     link: https://blueprint.mzworthington.co.uk
+    projects:
+      - title: Blueprint Canvas
+        description: |
+          Local-first C4 workspace with bi-directional YAML sync, Mermaid import, and property editing.
+        link: https://blueprint.mzworthington.co.uk/workspace
 
+      - title: Blueprint CLI
+        description: |
+          Static analysis that discovers systems, components, and dependencies — writes blueprint YAML from your codebase.
+        link: https://blueprint.mzworthington.co.uk/guide/cli
+
+      - title: BlueprintSpec
+        description: |
+          Declarative architecture contract — public schema URLs, entityRef identity, and validation rules.
+        link: https://blueprint.mzworthington.co.uk/guide/schema
+
+      - title: TraceLens
+        description: |
+          Structural and behavioural signals from AST complexity and git history, attached to nodes as forensics.
+        link: https://blueprint.mzworthington.co.uk/guide/forensics
+
+      - title: ChaosLens
+        description: |
+          Fault injection, blast-radius heatmap, and SLA telemetry on the live diagram.
+        link: https://blueprint.mzworthington.co.uk/guide/resilience
+
+projects:
   - title: Agent Lifecycle Kit
     description: |
       Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.

@@ -1,0 +1,23 @@
+{%- assign project = include.project -%}
+{%- assign project_link = project.link | strip -%}
+{%- assign is_external = false -%}
+{%- if project_link contains '://' -%}
+  {%- assign is_external = true -%}
+{%- endif -%}
+<li>
+  <a
+    href="{{ project_link | escape }}"
+    {%- if is_external %} target="_blank" rel="noopener noreferrer"{% endif -%}
+  >
+    <h3>{{ project.title | escape }}</h3>
+    {%- if project.description and project.description != blank -%}
+      <p>{{ project.description | strip }}</p>
+    {%- endif -%}
+    {%- if project_link != blank -%}
+      <footer>
+        {%- assign link_display = project_link | remove: 'https://' | remove: 'http://' | remove: 'www.' -%}
+        {{ link_display | escape }}
+      </footer>
+    {%- endif -%}
+  </a>
+</li>

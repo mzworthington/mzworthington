@@ -194,21 +194,123 @@ article > section {
   }
 }
 
-article > section[aria-label="Side projects"] > ul:has(> li > a > h3) {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scroll-snap-type: x proximity;
+article > section[aria-label="Open source"] {
+  .side-project-group {
+    margin-bottom: $spacing-unit;
 
-  li {
-    flex: 0 0 12rem;
-    scroll-snap-align: start;
+    &__header {
+      margin-bottom: $spacing-unit * 0.5;
+    }
+
+    &__title {
+      margin: $spacing-unit 0 $spacing-unit * 0.25;
+      font-size: $small-font-size * 1.1;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+
+      a {
+        color: $link-base-color;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+          color: $link-hover-color;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__description {
+      margin: 0 0 $spacing-unit * 0.5;
+      font-size: $small-font-size * 0.9;
+      color: $text-color;
+      line-height: 1.4;
+    }
   }
 
-  li > a footer {
-    font-weight: 600;
+  .side-project-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scroll-snap-type: x proximity;
+    gap: $spacing-unit * 0.75;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    padding-bottom: $spacing-unit;
+
+    > li {
+      flex: 0 0 12rem;
+      scroll-snap-align: start;
+      list-style: none;
+      height: 11rem;
+      margin: 0;
+      padding: 0;
+      border: 1px solid $border-color-01;
+      border-radius: 0.5em;
+      background-color: $background-color-light;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &:has(> a:hover),
+      &:has(> a:focus-visible) {
+        border-color: $link-base-color;
+        box-shadow:
+          0 0 0.65rem rgba($link-base-color, 0.45),
+          0 0 1.25rem rgba($link-base-color, 0.2);
+      }
+
+      > a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: $spacing-unit * 0.5 $spacing-unit * 0.6;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        h3 {
+          margin-top: 0;
+          margin-bottom: $spacing-unit * 0.2;
+          font-size: $small-font-size;
+          line-height: 1.25;
+          color: $link-base-color;
+        }
+
+        &:hover h3,
+        &:focus-visible h3 {
+          color: $link-hover-color;
+        }
+
+        > p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
+          flex: 1;
+          font-size: $small-font-size * 0.85;
+          color: $text-color;
+          line-height: 1.35;
+          margin: 0;
+        }
+
+        footer {
+          margin-top: auto;
+          padding-top: $spacing-unit * 0.25;
+          font-size: $small-font-size * 0.8;
+          color: $brand-color;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+      }
+    }
   }
 }
 
