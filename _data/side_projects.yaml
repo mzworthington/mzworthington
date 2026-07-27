@@ -10,7 +10,7 @@ groups:
       - title: Blueprint canvas
         description: |
           Local-first C4 workspace with bi-directional YAML sync - the place teams refine and govern the live diagram.
-        link: https://blueprint.mzworthington.co.uk/workspace
+        link: https://blueprint.mzworthington.co.uk/guide/canvas
 
       - title: Blueprint CLI
         description: |
@@ -20,12 +20,12 @@ groups:
       - title: TraceLens
         description: |
           Git churn, complexity, and coupling on every node - highlight hotspots and refactoring boundaries early.
-        link: https://blueprint.mzworthington.co.uk/guide/forensics
+        link: https://blueprint.mzworthington.co.uk/guide/tracelens
 
       - title: ChaosLens
         description: |
           Model faults on the live diagram, see blast radius and SLA impact, and catch single points of failure in review.
-        link: https://blueprint.mzworthington.co.uk/guide/resilience
+        link: https://blueprint.mzworthington.co.uk/guide/chaoslens
 
       - title: BlueprintSpec
         description: |
