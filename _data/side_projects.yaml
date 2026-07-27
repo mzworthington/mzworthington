@@ -4,33 +4,33 @@ intro: |
 groups:
   - title: Blueprint
     description: |
-      See and edit systems architecture as living diagrams that stay faithful to BlueprintSpec.
+      Platform, intelligence, resilience, and contract - composed around BlueprintSpec.
     link: https://blueprint.mzworthington.co.uk
     projects:
-      - title: Blueprint Canvas
+      - title: Blueprint canvas
         description: |
-          Local-first C4 workspace with bi-directional YAML sync, Mermaid import, and property editing.
+          Local-first C4 workspace with bi-directional YAML sync - the place teams refine and govern the live diagram.
         link: https://blueprint.mzworthington.co.uk/workspace
 
       - title: Blueprint CLI
         description: |
-          Static analysis that discovers systems, components, and dependencies — writes blueprint YAML from your codebase.
+          Static analysis that discovers systems, containers, and dependencies - keeping blueprints aligned with production.
         link: https://blueprint.mzworthington.co.uk/guide/cli
-
-      - title: BlueprintSpec
-        description: |
-          Declarative architecture contract — public schema URLs, entityRef identity, and validation rules.
-        link: https://blueprint.mzworthington.co.uk/guide/schema
 
       - title: TraceLens
         description: |
-          Structural and behavioural signals from AST complexity and git history, attached to nodes as forensics.
+          Git churn, complexity, and coupling on every node - highlight hotspots and refactoring boundaries early.
         link: https://blueprint.mzworthington.co.uk/guide/forensics
 
       - title: ChaosLens
         description: |
-          Fault injection, blast-radius heatmap, and SLA telemetry on the live diagram.
+          Model faults on the live diagram, see blast radius and SLA impact, and catch single points of failure in review.
         link: https://blueprint.mzworthington.co.uk/guide/resilience
+
+      - title: BlueprintSpec
+        description: |
+          Declarative YAML schema and entity references your CLI, canvas, and CI pipelines can validate against.
+        link: https://blueprint.mzworthington.co.uk/guide/schema
 
 projects:
   - title: Agent Lifecycle Kit
