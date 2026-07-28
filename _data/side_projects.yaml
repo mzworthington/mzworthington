@@ -2,35 +2,35 @@ intro: |
   I build alongside the teams I lead, focused on the same problems I prioritise as an engineering leader: architecture clarity, developer experience, delivery standards, and operational visibility.
 
 groups:
-  - title: Blueprint
+  - title: ArchLens
     description: |
       Platform, intelligence, resilience, and contract - composed around BlueprintSpec.
-    link: https://blueprint.mzworthington.co.uk
+    link: https://archlens.dev
     projects:
-      - title: Blueprint canvas
+      - title: ArchLens Canvas
         description: |
           Local-first C4 workspace with bi-directional YAML sync - the place teams refine and govern the live diagram.
-        link: https://blueprint.mzworthington.co.uk/guide/canvas
+        link: https://archlens.dev/guide/canvas
 
-      - title: Blueprint CLI
+      - title: ArchLens CLI
         description: |
-          Static analysis that discovers systems, containers, and dependencies - keeping blueprints aligned with production.
-        link: https://blueprint.mzworthington.co.uk/guide/cli
+          Static analysis that discovers systems, containers, and dependencies - keeping architecture aligned with production.
+        link: https://archlens.dev/guide/cli
 
       - title: TraceLens
         description: |
           Git churn, complexity, and coupling on every node - highlight hotspots and refactoring boundaries early.
-        link: https://blueprint.mzworthington.co.uk/guide/tracelens
+        link: https://archlens.dev/guide/tracelens
 
       - title: ChaosLens
         description: |
           Model faults on the live diagram, see blast radius and SLA impact, and catch single points of failure in review.
-        link: https://blueprint.mzworthington.co.uk/guide/chaoslens
+        link: https://archlens.dev/guide/chaoslens
 
       - title: BlueprintSpec
         description: |
           Declarative YAML schema and entity references your CLI, canvas, and CI pipelines can validate against.
-        link: https://blueprint.mzworthington.co.uk/guide/schema
+        link: https://archlens.dev/guide/schema
 
 projects:
   - title: Agent Lifecycle Kit
