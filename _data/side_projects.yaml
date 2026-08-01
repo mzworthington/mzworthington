@@ -14,7 +14,7 @@ groups:
 
       - title: ArchLens CLI
         description: |
-          Static analysis that discovers systems, containers, and dependencies - keeping architecture aligned with production.
+          Static analysis that discovers systems, containers, and dependencies - keeping blueprints aligned with production.
         link: https://archlens.dev/guide/cli
 
       - title: TraceLens
@@ -26,6 +26,11 @@ groups:
         description: |
           Model faults on the live diagram, see blast radius and SLA impact, and catch single points of failure in review.
         link: https://archlens.dev/guide/chaoslens
+
+      - title: AdviceLens
+        description: |
+          Merge TraceLens and ChaosLens signals into evidence-backed recommendations — studio, CLI, and CI.
+        link: https://archlens.dev/guide/advicelens
 
       - title: BlueprintSpec
         description: |
