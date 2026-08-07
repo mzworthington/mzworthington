@@ -50,7 +50,7 @@ projects:
 
   - title: React on Cloudflare
     description: |
-      Hosting, docs, and CI already wired — so day one is product work, not plumbing.
+      Hosting, docs, and CI already wired, so day one is product work, not plumbing.
     link: https://react-cloudflare-template.mzworthington.co.uk/
 
   - title: GPIO build monitor
