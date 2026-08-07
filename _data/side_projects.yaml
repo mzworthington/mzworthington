@@ -48,6 +48,11 @@ projects:
       Personal macOS machine setup: shell config, Homebrew and mise tooling, and bootstrap scripts for a fresh machine.
     link: https://github.com/mzworthington/dotfiles
 
+  - title: React on Cloudflare
+    description: |
+      Hosting, docs, and CI already wired — so day one is product work, not plumbing.
+    link: https://react-cloudflare-template.mzworthington.co.uk/
+
   - title: GPIO build monitor
     description: |
       A Raspberry Pi desk light that shows GitHub Actions and CircleCI status at a glance across your repos.

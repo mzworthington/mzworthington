@@ -7,4 +7,4 @@ Engineering leader with twenty years building and scaling software organisations
 
 I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work, including wellbeing and professional growth, not as perks but as part of how good software gets built.
 
-Check out [ArchLens](https://archlens.dev/) - Canvas, CLI, BlueprintSpec, TraceLens, ChaosLens, and AdviceLens for living systems architecture.
+Check out [ArchLens](https://archlens.dev/) - Canvas, CLI, BlueprintSpec, TraceLens, ChaosLens, and AdviceLens for living systems architecture. For a production-ready starting point, see the [React Cloudflare Template](https://react-cloudflare-template.mzworthington.co.uk/) ([GitHub](https://github.com/mzworthington/react-cloudflare-template)).
