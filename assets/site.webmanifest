@@ -15,7 +15,7 @@
             "purpose": "any maskable"
         }
     ],
-    "theme_color": "#D8DADD",
-    "background_color": "#485063",
+    "theme_color": "#1a2430",
+    "background_color": "#1a2430",
     "display": "standalone"
 }

@@ -1,29 +1,20 @@
-<header>
+<header class="site-hero">
    {%- assign default_paths = site.pages | map: "path" -%}
    {%- assign page_paths = site.header_pages | default: default_paths -%}
    {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-   <!-- <nav aria-label="header navigation">
-      <ul>
-         <li>
-            <a class="button" href="{{ "/" | relative_url }}">Home</a>
-         </li>
-         {%- for path in page_paths -%}
-         {%- assign my_page = site.pages | where: "path", path | first -%}
-         {%- if my_page.title -%}
-         <li>
-            <a class="button" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-         </li>
-         {%- endif -%}
-         {%- endfor -%}
-         <li>
-            <a class="button" target="_blank" href="{{ 'feed.xml' | relative_url }}">Subscribe</a>
-         </li>
-      </ul>
-   </nav> -->
-   <img loading="eager" fetchpriority="high" width="144" height="144" alt="{{ site.title | escape }}" src="{{ page.image | default: site.author.picture }}" />
-   <h1>{{ site.title | escape }}</h1>
-   <h2>{{ site.description}}</h2>
-   {%- if titles_size > 0 -%}
-   {%- include get_the_code.html -%}
-   {%- endif -%}
+   <img class="site-hero__visual" loading="eager" fetchpriority="high" width="176" height="176" alt="{{ site.author.name | escape }}" src="{{ page.image | default: site.author.picture }}" />
+   <p class="site-hero__brand">{{ site.author.name | escape }}</p>
+   <h1 class="site-hero__headline">{{ site.title | escape }}</h1>
+   <p class="site-hero__lede">{{ site.description }}</p>
+   <p class="site-hero__actions">
+      {%- if page.layout == "home" -%}
+      <a class="site-hero__cta" href="#experience">Experience</a>
+      {%- else -%}
+      <a class="site-hero__cta" href="{{ "/" | relative_url }}">Home</a>
+      {%- endif -%}
+      <a class="site-hero__cta site-hero__cta--ghost" href="mailto:{{ site.author.email }}">Contact</a>
+      {%- if titles_size > 0 -%}
+      {%- include get_the_code.html -%}
+      {%- endif -%}
+   </p>
 </header>

@@ -1,6 +1,6 @@
 @use "sass:math";
 @use "sass:color";
-@use "skins/dark" as *;
+@use "skins/mist" as *;
 @use "initialize" as *;
 
 $timeline-width: 12rem;
@@ -121,33 +121,36 @@ $project-sticky-nav-height: 4.25rem;
   .projects-toggle__chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.5em;
-    padding: 0.45em 1em 0.45em 0.85em;
-    border: 1px solid $link-base-color;
-    border-radius: 1.5em;
-    background-color: $background-color-light;
+    gap: 0.55em;
+    padding: 0.35em 0.15em 0.45em;
+    border: 0;
+    border-bottom: 1px solid rgba($link-base-color, 0.45);
+    border-radius: 0;
+    background: transparent;
     color: $link-base-color;
+    font-family: $display-font-family;
     font-size: $small-font-size;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: -0.01em;
     line-height: 1.4;
-    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    transition: color 0.2s ease, border-color 0.2s ease;
 
     &::before {
       content: "▸";
       display: inline-block;
-      margin-right: 0.15em;
-      transition: transform 0.15s ease;
+      margin-right: 0.1em;
+      font-family: $base-font-family;
+      transition: transform 0.2s ease;
     }
   }
 
   &:hover .projects-toggle__chip {
-    background-color: $link-base-color;
-    border-color: $link-base-color;
-    color: $background-color;
+    color: $link-hover-color;
+    border-bottom-color: $link-hover-color;
 
     .projects-toggle__count {
-      background-color: rgba($background-color, 0.2);
       color: inherit;
+      background: transparent;
     }
   }
 
@@ -155,11 +158,12 @@ $project-sticky-nav-height: 4.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 1.4em;
-    padding: 0.1em 0.5em;
-    border-radius: 1em;
-    background-color: $background-color;
-    color: $link-base-color;
+    min-width: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: $brand-color;
+    font-family: $base-font-family;
     font-size: 0.85em;
     font-weight: 600;
     line-height: 1.4;
@@ -498,9 +502,11 @@ section#experience {
 
     li {
       display: inline-block;
-      padding: 0.25em 1em;
-      border-radius: 1.5em;
-      background-color: $background-color-light;
+      padding: 0.2em 0.65em 0.25em;
+      border-radius: 0.15rem;
+      border: 1px solid $border-color-01;
+      background-color: transparent;
+      color: $brand-color-light;
       font-size: $small-font-size;
       line-height: 1.6;
     }
