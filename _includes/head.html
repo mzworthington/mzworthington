@@ -42,7 +42,9 @@
 {%- if page.layout == "home" -%}
   {%- assign hero_image = site.author.picture -%}
 {%- endif -%}
-{%- assign styles_url = "/assets/css/style.css" | relative_url -%}
+{%- comment -%} Bust CDN/browser cache when filenames are not content-hashed. {%- endcomment -%}
+{%- assign asset_v = site.time | date: "%s" -%}
+{%- assign styles_url = "/assets/css/style.css" | relative_url | append: "?v=" | append: asset_v -%}
 {%- assign fonts_url = "https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Fraunces:opsz,wght@9..144,450;9..144,560&family=Source+Sans+3:wght@400;600&display=swap" -%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
