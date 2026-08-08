@@ -2,7 +2,7 @@
 
 Pages project, custom domains, and DNS for [mzworthington.co.uk](https://mzworthington.co.uk). The Jekyll site is built in CI and deployed with `wrangler pages deploy`.
 
-The zone itself lives in [edge-dns](https://github.com/mzworthington/edge-dns); this stack only manages product DNS records + Pages.
+The zone itself lives in [edge-dns](https://github.com/mzworthington/edge-dns); this stack only manages product DNS records + Pages. Shared CI/bootstrap tooling also lives there — see [reusable Cloudflare CI](https://github.com/mzworthington/edge-dns/blob/main/docs/reusable-cloudflare-ci.md).
 
 ## Resources
 
@@ -26,7 +26,7 @@ pulumi import 'cloudflare:index/observatoryScheduledTest:ObservatoryScheduledTes
 See [docs/cloudflare-secrets.md](../../docs/cloudflare-secrets.md), then from the repo root:
 
 ```bash
-cp .env.example .env   # edit DOMAIN / WWW_DOMAIN / tokens
+export BWS_ACCESS_TOKEN=... BWS_PROJECT_ID=...
 bin/setup-cloudflare-hosting.sh
 ```
 
@@ -37,7 +37,7 @@ cd infra/cloudflare
 pulumi up
 ```
 
-Or merge to `main` — `.github/workflows/pulumi-cloudflare.yml` runs **preview**, then waits for a **pulumi-prod** environment approval before `pulumi up`.
+Or merge to `main` — `.github/workflows/pulumi-cloudflare.yml` calls the reusable edge-dns workflow (preview → **pulumi-prod** approval → `pulumi up`).
 
 **Manual gate:** GitHub → Settings → Environments → create **`pulumi-prod`** with **Required reviewers**.
 
@@ -61,7 +61,6 @@ pulumi up
 |------|---------|
 | `wrangler.toml` | Pages project name + `_site` output |
 | `_redirects` | www → apex 301 |
-| `.github/workflows/pulumi-cloudflare.yml` | Preview on PR/main; gated `up` via `pulumi-prod` |
-| `.github/actions/setup-pulumi-cloudflare` | Shared Node/pnpm + stack config |
+| `.github/workflows/pulumi-cloudflare.yml` | Thin caller → edge-dns reusable workflow |
 | `.github/workflows/ci.yml` | Jekyll build + wrangler deploy |
-| `bin/setup-cloudflare-hosting.sh` | Bootstrap: secrets → gh + pulumi config |
+| `bin/setup-cloudflare-hosting.sh` | Thin shim → edge-dns bootstrap script |
