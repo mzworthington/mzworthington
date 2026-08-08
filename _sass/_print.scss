@@ -119,11 +119,13 @@
 
     .site-hero__headline {
       margin: 0.15rem 0 0 !important;
+      max-width: none !important;
       font-size: 10pt !important;
       font-weight: 600 !important;
       letter-spacing: 0 !important;
       color: #333 !important;
       line-height: 1.25 !important;
+      white-space: nowrap !important;
     }
   }
 

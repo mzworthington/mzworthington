@@ -38,7 +38,7 @@
    <ul class="print-contact" aria-hidden="true">
       <li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
       {%- if site.author.url -%}
-      <li><a href="{{ site.author.url }}">{{ site.author.url | remove: "https://" | remove: "http://" }}</a></li>
+      <li><a href="{{ site.author.url }}">{{ site.author.url | remove: "https://" | remove: "http://" | split: "/" | first }}</a></li>
       {%- endif -%}
       {%- if site.social_links.linkedin -%}
       <li><a href="https://www.linkedin.com/in/{{ site.social_links.linkedin | cgi_escape | escape }}">linkedin.com/in/{{ site.social_links.linkedin | escape }}</a></li>

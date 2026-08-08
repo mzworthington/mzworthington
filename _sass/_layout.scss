@@ -32,6 +32,31 @@ footer {
     }
   }
 
+  .footer-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 1.15rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    a {
+      color: var(--text-muted, #{$brand-color});
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--link-base-color, #{$link-base-color});
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+      }
+    }
+  }
+
   .print-cv {
     flex: 0 0 100%;
     width: 100%;
@@ -137,14 +162,15 @@ body > header.site-hero {
   }
 
   .site-hero__headline {
-    max-width: 22ch;
+    max-width: none;
     margin: 0 auto 0.85rem;
     font-family: $display-font-family;
-    font-size: clamp(1.2rem, 2.6vw, 1.65rem);
+    font-size: clamp(1.05rem, 2.6vw, 1.65rem);
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.02em;
     color: $brand-color-light;
+    white-space: nowrap;
     animation: mist-rise 1.2s ease-out 0.16s both;
   }
 

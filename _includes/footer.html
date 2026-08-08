@@ -1,10 +1,18 @@
 <footer>
   <a class="u-url visually-hidden" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
   <address>
-     {{ site.author.name | escape }} <br/>
-     <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+     {{ site.author.name | escape }}
    </address>
-  <section>
+  <ul class="footer-contact" aria-label="Contact">
+     <li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+     {%- if site.social_links.linkedin -%}
+     <li><a href="https://www.linkedin.com/in/{{ site.social_links.linkedin | cgi_escape | escape }}" rel="noreferrer" target="_blank">linkedin.com/in/{{ site.social_links.linkedin | escape }}</a></li>
+     {%- endif -%}
+     {%- if site.social_links.github -%}
+     <li><a href="https://github.com/{{ site.social_links.github | cgi_escape | escape }}" rel="noreferrer" target="_blank">github.com/{{ site.social_links.github | escape }}</a></li>
+     {%- endif -%}
+  </ul>
+  <section class="no-print">
      {%- include social.html -%}
      {%- if page.layout == "home" -%}
      <p class="print-cv">
