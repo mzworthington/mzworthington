@@ -1,79 +1,18 @@
 @use "initialize" as *;
 
-// Shared theme switcher chrome (works in Mist + Folio)
+// Folio shows editorial site-nav. Mist is hero-led (nav hidden).
+// Theme is selected via ?theme=mist|folio (default: folio).
 
 .site-nav {
-  display: none; // Mist: hero-led; Folio stylesheet reveals this
+  display: none;
 }
 
 .theme-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  padding: 0.2rem;
-  border: 1px solid var(--border-color-01, #334556);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--background-color, #1a2430) 82%, transparent);
-  backdrop-filter: blur(8px);
-
-  button {
-    appearance: none;
-    margin: 0;
-    padding: 0.35rem 0.85rem;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    color: var(--text-muted, var(--brand-color, #9aaebb));
-    font-family: $base-font-family;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    line-height: 1.2;
-    cursor: pointer;
-    transition: background-color 0.18s ease, color 0.18s ease;
-
-    &[aria-pressed="true"] {
-      background: var(--brand-color, #9aaebb);
-      color: var(--background-color-dark, #101820);
-    }
-
-    &:hover,
-    &:focus-visible {
-      color: var(--site-title-color, #e7eef5);
-    }
-
-    &[aria-pressed="true"]:hover,
-    &[aria-pressed="true"]:focus-visible {
-      color: var(--background-color-dark, #101820);
-    }
-  }
+  display: none !important;
 }
 
-// Mist: compact switcher over the dark hero
-[data-theme="mist"] {
+[data-theme="folio"] {
   .site-nav {
     display: flex;
-    position: fixed;
-    top: 0.85rem;
-    right: 0.85rem;
-    z-index: 40;
-    align-items: center;
-    gap: 0.75rem;
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-
-  .site-nav__mark,
-  .site-nav__links {
-    display: none;
-  }
-
-  .theme-switch {
-    margin-left: 0;
-  }
-
-  body > header.site-hero {
-    position: relative;
   }
 }

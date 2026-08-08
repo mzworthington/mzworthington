@@ -87,8 +87,6 @@
 
   function getFocusedSectionAt(sections, offset) {
     var focused = null;
-    // Slack so a just-scrolled target still wins when sticky offset and
-    // scroll position disagree by a few pixels (was marking the entry above).
     var activationLine = offset + 32;
 
     sections.forEach(function (section) {

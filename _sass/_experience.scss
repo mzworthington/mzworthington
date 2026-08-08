@@ -575,9 +575,23 @@ section#experience {
 }
 
 @media screen and (min-width: calc(#{$content-width} + 2 * (#{$timeline-width} + #{$timeline-gap}) + 2rem)) {
-  .experience-block.coastal-panel {
-    // Let the sticky rail sit in the panel without blowing the article width.
+  // Hang the sticky timeline in the left gutter; keep headings/content
+  // aligned with About / Open source panels.
+  article {
     overflow: visible;
+  }
+
+  .experience-block.coastal-panel {
+    overflow: visible;
+    box-sizing: border-box;
+    width: calc(100% + #{$timeline-width} + #{$timeline-gap});
+    max-width: none;
+    margin-left: calc(-1 * (#{$timeline-width} + #{$timeline-gap}));
+
+    > .eyebrow,
+    > h2 {
+      margin-left: calc(#{$timeline-width} + #{$timeline-gap});
+    }
   }
 
   section#experience {

@@ -63,7 +63,7 @@
     background-color: var(--background-color-light);
   }
 
-  // Ambient mist plane — full-bleed coastal image fading into paper
+  // Ambient mist plane on content (not the home hero)
   body::before {
     content: "";
     position: fixed;
@@ -87,6 +87,11 @@
     animation: folio-veil 28s ease-in-out infinite;
   }
 
+  body.is-home::before {
+    top: 100vh;
+    top: 100dvh;
+  }
+
   body > header,
   body > main,
   body > footer {
@@ -94,7 +99,7 @@
     z-index: 1;
   }
 
-  // Top brand mark + editorial nav (screenshot chrome)
+  // Top brand mark + editorial nav (inner pages / after hero)
   .site-nav {
     display: flex;
     align-items: center;
@@ -106,7 +111,7 @@
 
   .site-nav__mark {
     flex: 0 0 auto;
-    font-family: $display-font-family;
+    font-family: var(--folio-display, #{$display-font-family});
     font-size: clamp(2.4rem, 5vw, 3.25rem);
     font-weight: 560;
     line-height: 0.9;
@@ -160,22 +165,99 @@
   }
 
   .theme-switch {
-    margin-left: auto;
-  }
-
-  // Mist PR hero is Ink-only; Folio uses the ambient plane + nav mark
-  body > header.site-hero {
     display: none;
   }
 
-  body.is-home > header.site-hero {
+  // Inner pages: nav-led chrome, no mist hero stack
+  body:not(.is-home) > header.site-hero {
     display: none;
+  }
+
+  // Home: mist-like full-viewport hero, then folio paper below
+  body.is-home {
+    .site-nav {
+      display: none;
+    }
+
+    > header.site-hero {
+      display: flex;
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: #e7eef5;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 18%, rgba(45, 212, 191, 0.14), transparent 62%),
+        radial-gradient(ellipse 60% 45% at 82% 78%, rgba(15, 95, 99, 0.28), transparent 58%),
+        radial-gradient(ellipse 50% 40% at 12% 70%, rgba(28, 36, 40, 0.55), transparent 55%),
+        linear-gradient(160deg, #0a4548 0%, #101820 42%, #1a2430 100%);
+      background-size: 120% 120%, 140% 140%, 130% 130%, 100% 100%;
+      animation: mist-drift 22s ease-in-out infinite;
+
+      &::before {
+        opacity: 0.3;
+      }
+
+      &::after {
+        background: linear-gradient(to top, #101820, transparent);
+      }
+
+      .site-hero__visual {
+        border-color: rgba(197, 212, 224, 0.28);
+        box-shadow: 0 0 0 10px rgba(16, 24, 32, 0.35);
+      }
+
+      .site-hero__brand {
+        font-family: var(--folio-display, #{$display-font-family});
+        font-weight: 560;
+        color: #e7eef5;
+      }
+
+      .site-hero__headline {
+        font-family: var(--folio-display, #{$display-font-family});
+        font-weight: 450;
+        color: #9aaebb;
+      }
+
+      .site-hero__lede {
+        color: #d7e0ea;
+      }
+
+      .site-hero__cta {
+        border-color: #2dd4bf;
+        background-color: rgba(45, 212, 191, 0.14);
+        color: #2dd4bf;
+
+        &:hover,
+        &:focus-visible {
+          background-color: #2dd4bf;
+          border-color: #2dd4bf;
+          color: #101820;
+        }
+
+        &--ghost {
+          background-color: transparent;
+          border-color: rgba(197, 212, 224, 0.35);
+          color: #c5d4e0;
+
+          &:hover,
+          &:focus-visible {
+            background-color: rgba(197, 212, 224, 0.1);
+            border-color: #c5d4e0;
+            color: #e7eef5;
+          }
+        }
+      }
+    }
+
+    > main {
+      background-color: var(--background-color);
+    }
   }
 
   main {
     margin: 0;
     padding: 1.25rem clamp(1rem, 3vw, 2.5rem) 3rem;
   }
+
 
   @media screen and (min-width: $on-large) {
     main {
@@ -338,10 +420,12 @@
     }
   }
 
-  .site-hero__cta,
-  .button {
-    border-color: var(--brand-color);
-    color: var(--brand-color);
+  body:not(.is-home) {
+    .site-hero__cta,
+    .button {
+      border-color: var(--brand-color);
+      color: var(--brand-color);
+    }
   }
 }
 
@@ -356,14 +440,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-theme="folio"] body::before {
+  [data-theme="folio"] body::before,
+  [data-theme="folio"] body.is-home > header.site-hero {
     animation: none;
   }
 }
 
 @media screen and (max-width: #{ $on-large - 1px }) {
   [data-theme="folio"] {
-    body::before {
+    body:not(.is-home)::before,
+    body.is-home::before {
       background-image:
         linear-gradient(
           180deg,
@@ -377,15 +463,11 @@
       opacity: 0.55;
     }
 
-    .site-nav {
-      flex-wrap: wrap;
-      gap: 0.75rem 1rem;
-    }
-
-    .theme-switch {
-      margin-left: 0;
-      width: 100%;
-      justify-content: flex-start;
+    body:not(.is-home) {
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 0.75rem 1rem;
+      }
     }
   }
 }

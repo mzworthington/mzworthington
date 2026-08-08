@@ -2,16 +2,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#1a2430">
+<meta name="theme-color" content="#ffffff">
 <script>
 (function () {
+  var themes = ["mist", "folio"];
+  var fallback = "folio";
+  var theme = fallback;
   try {
-    var stored = localStorage.getItem("mzworthington-theme");
-    var theme = stored === "folio" || stored === "mist" ? stored : "mist";
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {
-    document.documentElement.setAttribute("data-theme", "mist");
-  }
+    var raw = new URLSearchParams(window.location.search).get("theme");
+    if (raw && themes.indexOf(raw.toLowerCase()) >= 0) {
+      theme = raw.toLowerCase();
+    }
+  } catch (e) {}
+  document.documentElement.setAttribute("data-theme", theme);
 })();
 </script>
 {%- seo -%}
