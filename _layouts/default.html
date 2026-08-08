@@ -7,7 +7,8 @@
       {{ content }}
    </main>
    {%- include footer.html -%}
-   <script src="{{ '/assets/js/theme.js' | relative_url | append: '?v=' | append: site.time | date: '%s' }}" defer></script>
+   {%- assign asset_v = site.time | date: "%s" -%}
+   <script src="{{ '/assets/js/theme.js' | relative_url | append: '?v=' | append: asset_v }}" defer></script>
 </body>
 {%- include pwa.html -%}
 </html>
