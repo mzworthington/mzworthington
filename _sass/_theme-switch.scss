@@ -1,0 +1,18 @@
+@use "initialize" as *;
+
+// Folio shows editorial site-nav. Mist is hero-led (nav hidden).
+// Theme is selected via ?theme=mist|folio (default: folio).
+
+.site-nav {
+  display: none;
+}
+
+.theme-switch {
+  display: none !important;
+}
+
+[data-theme="folio"] {
+  .site-nav {
+    display: flex;
+  }
+}

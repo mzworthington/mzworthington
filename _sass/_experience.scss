@@ -1,6 +1,6 @@
 @use "sass:math";
 @use "sass:color";
-@use "skins/dark" as *;
+@use "skins/mist" as *;
 @use "initialize" as *;
 
 $timeline-width: 12rem;
@@ -10,11 +10,20 @@ $timeline-track-inset: 0.75em;
 $mobile-sticky-nav-height: 5.25rem;
 $project-sticky-nav-height: 4.25rem;
 
+// Prefer coastal panel tokens when present; fall back to mist shell.
+$nav-ink: var(--panel-ink, #{$text-color});
+$nav-muted: var(--panel-muted, #{$brand-color});
+$nav-accent: var(--panel-accent, #{$link-base-color});
+$nav-accent-hover: var(--panel-accent-hover, #{$link-hover-color});
+$nav-line: var(--panel-line, #{$border-color-01});
+$nav-bg: var(--panel-bg, #{$background-color});
+$nav-mist: var(--panel-mist, #{$background-color-light});
+
 @mixin sticky-timeline-nav($top: 0, $z-index: 10) {
   position: sticky;
   top: $top;
   z-index: $z-index;
-  background-color: $background-color;
+  background-color: $nav-bg;
 }
 
 @mixin mobile-sticky-timeline-nav-bar($background, $top: 0, $z-index: 20) {
@@ -24,8 +33,8 @@ $project-sticky-nav-height: 4.25rem;
   margin-left: -1em;
   margin-right: -1em;
   padding: 1em 1em 0.75em;
-  border-bottom: 1px solid $border-color-01;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid $nav-line;
+  box-shadow: 0 4px 12px rgb(11 18 32 / 0.06);
 
   > ul {
     margin: 0;
@@ -50,14 +59,17 @@ $project-sticky-nav-height: 4.25rem;
     border: 0;
     border-radius: 0;
     background: transparent;
-    color: $text-color;
+    color: $nav-ink;
     font-size: $small-font-size;
     line-height: 1.3;
     white-space: nowrap;
 
     time {
-      color: $brand-color;
-      font-size: 0.85em;
+      color: $nav-muted;
+      font-family: $code-font-family;
+      font-size: 0.75em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     &::after {
@@ -65,7 +77,7 @@ $project-sticky-nav-height: 4.25rem;
     }
 
     &:hover {
-      color: $link-hover-color;
+      color: $nav-accent;
     }
   }
 }
@@ -100,8 +112,8 @@ $project-sticky-nav-height: 4.25rem;
       width: $timeline-dot-size;
       height: $timeline-dot-size;
       border-radius: 50%;
-      background-color: $brand-color;
-      border: 2px solid $background-color;
+      background-color: $nav-accent;
+      border: 2px solid $nav-bg;
       z-index: 1;
     }
   }
@@ -121,33 +133,36 @@ $project-sticky-nav-height: 4.25rem;
   .projects-toggle__chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.5em;
-    padding: 0.45em 1em 0.45em 0.85em;
-    border: 1px solid $link-base-color;
-    border-radius: 1.5em;
-    background-color: $background-color-light;
-    color: $link-base-color;
+    gap: 0.55em;
+    padding: 0.35em 0.15em 0.45em;
+    border: 0;
+    border-bottom: 1px solid rgb(15 118 110 / 0.35);
+    border-radius: 0;
+    background: transparent;
+    color: $nav-accent;
+    font-family: $display-font-family;
     font-size: $small-font-size;
     font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1.4;
-    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    transition: color 0.2s ease, border-color 0.2s ease;
 
     &::before {
       content: "▸";
       display: inline-block;
-      margin-right: 0.15em;
-      transition: transform 0.15s ease;
+      margin-right: 0.1em;
+      font-family: $base-font-family;
+      transition: transform 0.2s ease;
     }
   }
 
   &:hover .projects-toggle__chip {
-    background-color: $link-base-color;
-    border-color: $link-base-color;
-    color: $background-color;
+    color: $nav-accent-hover;
+    border-bottom-color: $nav-accent-hover;
 
     .projects-toggle__count {
-      background-color: rgba($background-color, 0.2);
       color: inherit;
+      background: transparent;
     }
   }
 
@@ -155,11 +170,12 @@ $project-sticky-nav-height: 4.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 1.4em;
-    padding: 0.1em 0.5em;
-    border-radius: 1em;
-    background-color: $background-color;
-    color: $link-base-color;
+    min-width: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: $nav-muted;
+    font-family: $base-font-family;
     font-size: 0.85em;
     font-weight: 600;
     line-height: 1.4;
@@ -182,13 +198,24 @@ $project-sticky-nav-height: 4.25rem;
   }
 
   &:hover {
-    color: $link-hover-color;
+    color: $nav-accent;
+  }
+}
+
+.experience-block {
+  > h2 {
+    margin-top: 0;
+  }
+
+  #experience {
+    margin-top: 0;
   }
 }
 
 section#experience {
   position: relative;
   margin-top: 0;
+  color: $nav-ink;
 
   > nav {
     margin-bottom: $spacing-unit;
@@ -201,13 +228,14 @@ section#experience {
     @include timeline-nav-links;
 
     > ul > li.is-active::before {
-      background-color: $link-base-color;
-      border-color: $link-base-color;
+      background-color: $nav-accent;
+      border-color: $nav-accent;
+      box-shadow: 0 0 0 3px rgb(15 118 110 / 0.18);
     }
 
     > ul > li > details > ul > li.is-active::before {
-      background-color: $link-base-color;
-      border-color: $link-base-color;
+      background-color: $nav-accent;
+      border-color: $nav-accent;
     }
 
     > ul > li > details {
@@ -215,7 +243,7 @@ section#experience {
 
       > summary {
         @include accordion-summary;
-        color: $brand-color;
+        color: $nav-muted;
         font-size: 0.8em;
         line-height: 1.3;
         padding: 0.25em 0;
@@ -233,7 +261,7 @@ section#experience {
         list-style: none;
         margin: 0.35em 0 0;
         padding: 0.35em 0 0;
-        border-top: 1px solid $border-color-01;
+        border-top: 1px solid $nav-line;
 
         > li {
           position: relative;
@@ -248,12 +276,12 @@ section#experience {
             height: calc(#{$timeline-dot-size} * 0.75);
             border-radius: 50%;
             background-color: transparent;
-            border: 2px solid $brand-color;
+            border: 2px solid $nav-accent;
           }
 
           &.is-active::before {
-            background-color: $link-base-color;
-            border-color: $link-base-color;
+            background-color: $nav-accent;
+            border-color: $nav-accent;
           }
 
           a {
@@ -273,7 +301,7 @@ section#experience {
   }
 
   nav a.is-active {
-    color: $link-base-color;
+    color: $nav-accent;
     font-weight: 600;
 
     time {
@@ -284,12 +312,14 @@ section#experience {
 
   > section {
     > section {
-      scroll-margin-top: 1.5em;
+      scroll-margin-top: 2.5rem;
       margin-bottom: $spacing-unit * 1.5;
       padding-bottom: $spacing-unit;
+      border-bottom: 1px solid $nav-line;
 
       &:last-child {
         padding-bottom: 0;
+        border-bottom: 0;
       }
 
       header {
@@ -300,22 +330,37 @@ section#experience {
         margin-bottom: math.div($spacing-unit, 2);
 
         h3 {
-          @include relative-font-size(1.5);
+          font-family: $display-font-family;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          @include relative-font-size(1.35);
           margin-bottom: 0.25em;
 
           @media screen and (min-width: $on-large) {
-            @include relative-font-size(1.75);
+            @include relative-font-size(1.5);
+          }
+
+          a {
+            color: $nav-ink;
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible {
+              color: $nav-accent;
+            }
           }
         }
 
         p {
-          color: $brand-color;
+          color: $nav-muted;
           font-size: $small-font-size;
           margin-bottom: 0.25em;
         }
       }
 
-      > p {
+      > p,
+      > div {
+        color: $nav-ink;
         margin-bottom: math.div($spacing-unit, 2);
       }
 
@@ -350,17 +395,18 @@ section#experience {
             @include timeline-nav-links;
 
             > ul > li.is-active::before {
-              background-color: $link-base-color;
-              border-color: $link-base-color;
+              background-color: $nav-accent;
+              border-color: $nav-accent;
             }
           }
 
           > section {
-            scroll-margin-top: 1.5em;
+            scroll-margin-top: 2.5rem;
 
             &:not(:last-child) {
               margin-bottom: $spacing-unit;
               padding-bottom: $spacing-unit;
+              border-bottom: 1px dashed $nav-line;
             }
 
             article {
@@ -369,13 +415,25 @@ section#experience {
                 text-align: left;
 
                 h5 {
-                  @include relative-font-size(1.125);
+                  font-family: $display-font-family;
+                  font-weight: 700;
+                  @include relative-font-size(1.05);
                   margin-top: 0;
                   margin-bottom: 0.25em;
+
+                  a {
+                    color: $nav-ink;
+                    text-decoration: none;
+
+                    &:hover,
+                    &:focus-visible {
+                      color: $nav-accent;
+                    }
+                  }
                 }
 
                 p {
-                  color: $brand-color;
+                  color: $nav-muted;
                   font-size: $small-font-size;
                   margin-bottom: 0;
                 }
@@ -384,6 +442,7 @@ section#experience {
               > div {
                 font-size: $small-font-size;
                 line-height: $base-line-height;
+                color: $nav-ink;
 
                 p {
                   margin-bottom: math.div($spacing-unit, 2);
@@ -416,7 +475,7 @@ section#experience {
                 }
 
                 a {
-                  color: $link-base-color;
+                  color: $nav-accent;
                 }
               }
             }
@@ -456,7 +515,7 @@ section#experience {
 
   @media screen and (max-width: #{ $on-large - 1px }) {
     > nav {
-      @include mobile-sticky-timeline-nav-bar($background-color-light);
+      @include mobile-sticky-timeline-nav-bar($nav-mist);
     }
 
     > section > section {
@@ -466,7 +525,7 @@ section#experience {
     > section > section > details .projects-panel:has(> nav) {
       > nav {
         @include mobile-sticky-timeline-nav-bar(
-          color.adjust($background-color-light, $lightness: -4%),
+          #fff,
           var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height})
         );
       }
@@ -483,14 +542,20 @@ section#experience {
     margin-top: math.div($spacing-unit, 2);
 
     h4 {
-      @include relative-font-size(1);
       margin-bottom: 0.5em;
+      color: $nav-muted;
+      font-family: $code-font-family;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      @include relative-font-size(0.7);
     }
 
     ul {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5em;
+      gap: 0.45em;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -498,22 +563,43 @@ section#experience {
 
     li {
       display: inline-block;
-      padding: 0.25em 1em;
-      border-radius: 1.5em;
-      background-color: $background-color-light;
+      padding: 0.2em 0.55em;
+      border-radius: 0.35rem;
+      border: 1px solid $nav-line;
+      background-color: #fff;
+      color: $nav-muted;
       font-size: $small-font-size;
-      line-height: 1.6;
+      line-height: 1.5;
     }
   }
 }
 
 @media screen and (min-width: calc(#{$content-width} + 2 * (#{$timeline-width} + #{$timeline-gap}) + 2rem)) {
+  // Hang the sticky timeline in the left gutter; keep headings/content
+  // aligned with About / Open source panels.
+  article {
+    overflow: visible;
+  }
+
+  .experience-block.coastal-panel {
+    overflow: visible;
+    box-sizing: border-box;
+    width: calc(100% + #{$timeline-width} + #{$timeline-gap});
+    max-width: none;
+    margin-left: calc(-1 * (#{$timeline-width} + #{$timeline-gap}));
+
+    > .eyebrow,
+    > h2 {
+      margin-left: calc(#{$timeline-width} + #{$timeline-gap});
+    }
+  }
+
   section#experience {
     display: grid;
     grid-template-columns: $timeline-width minmax(0, 1fr);
     column-gap: $timeline-gap;
-    width: calc(#{$content-width} + #{$timeline-width} + #{$timeline-gap});
-    margin-left: calc(-1 * (#{$timeline-width} + #{$timeline-gap}));
+    width: 100%;
+    margin-left: 0;
 
     > nav {
       grid-column: 1;
@@ -527,7 +613,7 @@ section#experience {
         flex-direction: column;
         overflow: visible;
         padding: 1em 0.5em 0 1.5em;
-        border-left: 2px solid $border-color-01;
+        border-left: 2px solid $nav-line;
 
         &::before {
           display: none;
@@ -552,7 +638,7 @@ section#experience {
           margin: 0.35em 0 0;
           padding: 0 0 0 1em;
           border-top: 0;
-          border-left: 2px solid $border-color-01;
+          border-left: 2px solid $nav-line;
 
           > li {
             padding: 0 0 0.75em 1em;

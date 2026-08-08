@@ -29,7 +29,7 @@ groups:
 
       - title: AdviceLens
         description: |
-          Merge TraceLens and ChaosLens signals into evidence-backed recommendations — studio, CLI, and CI.
+          Merge TraceLens and ChaosLens signals into evidence-backed recommendations: studio, CLI, and CI.
         link: https://archlens.dev/guide/advicelens
 
       - title: BlueprintSpec

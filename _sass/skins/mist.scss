@@ -1,0 +1,125 @@
+@use "sass:color";
+
+$brand-color:           #9aaebb !default;
+$brand-color-light:     color.adjust($brand-color, $lightness: 12%) !default;
+$brand-color-dark:      color.adjust($brand-color, $lightness: -28%) !default;
+
+$site-title-color:      #e7eef5 !default;
+
+$text-color:            #d7e0ea !default;
+$background-color:      #1a2430 !default;
+$background-color-light:     #243344 !default;
+$background-color-dark:      #101820 !default;
+$code-background-color: #141d28 !default;
+
+$link-base-color:       #2dd4bf !default;
+$link-visited-color:    color.adjust($link-base-color, $lightness: -10%) !default;
+$link-hover-color:      #5eead4 !default;
+
+$border-color-01:       #334556 !default;
+$border-color-02:       $brand-color-light !default;
+$border-color-03:       $brand-color !default;
+
+$table-text-color:      color.adjust($text-color, $lightness: 8%) !default;
+$table-zebra-color:     color.adjust($background-color, $lightness: 3%) !default;
+$table-header-bg-color: color.adjust($background-color, $lightness: 8%) !default;
+$table-header-border:   color.adjust($background-color, $lightness: 16%) !default;
+$table-border-color:    $border-color-01 !default;
+
+:root,
+[data-theme="mist"] {
+  --brand-color: #{$brand-color};
+  --brand-color-light: #{$brand-color-light};
+  --brand-color-dark: #{$brand-color-dark};
+  --site-title-color: #{$site-title-color};
+  --text-color: #{$text-color};
+  --text-muted: #{color.adjust($text-color, $lightness: -12%)};
+  --background-color: #{$background-color};
+  --background-color-light: #{$background-color-light};
+  --background-color-dark: #{$background-color-dark};
+  --code-background-color: #{$code-background-color};
+  --link-base-color: #{$link-base-color};
+  --link-visited-color: #{$link-visited-color};
+  --link-hover-color: #{$link-hover-color};
+  --border-color-01: #{$border-color-01};
+  --border-color-02: #{$border-color-02};
+  --border-color-03: #{$border-color-03};
+  --mist-fog: #c5d4e0;
+  --mist-slate: #5f7488;
+  --mist-ink: #101820;
+  --mist-veil: rgba(197, 212, 224, 0.08);
+  --mist-glow: rgba(45, 212, 191, 0.18);
+
+  --ci-ink: #0b1220;
+  --ci-ink-muted: #4a5568;
+  --ci-mist: #eef2f6;
+  --ci-mist-soft: #f7f9fb;
+  --ci-accent: #0f766e;
+  --ci-accent-hover: #0d9488;
+  --ci-line: #d5dde8;
+
+  --theme-color: #{$background-color};
+  color-scheme: dark;
+}
+
+.highlight {
+  .c     { color: #8a97a6; font-style: italic }
+  .err   { color: #f0b4b8; background-color: #3a2a2c }
+  .k     { color: #8ec6d4; font-weight: bold }
+  .o     { font-weight: bold }
+  .cm    { color: #8a97a6; font-style: italic }
+  .cp    { color: #8a97a6; font-weight: bold }
+  .c1    { color: #8a97a6; font-style: italic }
+  .cs    { color: #8a97a6; font-weight: bold; font-style: italic }
+  .gd    { color: #1a2430; background-color: #e8b4b8 }
+  .gd .x { color: #1a2430; background-color: #f0c4c8 }
+  .ge    { font-style: italic }
+  .gr    { color: #f0b4b8 }
+  .gh    { color: #9aaebb }
+  .gi    { color: #1a2430; background-color: #b8dcc4 }
+  .gi .x { color: #1a2430; background-color: #c8e8d0 }
+  .go    { color: #8a97a6 }
+  .gp    { color: #7a8796 }
+  .gs    { font-weight: bold }
+  .gu    { color: #9aaebb }
+  .gt    { color: #f0b4b8 }
+  .kc    { font-weight: bold }
+  .kd    { font-weight: bold }
+  .kp    { font-weight: bold }
+  .kr    { font-weight: bold }
+  .kt    { color: #d4c49a; font-weight: bold }
+  .m     { color: #d4a88c }
+  .s     { color: #a8c9a0 }
+  .na    { color: #7eb6c4 }
+  .nb    { color: #d7e0ea }
+  .nc    { color: #d4c49a; font-weight: bold }
+  .no    { color: #7eb6c4 }
+  .ni    { color: #b8a0c4 }
+  .ne    { color: #e0a0a8; font-weight: bold }
+  .nf    { color: #8eb0d4; font-weight: bold }
+  .nn    { color: #9aaebb }
+  .nt    { color: #d4c49a }
+  .nv    { color: #d7e0ea }
+  .ow    { font-weight: bold }
+  .w     { color: #d7e0ea }
+  .mf    { color: #d4a88c }
+  .mh    { color: #d4a88c }
+  .mi    { color: #d4a88c }
+  .mo    { color: #d4a88c }
+  .sb    { color: #a8c9a0 }
+  .sc    { color: #a8c9a0 }
+  .sd    { color: #a8c9a0 }
+  .s2    { color: #a8c9a0 }
+  .se    { color: #d7e0ea }
+  .sh    { color: #a8c9a0 }
+  .si    { color: #a8c9a0 }
+  .sx    { color: #a8c9a0 }
+  .sr    { color: #a8c9a0 }
+  .s1    { color: #a8c9a0 }
+  .ss    { color: #a8c9a0 }
+  .bp    { color: #9aaebb }
+  .vc    { color: #d4c49a }
+  .vg    { color: #d7e0ea }
+  .vi    { color: #d7e0ea }
+  .il    { color: #d4a88c }
+}

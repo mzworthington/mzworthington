@@ -68,7 +68,7 @@
       return employmentNav.getBoundingClientRect().bottom + 8;
     }
 
-    return 24;
+    return 40;
   }
 
   function getProjectNavOffset(panel, baseOffset) {
@@ -87,18 +87,26 @@
 
   function getFocusedSectionAt(sections, offset) {
     var focused = null;
+    var activationLine = offset + 32;
 
     sections.forEach(function (section) {
-      if (section.getBoundingClientRect().top <= offset) {
+      if (section.getBoundingClientRect().top <= activationLine) {
         focused = section;
       }
     });
 
-    return focused;
+    return focused || sections[0] || null;
   }
 
   function getFocusedJobSection() {
     return getFocusedSectionAt(getJobSections(), getEmploymentStickyOffset());
+  }
+
+  function scrollToSection(section, offset) {
+    var top =
+      section.getBoundingClientRect().top + window.scrollY - offset - 2;
+
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }
 
   function scrollNavTimelineToActive(nav) {
@@ -137,9 +145,21 @@
     var offset = panel
       ? getProjectNavOffset(panel, getEmploymentStickyOffset())
       : getEmploymentStickyOffset();
-    var top = section.getBoundingClientRect().top + window.scrollY - offset;
 
-    window.scrollTo({ top: top, behavior: "smooth" });
+    scrollToSection(section, offset);
+  }
+
+  function scrollToJobSection(section) {
+    scrollToSection(section, getEmploymentStickyOffset());
+  }
+
+  function withScrollSyncLock(run) {
+    syncingFromScroll = true;
+    run();
+    window.setTimeout(function () {
+      syncingFromScroll = false;
+      updateActiveFromScroll();
+    }, 650);
   }
 
   function applyActiveState(jobSection, projectSection, panel, options) {
@@ -219,7 +239,8 @@
     });
   }
 
-  function syncFromHash() {
+  function syncFromHash(options) {
+    var shouldScroll = options && options.scroll === true;
     clearActiveStates();
 
     var target = getTargetFromHash();
@@ -232,13 +253,39 @@
 
     if (panel) {
       setActiveProject(panel, target, { openDetails: true, scrollTimeline: true });
+      if (shouldScroll) scrollToProjectSection(target);
       return;
     }
 
     if (target.matches("section[id^='experience-']")) {
       markActive("#" + target.id);
       scrollNavTimelineToActive(experience.querySelector(":scope > nav"));
+      if (shouldScroll) scrollToJobSection(target);
     }
+  }
+
+  function bindEmploymentNav() {
+    var nav = getEmploymentNav();
+    if (!nav) return;
+
+    nav.addEventListener("click", function (event) {
+      var link = event.target.closest('a[href^="#experience-"]');
+      if (!link || !nav.contains(link)) return;
+
+      var jobId = link.getAttribute("href").slice(1);
+      var jobSection = document.getElementById(jobId);
+      if (!jobSection || !experience.contains(jobSection)) return;
+      if (jobSection.closest(".projects-panel")) return;
+
+      event.preventDefault();
+      withScrollSyncLock(function () {
+        history.pushState(null, "", link.getAttribute("href"));
+        clearActiveStates();
+        markActive("#" + jobSection.id);
+        scrollNavTimelineToActive(nav);
+        scrollToJobSection(jobSection);
+      });
+    });
   }
 
   function bindProjectNav(panel) {
@@ -254,13 +301,14 @@
       if (!projectSection || !panel.contains(projectSection)) return;
 
       event.preventDefault();
-      syncingFromScroll = true;
-      history.pushState(null, "", link.getAttribute("href"));
-      setActiveProject(panel, projectSection, { openDetails: true, scrollTimeline: true });
-      scrollToProjectSection(projectSection);
-      window.setTimeout(function () {
-        syncingFromScroll = false;
-      }, 600);
+      withScrollSyncLock(function () {
+        history.pushState(null, "", link.getAttribute("href"));
+        setActiveProject(panel, projectSection, {
+          openDetails: true,
+          scrollTimeline: true,
+        });
+        scrollToProjectSection(projectSection);
+      });
     });
   }
 
@@ -279,13 +327,16 @@
     });
   }
 
+  bindEmploymentNav();
   experience.querySelectorAll(".projects-panel").forEach(bindProjectNav);
   experience.querySelectorAll("section[id^='experience-'] > details").forEach(bindDetailsToggle);
 
   closeAllProjectDetails();
   updateStickyNavOffsets();
-  syncFromHash();
-  window.addEventListener("hashchange", syncFromHash);
+  syncFromHash({ scroll: Boolean(window.location.hash) });
+  window.addEventListener("hashchange", function () {
+    syncFromHash({ scroll: true });
+  });
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", scheduleStickyNavOffsetUpdate);
   mobileQuery.addEventListener("change", function () {

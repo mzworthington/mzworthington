@@ -1,14 +1,15 @@
 @charset "utf-8";
 
-$base-font-family:  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
+$base-font-family:  "Source Sans 3", "Source Sans Pro", sans-serif !default;
+$display-font-family: "Syne", "Avenir Next", "Segoe UI", sans-serif !default;
 $code-font-family:  "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
-$base-font-size:    16px !default;
+$base-font-size:    17px !default;
 $base-font-weight:  400 !default;
 $small-font-size:   $base-font-size * 0.875 !default;
 $large-font-size:   $base-font-size * 2 !default;
-$base-line-height:  1.5 !default;
+$base-line-height:  1.55 !default;
 $footer-size:       5em !default;
-$header-image-size: 9em !default;
+$header-image-size: 11rem !default;
 $header-margin:     0.75em !default;
 
 $spacing-unit:     30px !default;

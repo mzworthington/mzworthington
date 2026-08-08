@@ -1,6 +1,7 @@
 {
-    "name": "Agile Engineering. Reliable Results",
+    "name": "Matthew Z Worthington",
     "short_name": "MZW",
+    "description": "Agile engineering. Reliable results.",
     "start_url": "/",
     "icons": [
         {
@@ -15,7 +16,7 @@
             "purpose": "any maskable"
         }
     ],
-    "theme_color": "#D8DADD",
-    "background_color": "#485063",
+    "theme_color": "#1a2430",
+    "background_color": "#1a2430",
     "display": "standalone"
 }

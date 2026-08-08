@@ -17,15 +17,25 @@
 # markdown: kramdown
 
 title: Agile Engineering. Reliable Results
+tagline: Engineering leadership for delivery speed, reliable platforms, and teams that last.
+lang: en-GB
 author:
-  name: M Z Worthington
+  name: Matthew Z Worthington
   email: matt@siliconpanda.com
   # twitter: worthington10
   picture: /assets/me.webp
-description: >- 
-  Thanks for popping by.
-baseurl: ""
+  url: https://mzworthington.co.uk/
+description: >-
+  Matthew Z Worthington is an engineering leader focused on delivery speed,
+  reliable platforms, developer experience, and teams that last.
+logo: /assets/android-chrome-512x512.png
 url: "https://mzworthington.co.uk"
+baseurl: ""
+social:
+  name: Matthew Z Worthington
+  links:
+    - https://github.com/mzworthington
+    - https://www.linkedin.com/in/worthington10
 social_links:
   # twitter: worthington10
   github:  mzworthington
@@ -36,8 +46,14 @@ locale: en_GB
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+ - jekyll-sitemap
  - jekyll-spaceship
  - jekyll-redirect-from
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/og-default.png
 sass:
     sass_dir: _sass
     style: compact 
@@ -47,6 +63,7 @@ collections:
     output: true
 include:
   - _headers
+  - robots.txt
 exclude:
   - README.md
   - .sass-cache/

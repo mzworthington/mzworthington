@@ -1,5 +1,5 @@
 @use "sass:math";
-@use "skins/dark" as *;
+@use "skins/mist" as *;
 @use "initialize" as *;
 
 %visually-hidden {
@@ -50,8 +50,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: $text-color;
-  background-color: $background-color;
+  color: var(--text-color, #{$text-color});
+  background-color: var(--background-color, #{$background-color});
+  transition: background-color 0.25s ease, color 0.25s ease;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -122,7 +123,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: $base-font-weight;
+  font-family: $display-font-family;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: $site-title-color;
 }
 
 a {
@@ -291,7 +295,7 @@ header , nav, main {
 
 header {
   h1 {
-    text-transform: uppercase;
+    text-transform: none;
   }
   h2 {
     font-size: 1em;

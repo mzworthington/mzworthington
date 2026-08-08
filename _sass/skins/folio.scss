@@ -1,0 +1,136 @@
+@use "sass:color";
+
+// Folio Editorial — light paper, dark teal ink, misted coastal plane.
+// Matches the brand-led editorial reference: white content, teal accents,
+// Fraunces display, Source Sans 3 UI.
+
+$folio-teal:            #0f5f63 !default;
+$folio-teal-deep:       #0a4548 !default;
+$folio-ink:             #1c2428 !default;
+$folio-muted:           #5b676d !default;
+$folio-paper:           #ffffff !default;
+$folio-paper-soft:      #f4f7f8 !default;
+$folio-rule:            #d5dee2 !default;
+
+$brand-color:           $folio-teal !default;
+$brand-color-light:     color.adjust($brand-color, $lightness: 12%) !default;
+$brand-color-dark:      $folio-teal-deep !default;
+
+$site-title-color:      $folio-ink !default;
+
+$text-color:            #2a3338 !default;
+$background-color:      $folio-paper !default;
+$background-color-light:     $folio-paper-soft !default;
+$background-color-dark:      #e8eef0 !default;
+$code-background-color: #eef3f5 !default;
+
+$link-base-color:       $folio-teal !default;
+$link-visited-color:    $folio-teal-deep !default;
+$link-hover-color:      color.adjust($folio-teal, $lightness: -8%) !default;
+
+$border-color-01:       $folio-rule !default;
+$border-color-02:       $brand-color-light !default;
+$border-color-03:       $brand-color !default;
+
+$table-text-color:      $text-color !default;
+$table-zebra-color:     $folio-paper-soft !default;
+$table-header-bg-color: $background-color-dark !default;
+$table-header-border:   $folio-rule !default;
+$table-border-color:    $folio-rule !default;
+
+[data-theme="folio"] {
+  --brand-color: #{$brand-color};
+  --brand-color-light: #{$brand-color-light};
+  --brand-color-dark: #{$brand-color-dark};
+  --site-title-color: #{$site-title-color};
+  --text-color: #{$text-color};
+  --text-muted: #{$folio-muted};
+  --background-color: #{$background-color};
+  --background-color-light: #{$background-color-light};
+  --background-color-dark: #{$background-color-dark};
+  --code-background-color: #{$code-background-color};
+  --link-base-color: #{$link-base-color};
+  --link-visited-color: #{$link-visited-color};
+  --link-hover-color: #{$link-hover-color};
+  --border-color-01: #{$border-color-01};
+  --border-color-02: #{$border-color-02};
+  --border-color-03: #{$border-color-03};
+  --mist-fog: #c5d4e0;
+  --mist-slate: #5f7488;
+  --mist-ink: #{$folio-ink};
+  --mist-veil: rgba(15, 95, 99, 0.06);
+  --mist-glow: rgba(15, 95, 99, 0.16);
+  --ci-ink: #{$folio-ink};
+  --ci-ink-muted: #{$folio-muted};
+  --ci-mist: #{$folio-paper};
+  --ci-mist-soft: #{$folio-paper-soft};
+  --ci-accent: #{$folio-teal};
+  --ci-accent-hover: #{$folio-teal-deep};
+  --ci-line: #{$folio-rule};
+  --theme-color: #{$folio-paper};
+  --folio-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  color-scheme: light;
+}
+
+// Syntax highlighting for light folio paper
+[data-theme="folio"] .highlight {
+  .c     { color: #6a767c; font-style: italic }
+  .err   { color: #a33; background-color: #f8e4e4 }
+  .k     { color: #0f5f63; font-weight: bold }
+  .o     { font-weight: bold }
+  .cm    { color: #6a767c; font-style: italic }
+  .cp    { color: #6a767c; font-weight: bold }
+  .c1    { color: #6a767c; font-style: italic }
+  .cs    { color: #6a767c; font-weight: bold; font-style: italic }
+  .gd    { color: #1c2428; background-color: #f0c8c8 }
+  .gd .x { color: #1c2428; background-color: #f5d4d4 }
+  .ge    { font-style: italic }
+  .gr    { color: #a33 }
+  .gh    { color: #0f5f63 }
+  .gi    { color: #1c2428; background-color: #cfe8d4 }
+  .gi .x { color: #1c2428; background-color: #d8eedc }
+  .go    { color: #6a767c }
+  .gp    { color: #5b676d }
+  .gs    { font-weight: bold }
+  .gu    { color: #0f5f63 }
+  .gt    { color: #a33 }
+  .kc    { font-weight: bold }
+  .kd    { font-weight: bold }
+  .kp    { font-weight: bold }
+  .kr    { font-weight: bold }
+  .kt    { color: #8a6a28; font-weight: bold }
+  .m     { color: #9a5b2e }
+  .s     { color: #2f6b3a }
+  .na    { color: #0f5f63 }
+  .nb    { color: #1c2428 }
+  .nc    { color: #8a6a28; font-weight: bold }
+  .no    { color: #0f5f63 }
+  .ni    { color: #6a4a7a }
+  .ne    { color: #a33; font-weight: bold }
+  .nf    { color: #2a5a8a; font-weight: bold }
+  .nn    { color: #0f5f63 }
+  .nt    { color: #8a6a28 }
+  .nv    { color: #1c2428 }
+  .ow    { font-weight: bold }
+  .w     { color: #1c2428 }
+  .mf    { color: #9a5b2e }
+  .mh    { color: #9a5b2e }
+  .mi    { color: #9a5b2e }
+  .mo    { color: #9a5b2e }
+  .sb    { color: #2f6b3a }
+  .sc    { color: #2f6b3a }
+  .sd    { color: #2f6b3a }
+  .s2    { color: #2f6b3a }
+  .se    { color: #1c2428 }
+  .sh    { color: #2f6b3a }
+  .si    { color: #2f6b3a }
+  .sx    { color: #2f6b3a }
+  .sr    { color: #2f6b3a }
+  .s1    { color: #2f6b3a }
+  .ss    { color: #2f6b3a }
+  .bp    { color: #0f5f63 }
+  .vc    { color: #8a6a28 }
+  .vg    { color: #1c2428 }
+  .vi    { color: #1c2428 }
+  .il    { color: #9a5b2e }
+}

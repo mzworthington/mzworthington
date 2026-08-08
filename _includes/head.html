@@ -2,15 +2,57 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#D8DADD">
+<meta name="theme-color" content="#ffffff">
+<script>
+(function () {
+  var themes = ["mist", "folio"];
+  var fallback = "folio";
+  var theme = fallback;
+  try {
+    var raw = new URLSearchParams(window.location.search).get("theme");
+    if (raw && themes.indexOf(raw.toLowerCase()) >= 0) {
+      theme = raw.toLowerCase();
+    }
+  } catch (e) {}
+  document.documentElement.setAttribute("data-theme", theme);
+})();
+</script>
 {%- seo -%}
+{%- comment -%} Richer Person graph for the homepage (complements jekyll-seo-tag). {%- endcomment -%}
+{%- if page.layout == "home" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.author.name | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "email": {{ site.author.email | jsonify }},
+  "image": {{ site.author.picture | absolute_url | jsonify }},
+  "jobTitle": "Engineering Leader",
+  "description": {{ site.description | jsonify }},
+  "sameAs": [
+    {%- for link in site.social.links -%}
+      {{ link | jsonify }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
 {%- assign hero_image = page.image | default: site.author.picture -%}
+{%- if page.layout == "home" -%}
+  {%- assign hero_image = site.author.picture -%}
+{%- endif -%}
 {%- assign styles_url = "/assets/css/style.css" | relative_url -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,450;9..144,500;9..144,560&family=Source+Sans+3:wght@400;600&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,450;9..144,500;9..144,560&family=Source+Sans+3:wght@400;600&display=swap">
 <link rel="preload" href="{{ styles_url }}" as="style">
 <link rel="stylesheet" href="{{ styles_url }}">
 {%- if hero_image -%}
 <link rel="preload" href="{{ hero_image | relative_url }}" as="image" type="image/webp" fetchpriority="high">
 {%- endif -%}
+<link rel="preload" href="{{ "/assets/background.webp" | relative_url }}" as="image" type="image/webp">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/apple-touch-icon.png" | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon-32x32.png" | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon-16x16.png" | relative_url }}">

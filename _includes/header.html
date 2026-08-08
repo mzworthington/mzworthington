@@ -1,29 +1,49 @@
-<header>
-   {%- assign default_paths = site.pages | map: "path" -%}
-   {%- assign page_paths = site.header_pages | default: default_paths -%}
-   {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-   <!-- <nav aria-label="header navigation">
-      <ul>
-         <li>
-            <a class="button" href="{{ "/" | relative_url }}">Home</a>
-         </li>
-         {%- for path in page_paths -%}
-         {%- assign my_page = site.pages | where: "path", path | first -%}
-         {%- if my_page.title -%}
-         <li>
-            <a class="button" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-         </li>
-         {%- endif -%}
-         {%- endfor -%}
-         <li>
-            <a class="button" target="_blank" href="{{ 'feed.xml' | relative_url }}">Subscribe</a>
-         </li>
-      </ul>
-   </nav> -->
-   <img loading="eager" fetchpriority="high" width="144" height="144" alt="{{ site.title | escape }}" src="{{ page.image | default: site.author.picture }}" />
-   <h1>{{ site.title | escape }}</h1>
-   <h2>{{ site.description}}</h2>
-   {%- if titles_size > 0 -%}
-   {%- include get_the_code.html -%}
-   {%- endif -%}
+{%- assign default_paths = site.pages | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+{%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+{%- assign is_home = false -%}
+{%- if page.layout == "home" -%}{%- assign is_home = true -%}{%- endif -%}
+{%- comment -%}
+  Keep the circular hero portrait on the author photo. page.image is for
+  SEO/social (og-default) and must not replace the avatar on home.
+{%- endcomment -%}
+{%- if is_home -%}
+  {%- assign hero_visual = site.author.picture -%}
+{%- else -%}
+  {%- assign hero_visual = page.image | default: site.author.picture -%}
+{%- endif -%}
+<nav class="site-nav" aria-label="Primary">
+   <a class="site-nav__mark" href="{{ "/" | relative_url }}" aria-label="{{ site.author.name | escape }} home">M</a>
+   <ul class="site-nav__links">
+      <li>
+         <a href="{{ "/" | relative_url }}"{% if is_home %} aria-current="page"{% endif %}>About</a>
+      </li>
+      <li>
+         <a href="{{ "/#experience-heading" | relative_url }}">Experience</a>
+      </li>
+      <li>
+         <a href="{{ "/blog/" | relative_url }}"{% if page.url == "/blog/" %} aria-current="page"{% endif %}>Writing</a>
+      </li>
+      <li>
+         <a href="mailto:{{ site.author.email }}">Contact</a>
+      </li>
+   </ul>
+</nav>
+<header class="site-hero">
+   <img class="site-hero__visual" loading="eager" fetchpriority="high" width="176" height="176" alt="{{ site.author.name | escape }}" src="{{ hero_visual }}" />
+   <p class="site-hero__brand">{{ site.author.name | escape }}</p>
+   <h1 class="site-hero__headline">{{ site.title | escape }}</h1>
+   <p class="site-hero__lede">{{ site.tagline | default: site.description }}</p>
+   <p class="site-hero__actions">
+      {%- if is_home -%}
+      <a class="site-hero__cta" href="#about">About</a>
+      <a class="site-hero__cta site-hero__cta--ghost" href="#experience-heading">Experience</a>
+      {%- else -%}
+      <a class="site-hero__cta" href="{{ "/" | relative_url }}">Home</a>
+      {%- endif -%}
+      <a class="site-hero__cta site-hero__cta--ghost" href="mailto:{{ site.author.email }}">Contact</a>
+      {%- if titles_size > 0 -%}
+      {%- include get_the_code.html -%}
+      {%- endif -%}
+   </p>
 </header>

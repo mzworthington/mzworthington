@@ -1,4 +1,4 @@
-const cacheName = "mzworthington-v3";
+const cacheName = "mzworthington-v4";
 
 const precacheResources = [
   "/",
@@ -15,6 +15,7 @@ const precacheResources = [
   "/assets/social-icons.svg",
   "/assets/css/style.css",
   "/assets/js/experience.js",
+  "/assets/js/theme.js",
 ];
 
 function isStaticAsset(url) {
