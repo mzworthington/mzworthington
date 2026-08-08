@@ -55,5 +55,5 @@ projects:
 
   - title: GPIO build monitor
     description: |
-      A Raspberry Pi desk light that shows GitHub Actions and CircleCI status at a glance across your repos.
-    link: https://github.com/mzworthington/gpio-build-monitor
+      Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
+    link: https://monitor.mzworthington.co.uk
