@@ -46,6 +46,9 @@
       {%- if site.social_links.github -%}
       <li><a href="https://github.com/{{ site.social_links.github | cgi_escape | escape }}">github.com/{{ site.social_links.github | escape }}</a></li>
       {%- endif -%}
+      {%- if site.social_links.archlens -%}
+      <li><a href="{{ site.social_links.archlens }}">{{ site.social_links.archlens | remove: "https://" | remove: "http://" | split: "/" | first }}</a></li>
+      {%- endif -%}
    </ul>
    {%- endif -%}
    <p class="site-hero__actions no-print">

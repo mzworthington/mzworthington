@@ -11,13 +11,13 @@
      {%- if site.social_links.github -%}
      <li><a href="https://github.com/{{ site.social_links.github | cgi_escape | escape }}" rel="noreferrer" target="_blank">github.com/{{ site.social_links.github | escape }}</a></li>
      {%- endif -%}
-  </ul>
-  <section class="no-print">
-     {%- include social.html -%}
-     {%- if page.layout == "home" -%}
-     <p class="print-cv">
-        <button type="button" class="print-cv__button" data-print-cv>Print / PDF CV</button>
-     </p>
+     {%- if site.social_links.archlens -%}
+     <li><a href="{{ site.social_links.archlens }}" rel="noreferrer" target="_blank">{{ site.social_links.archlens | remove: "https://" | remove: "http://" | split: "/" | first }}</a></li>
      {%- endif -%}
-  </section>
+  </ul>
+  {%- if page.layout == "home" -%}
+  <p class="print-cv no-print">
+     <button type="button" class="print-cv__button" data-print-cv>Print / PDF CV</button>
+  </p>
+  {%- endif -%}
 </footer>

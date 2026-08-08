@@ -36,11 +36,13 @@ social:
   links:
     - https://github.com/mzworthington
     - https://www.linkedin.com/in/worthington10
+    - https://archlens.dev
 social_links:
   # twitter: worthington10
   github:  mzworthington
   # instagram: worthington10
   linkedin: worthington10
+  archlens: https://archlens.dev
 excerpt_separator: <!--more-->
 locale: en_GB
 plugins:
