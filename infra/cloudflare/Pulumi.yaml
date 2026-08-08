@@ -1,0 +1,7 @@
+name: mzworthington-cloudflare
+description: Cloudflare Pages project and custom domains for mzworthington.co.uk
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
+    typescript: true

@@ -1,5 +1,7 @@
 [tools]
 ruby = "3.3.4"
+node = "26.7.0"
+pnpm = "11.20.0"
 
 [env]
 JEKYLL_ENV = "development"

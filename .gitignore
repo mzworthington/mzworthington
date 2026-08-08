@@ -6,3 +6,15 @@ vendor/bundle/
 .bundle/
 *.gem
 .DS_Store
+
+# Local bootstrap secrets
+.env
+
+# Pulumi (infra/cloudflare)
+infra/cloudflare/node_modules/
+infra/cloudflare/bin/
+infra/cloudflare/.pulumi/
+# Stack config may contain account IDs and encrypted API tokens after bootstrap
+infra/cloudflare/Pulumi.prod.yaml
+
+.wrangler/
