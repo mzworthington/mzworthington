@@ -7,14 +7,23 @@ vendor/bundle/
 *.gem
 .DS_Store
 
-# Local bootstrap secrets
+# Environment & secrets
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
 
 # Pulumi (infra/cloudflare)
 infra/cloudflare/node_modules/
 infra/cloudflare/bin/
 infra/cloudflare/.pulumi/
-# Stack config may contain account IDs and encrypted API tokens after bootstrap
-infra/cloudflare/Pulumi.prod.yaml
+.pulumi/
+# Stack config may contain account IDs / encrypted tokens after bootstrap
+infra/cloudflare/Pulumi.*.yaml
+!infra/cloudflare/Pulumi.prod.yaml.example
+!infra/cloudflare/Pulumi.yaml
 
 .wrangler/
