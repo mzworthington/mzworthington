@@ -574,23 +574,14 @@ section#experience {
   }
 }
 
-@media screen and (min-width: calc(#{$content-width} + 2 * (#{$timeline-width} + #{$timeline-gap}) + 2rem)) {
-  // Hang the sticky timeline in the left gutter; keep headings/content
-  // aligned with About / Open source panels.
-  article {
-    overflow: visible;
-  }
-
-  .experience-block.coastal-panel {
-    overflow: visible;
-    box-sizing: border-box;
-    width: calc(100% + #{$timeline-width} + #{$timeline-gap});
-    max-width: none;
-    margin-left: calc(-1 * (#{$timeline-width} + #{$timeline-gap}));
-
+@media screen and (min-width: $on-large) {
+  // Keep the sticky timeline inside the content column so section
+  // headers stay aligned with About / Open source.
+  .experience-block {
     > .eyebrow,
     > h2 {
-      margin-left: calc(#{$timeline-width} + #{$timeline-gap});
+      margin-left: 0;
+      text-align: left;
     }
   }
 
@@ -599,7 +590,6 @@ section#experience {
     grid-template-columns: $timeline-width minmax(0, 1fr);
     column-gap: $timeline-gap;
     width: 100%;
-    margin-left: 0;
 
     > nav {
       grid-column: 1;

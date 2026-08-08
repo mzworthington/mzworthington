@@ -29,6 +29,11 @@
     box-shadow: none;
     color: var(--text-color);
 
+    > .eyebrow,
+    > h2 {
+      text-align: left;
+    }
+
     > h2 {
       font-family: var(--folio-display, #{$display-font-family});
       font-weight: 560;
