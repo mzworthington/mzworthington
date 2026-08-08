@@ -63,6 +63,7 @@ collections:
     output: true
 include:
   - _headers
+  - _redirects
   - robots.txt
 exclude:
   - README.md
@@ -78,3 +79,9 @@ exclude:
   - vendor/ruby/
   - bin/
   - mise.toml
+  - infra/
+  - docs/
+  - wrangler.toml
+  - .env
+  - .env.example
+  - .github/
