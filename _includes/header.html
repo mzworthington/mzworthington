@@ -2,13 +2,23 @@
    {%- assign default_paths = site.pages | map: "path" -%}
    {%- assign page_paths = site.header_pages | default: default_paths -%}
    {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-   <img class="site-hero__visual" loading="eager" fetchpriority="high" width="176" height="176" alt="{{ site.author.name | escape }}" src="{{ page.image | default: site.author.picture }}" />
+   {%- comment -%}
+     Keep the circular hero portrait on the author photo. page.image is for
+     SEO/social (og-default) and must not replace the avatar on home.
+   {%- endcomment -%}
+   {%- if page.layout == "home" -%}
+     {%- assign hero_visual = site.author.picture -%}
+   {%- else -%}
+     {%- assign hero_visual = page.image | default: site.author.picture -%}
+   {%- endif -%}
+   <img class="site-hero__visual" loading="eager" fetchpriority="high" width="176" height="176" alt="{{ site.author.name | escape }}" src="{{ hero_visual }}" />
    <p class="site-hero__brand">{{ site.author.name | escape }}</p>
    <h1 class="site-hero__headline">{{ site.title | escape }}</h1>
-   <p class="site-hero__lede">{{ site.description }}</p>
+   <p class="site-hero__lede">{{ site.tagline | default: site.description }}</p>
    <p class="site-hero__actions">
       {%- if page.layout == "home" -%}
-      <a class="site-hero__cta" href="#experience">Experience</a>
+      <a class="site-hero__cta" href="#about">About</a>
+      <a class="site-hero__cta site-hero__cta--ghost" href="#experience-heading">Experience</a>
       {%- else -%}
       <a class="site-hero__cta" href="{{ "/" | relative_url }}">Home</a>
       {%- endif -%}

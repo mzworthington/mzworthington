@@ -1,9 +1,10 @@
 {%- assign side_projects_data = site.data.side_projects -%}
 {%- if side_projects_data.groups or side_projects_data.projects -%}
-<section aria-label="Open source">
-  <h2>Open source</h2>
+<section class="open-source coastal-panel" aria-labelledby="open-source-heading">
+  <p class="eyebrow">Build in public</p>
+  <h2 id="open-source-heading">Open source</h2>
   {%- if side_projects_data.intro and side_projects_data.intro != blank -%}
-    <p>{{ side_projects_data.intro | strip }}</p>
+    <p class="open-source__intro">{{ side_projects_data.intro | strip }}</p>
   {%- endif -%}
 
   {%- for group in side_projects_data.groups -%}

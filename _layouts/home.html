@@ -3,13 +3,16 @@ layout: default
 ---
 
 <article>
-   <header>
-     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
-   </header>
-  <section itemprop="articleBody">
-      <p>Engineering leader with twenty years building and scaling software organisations, from music and fashion publishing to banking, public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture at organisations from Resident Advisor and Thoughtworks to Betway, with a consistent focus on delivery speed, reliability, and developer experience.</p>
-      <p>I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work, including wellbeing and professional growth, not as perks but as part of how good software gets built.</p>
-   </section>
+  <section id="about" class="about coastal-panel" aria-labelledby="about-heading" itemprop="articleBody">
+    <p class="eyebrow">About</p>
+    <h2 id="about-heading">How I work</h2>
+    <p class="about__lead">
+      Engineering leader with twenty years building and scaling software organisations, from music and fashion publishing to banking, public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture at organisations from Resident Advisor and Thoughtworks to Betway, with a consistent focus on delivery speed, reliability, and developer experience.
+    </p>
+    <p>
+      I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work, including wellbeing and professional growth, not as perks but as part of how good software gets built.
+    </p>
+  </section>
    {%- include side_projects.html -%}
    {%- include experience.html -%}
 <a class="u-url visually-hidden" href="{{ page.url | relative_url }}">{{ page.title | default: site.title | escape }}</a>

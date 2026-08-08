@@ -1,4 +1,6 @@
-<h2>Experience</h2>
+<section class="experience-block coastal-panel" aria-labelledby="experience-heading">
+<p class="eyebrow">Career</p>
+<h2 id="experience-heading">Experience</h2>
 <section id="experience" aria-label="Experience">
 
   <nav aria-label="Employment timeline">
@@ -11,9 +13,9 @@
               <time datetime="{% if job.current %}{{ job.start }}/{% else %}{{ job.start }}/{{ job.end }}{% endif %}">
                 {% assign start_year = job.start | slice: 0, 4 %}
                 {% if job.current %}
-                  {{ start_year }} – Present
+                  {{ start_year }} - Present
                 {% elsif job.end %}
-                  {{ start_year }} – {{ job.end | slice: 0, 4 }}
+                  {{ start_year }} - {{ job.end | slice: 0, 4 }}
                 {% else %}
                   {{ start_year }}
                 {% endif %}
@@ -70,9 +72,9 @@
               <time datetime="{% if job.current %}{{ job.start }}/{% else %}{{ job.start }}/{{ job.end }}{% endif %}">
                 {% assign start_label = job.start | append: "-01" | date: "%b %Y" %}
                 {% if job.current %}
-                  {{ start_label }} – Present
+                  {{ start_label }} - Present
                 {% else %}
-                  {{ start_label }} – {{ job.end | append: "-01" | date: "%b %Y" }}
+                  {{ start_label }} - {{ job.end | append: "-01" | date: "%b %Y" }}
                 {% endif %}
               </time>
             {% endif %}
@@ -148,9 +150,9 @@
                             <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
                               {% assign project_start_year = project.start | slice: 0, 4 %}
                               {% if project.current %}
-                                {{ project_start_year }} – Present
+                                {{ project_start_year }} - Present
                               {% elsif project.end %}
-                                {{ project_start_year }} – {{ project.end | slice: 0, 4 }}
+                                {{ project_start_year }} - {{ project.end | slice: 0, 4 }}
                               {% else %}
                                 {{ project_start_year }}
                               {% endif %}
@@ -190,6 +192,7 @@
       </section>
     {% endfor %}
   </section>
+</section>
 </section>
 
 <script src="{{ '/assets/js/experience.js' | relative_url }}" defer></script>

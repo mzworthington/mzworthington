@@ -103,12 +103,12 @@ If you start to see a slow down in velocity you might want to consider adding in
 
 The story should encompass all information needed. Aiming for thin vertical sliced stories that can deliver value into the users hands, allowing us to get feedback quickly. Following [Bill Wake’s INVEST principles](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/); every story should be.
 
-* I – Independent
-* N – Negotiable
-* V – Valuable
-* E – Estimable
-* S – Small
-* T – Testable
+* I - Independent
+* N - Negotiable
+* V - Valuable
+* E - Estimable
+* S - Small
+* T - Testable
 
 There is no perfect way to write stories, over time your story template will evolve and what is valuable to your team should take focus. I find the following template a good starter.
 
