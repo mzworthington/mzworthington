@@ -1,0 +1,391 @@
+@use "initialize" as *;
+
+// Folio chrome: light editorial paper + coastal mist plane on the right.
+// Activated via <html data-theme="folio"> (or body); Mist keeps the PR hero.
+
+[data-theme="folio"] {
+  body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--site-title-color);
+    font-family: var(--folio-display, #{$display-font-family});
+  }
+
+  // Flatten Mist coastal cards into editorial paper (no card chrome)
+  .coastal-panel {
+    margin: 1.25rem 0 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--text-color);
+
+    > h2 {
+      font-family: var(--folio-display, #{$display-font-family});
+      font-weight: 560;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  a {
+    color: var(--link-base-color);
+
+    &:visited {
+      color: var(--link-visited-color);
+    }
+
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+
+  hr {
+    border-color: var(--border-color-01);
+  }
+
+  pre,
+  code,
+  .highlight {
+    background-color: var(--code-background-color);
+    border-color: var(--border-color-01);
+  }
+
+  .chip {
+    background-color: var(--background-color-light);
+  }
+
+  // Ambient mist plane — full-bleed coastal image fading into paper
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-color: var(--background-color);
+    background-image:
+      linear-gradient(
+        90deg,
+        var(--background-color) 0%,
+        var(--background-color) 38%,
+        rgba(255, 255, 255, 0.88) 52%,
+        rgba(255, 255, 255, 0.35) 68%,
+        transparent 86%
+      ),
+      url("/assets/background.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, right center;
+    background-size: cover, cover;
+    animation: folio-veil 28s ease-in-out infinite;
+  }
+
+  body > header,
+  body > main,
+  body > footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Top brand mark + editorial nav (screenshot chrome)
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: min(100%, 68rem);
+    margin: 0 auto;
+    padding: 1.1rem clamp(1rem, 3vw, 2.5rem) 0.85rem;
+  }
+
+  .site-nav__mark {
+    flex: 0 0 auto;
+    font-family: $display-font-family;
+    font-size: clamp(2.4rem, 5vw, 3.25rem);
+    font-weight: 560;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--brand-color);
+    text-decoration: none;
+
+    &::after {
+      content: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--brand-color-dark);
+      text-decoration: none;
+    }
+  }
+
+  .site-nav__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 1.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      color: var(--text-muted);
+      font-family: $base-font-family;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+
+      &::after {
+        background-color: var(--brand-color);
+        height: 1px;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &[aria-current="page"] {
+        color: var(--brand-color);
+      }
+
+      &[aria-current="page"]::after {
+        transform: scaleX(0.9);
+      }
+    }
+  }
+
+  .theme-switch {
+    margin-left: auto;
+  }
+
+  // Mist PR hero is Ink-only; Folio uses the ambient plane + nav mark
+  body > header.site-hero {
+    display: none;
+  }
+
+  body.is-home > header.site-hero {
+    display: none;
+  }
+
+  main {
+    margin: 0;
+    padding: 1.25rem clamp(1rem, 3vw, 2.5rem) 3rem;
+  }
+
+  @media screen and (min-width: $on-large) {
+    main {
+      padding: 1.75rem clamp(1.5rem, 4vw, 3rem) 4rem;
+    }
+  }
+
+  article {
+    max-width: 40rem;
+    margin: 0;
+    padding-bottom: $footer-size;
+    background: transparent;
+
+    > header {
+      text-align: left;
+      margin-bottom: 1.25rem;
+
+      h1 {
+        font-family: $display-font-family;
+        font-weight: 560;
+        letter-spacing: -0.03em;
+        color: var(--site-title-color);
+      }
+    }
+  }
+
+  article > section {
+    > ul:has(> li > a > h3) > li,
+    .side-project-cards > li {
+      border-color: var(--border-color-01);
+      background-color: rgba(255, 255, 255, 0.72);
+      box-shadow: none;
+
+      &:has(> a:hover),
+      &:has(> a:focus-visible) {
+        border-color: var(--brand-color);
+        box-shadow: 0 0.35rem 1.1rem rgba(15, 95, 99, 0.08);
+      }
+
+      > a h3 {
+        color: var(--brand-color);
+      }
+    }
+  }
+
+  // Experience: editorial list rules (teal vertical bars)
+  section#experience {
+    > nav {
+      background-color: color-mix(in srgb, var(--background-color) 92%, transparent);
+      border-bottom-color: var(--border-color-01);
+      box-shadow: 0 4px 12px rgba(15, 95, 99, 0.06);
+    }
+
+    > section > section {
+      > header {
+        h3 {
+          font-family: $display-font-family;
+          font-weight: 560;
+          letter-spacing: -0.025em;
+          color: var(--site-title-color);
+
+          a {
+            color: inherit;
+          }
+        }
+
+        p {
+          color: var(--brand-color);
+          font-family: $base-font-family;
+          font-weight: 600;
+        }
+      }
+
+      > p {
+        color: var(--text-color);
+        font-family: $display-font-family;
+        font-size: 1.05rem;
+        line-height: 1.55;
+      }
+
+      // Job-level summary bullets when present
+      > ul > li {
+        position: relative;
+        margin: 0 0 0.85rem;
+        padding-left: 1rem;
+        border-left: 3px solid var(--brand-color);
+        list-style: none;
+      }
+
+      .projects-panel {
+        > nav {
+          background-color: color-mix(in srgb, var(--background-color-light) 94%, transparent);
+          border-bottom-color: var(--border-color-01);
+          box-shadow: 0 4px 12px rgba(15, 95, 99, 0.05);
+        }
+
+        article > div {
+          font-family: $display-font-family;
+
+          ul {
+            list-style: none;
+            margin: 0.75em 0 0;
+            padding: 0;
+          }
+
+          ul > li {
+            position: relative;
+            margin: 0 0 1rem;
+            padding: 0.15rem 0 0.15rem 1rem;
+            border-left: 3px solid var(--brand-color);
+            color: var(--text-muted);
+            list-style: none;
+
+            b,
+            strong {
+              display: block;
+              margin-bottom: 0.15em;
+              color: var(--site-title-color);
+              font-family: $display-font-family;
+              font-weight: 560;
+              font-size: 1.05em;
+            }
+          }
+        }
+      }
+    }
+
+    aside li {
+      border-color: var(--border-color-01);
+      background: transparent;
+      color: var(--brand-color);
+    }
+
+    nav a {
+      color: var(--text-muted);
+
+      time {
+        color: var(--brand-color);
+      }
+
+      &.is-active {
+        color: var(--brand-color);
+      }
+    }
+
+    > nav > ul {
+      border-left-color: var(--border-color-01);
+    }
+  }
+
+  footer {
+    color: var(--text-muted);
+
+    a {
+      color: var(--brand-color);
+    }
+
+    .go-to-top {
+      background-color: var(--background-color-light);
+    }
+  }
+
+  .site-hero__cta,
+  .button {
+    border-color: var(--brand-color);
+    color: var(--brand-color);
+  }
+}
+
+@keyframes folio-veil {
+  0%,
+  100% {
+    background-position: center, 100% 50%;
+  }
+  50% {
+    background-position: center, 96% 54%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="folio"] body::before {
+    animation: none;
+  }
+}
+
+@media screen and (max-width: #{ $on-large - 1px }) {
+  [data-theme="folio"] {
+    body::before {
+      background-image:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.94) 0%,
+          rgba(255, 255, 255, 0.9) 48%,
+          rgba(255, 255, 255, 0.72) 100%
+        ),
+        url("/assets/background.webp");
+      background-position: center, center 20%;
+      background-size: cover, cover;
+      opacity: 0.55;
+    }
+
+    .site-nav {
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+    }
+
+    .theme-switch {
+      margin-left: 0;
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+}

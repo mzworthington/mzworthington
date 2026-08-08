@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" data-theme="mist">
 {%- include head.html -%}
 <body{% if page.layout == "home" %} class="is-home"{% endif %}>
    {%- include header.html -%}
@@ -7,6 +7,7 @@
       {{ content }}
    </main>
    {%- include footer.html -%}
+   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
 </body>
 {%- include pwa.html -%}
 </html>

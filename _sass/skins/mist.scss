@@ -26,7 +26,24 @@ $table-header-bg-color: color.adjust($background-color, $lightness: 8%) !default
 $table-header-border:   color.adjust($background-color, $lightness: 16%) !default;
 $table-border-color:    $border-color-01 !default;
 
-:root {
+:root,
+[data-theme="mist"] {
+  --brand-color: #{$brand-color};
+  --brand-color-light: #{$brand-color-light};
+  --brand-color-dark: #{$brand-color-dark};
+  --site-title-color: #{$site-title-color};
+  --text-color: #{$text-color};
+  --text-muted: #{color.adjust($text-color, $lightness: -12%)};
+  --background-color: #{$background-color};
+  --background-color-light: #{$background-color-light};
+  --background-color-dark: #{$background-color-dark};
+  --code-background-color: #{$code-background-color};
+  --link-base-color: #{$link-base-color};
+  --link-visited-color: #{$link-visited-color};
+  --link-hover-color: #{$link-hover-color};
+  --border-color-01: #{$border-color-01};
+  --border-color-02: #{$border-color-02};
+  --border-color-03: #{$border-color-03};
   --mist-fog: #c5d4e0;
   --mist-slate: #5f7488;
   --mist-ink: #101820;
@@ -40,6 +57,9 @@ $table-border-color:    $border-color-01 !default;
   --ci-accent: #0f766e;
   --ci-accent-hover: #0d9488;
   --ci-line: #d5dde8;
+
+  --theme-color: #{$background-color};
+  color-scheme: dark;
 }
 
 .highlight {
