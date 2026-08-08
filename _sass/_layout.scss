@@ -7,6 +7,13 @@ footer {
   bottom: 0;
   height: $footer-size;
   width: 100%;
+
+  &:has(.print-cv) {
+    height: auto;
+    min-height: $footer-size;
+    padding-bottom: 1rem;
+  }
+
   .social-media-list {
     display: table;
     margin: 0 auto;
@@ -22,6 +29,35 @@ footer {
           border-color: $border-color-02;
         }
       }
+    }
+  }
+
+  .print-cv {
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0.65rem 0 0;
+    text-align: center;
+  }
+
+  .print-cv__button {
+    appearance: none;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-muted, #{$brand-color});
+    font-family: $base-font-family;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--link-base-color, #{$link-base-color});
     }
   }
 }
@@ -133,6 +169,7 @@ body > header.site-hero {
   }
 
   .site-hero__cta {
+    appearance: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -146,7 +183,9 @@ body > header.site-hero {
     font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 0.02em;
+    line-height: 1.2;
     text-decoration: none;
+    cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
     &::after {
@@ -610,6 +649,9 @@ article {
 @media screen and (min-width: $on-medium) {
   footer section {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 }
 

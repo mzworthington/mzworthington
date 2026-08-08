@@ -312,11 +312,14 @@
     });
   }
 
-  function closeAllProjectDetails() {
+  function resetProjectDetails() {
     experience
       .querySelectorAll(":scope > section > section[id^='experience-'] > details")
       .forEach(function (details) {
-        details.open = false;
+        var jobSection = details.parentElement;
+        details.open = Boolean(
+          jobSection && jobSection.hasAttribute("data-expand-projects")
+        );
       });
   }
 
@@ -331,7 +334,7 @@
   experience.querySelectorAll(".projects-panel").forEach(bindProjectNav);
   experience.querySelectorAll("section[id^='experience-'] > details").forEach(bindDetailsToggle);
 
-  closeAllProjectDetails();
+  resetProjectDetails();
   updateStickyNavOffsets();
   syncFromHash({ scroll: Boolean(window.location.hash) });
   window.addEventListener("hashchange", function () {

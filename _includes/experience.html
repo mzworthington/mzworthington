@@ -56,7 +56,7 @@
   <section aria-label="Employment history">
     {% for job in site.data.experience %}
       {% assign slug = job.slug | default: job.name | slugify %}
-      <section id="experience-{{ slug }}" aria-labelledby="experience-{{ slug }}-heading" tabindex="-1">
+      <section id="experience-{{ slug }}" aria-labelledby="experience-{{ slug }}-heading" tabindex="-1"{% if job.current %} data-expand-projects{% endif %}>
         <header>
           <h3 id="experience-{{ slug }}-heading">
             {% if job.link %}
@@ -95,7 +95,7 @@
         {% endif %}
 
         {% if job.projects and job.projects.size > 0 %}
-          <details>
+          <details{% if job.current %} open{% endif %}>
             <summary class="projects-toggle">
               <span class="projects-toggle__chip">
                 <span class="projects-toggle__label">View projects</span>
@@ -149,13 +149,17 @@
                             {% if project.role %} · {% endif %}
                             <time datetime="{% if project.current %}{{ project.start }}/{% else %}{{ project.start }}/{{ project.end }}{% endif %}">
                               {% assign project_start_year = project.start | slice: 0, 4 %}
-                              {% if project.current %}
-                                {{ project_start_year }} - Present
-                              {% elsif project.end %}
-                                {{ project_start_year }} - {{ project.end | slice: 0, 4 }}
-                              {% else %}
-                                {{ project_start_year }}
-                              {% endif %}
+                              {% assign project_start_label = project.start | append: "-01" | date: "%b %Y" %}
+                              <span class="project-date__range">
+                                {% if project.current %}
+                                  {{ project_start_year }} - Present
+                                {% elsif project.end %}
+                                  {{ project_start_year }} - {{ project.end | slice: 0, 4 }}
+                                {% else %}
+                                  {{ project_start_year }}
+                                {% endif %}
+                              </span>
+                              <span class="project-date__start">{{ project_start_label }}</span>
                             </time>
                           {% endif %}
                           {% if project.location %}

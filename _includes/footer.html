@@ -6,5 +6,10 @@
    </address>
   <section>
      {%- include social.html -%}
+     {%- if page.layout == "home" -%}
+     <p class="print-cv">
+        <button type="button" class="print-cv__button" data-print-cv>Print / PDF CV</button>
+     </p>
+     {%- endif -%}
   </section>
 </footer>

@@ -32,4 +32,32 @@
   }
 
   applyTheme(themeFromQuery());
+
+  // Print / PDF CV (footer control on home)
+  var printDetailsState = [];
+
+  function openDetailsForPrint() {
+    printDetailsState = [];
+    document.querySelectorAll("details").forEach(function (details) {
+      printDetailsState.push({ el: details, open: details.open });
+      details.open = true;
+    });
+  }
+
+  function restoreDetailsAfterPrint() {
+    printDetailsState.forEach(function (entry) {
+      entry.el.open = entry.open;
+    });
+    printDetailsState = [];
+  }
+
+  window.addEventListener("beforeprint", openDetailsForPrint);
+  window.addEventListener("afterprint", restoreDetailsAfterPrint);
+
+  document.querySelectorAll("[data-print-cv]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      openDetailsForPrint();
+      window.print();
+    });
+  });
 })();

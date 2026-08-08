@@ -6,7 +6,11 @@
   {%- if side_projects_data.intro and side_projects_data.intro != blank -%}
     <p class="open-source__intro">{{ side_projects_data.intro | strip }}</p>
   {%- endif -%}
+  <p class="open-source__print-note">
+    See <a href="{{ site.url | default: 'https://mzworthington.co.uk' }}">mzworthington.co.uk</a> for current contributions
+  </p>
 
+  <div class="open-source__catalog no-print">
   {%- for group in side_projects_data.groups -%}
     <section class="side-project-group" aria-label="{{ group.title | escape }}">
       <header class="side-project-group__header">
@@ -40,5 +44,6 @@
       {%- endfor -%}
     </ul>
   {%- endif -%}
+  </div>
 </section>
 {%- endif -%}
