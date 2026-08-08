@@ -1,11 +1,14 @@
 # Applied by hosts that support _headers (e.g. Cloudflare Pages, Netlify).
-# GitHub Pages ignores this file and always serves max-age=600.
+# Filenames are not content-hashed, so never use immutable — it pins stale
+# JS/CSS on the custom domain across deploys.
 
+# Fingerprintable media can stay warm; revalidate so updates still land.
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, must-revalidate
 
+# Styles and scripts change in place — always revalidate with origin.
 /assets/css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /assets/js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate

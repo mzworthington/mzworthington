@@ -1,4 +1,4 @@
-const cacheName = "mzworthington-v4";
+const cacheName = "mzworthington-v5";
 
 const precacheResources = [
   "/",
