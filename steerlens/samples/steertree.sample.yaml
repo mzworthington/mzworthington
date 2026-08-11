@@ -1,0 +1,155 @@
+apiVersion: steerlens.dev/v1alpha1
+kind: SteerTree
+metadata:
+  name: northwind-q3-alignment
+  title: Northwind Q3 alignment
+  description: Synthetic demo workspace for Slice 1 — fictional retailer, not a real programme
+spec:
+  vision: Ship customer promises in days, not weeks, without burning out store and digital teams
+  outcomes:
+    - id: out_promise
+      title: Reliable customer promises
+      summary: Customers receive accurate delivery and pickup estimates they can trust
+      status: on_track
+      metrics:
+        - id: met_promise_hit
+          title: Promise hit rate
+          unit: percent
+          current: 91
+          baseline: 74
+          target: 95
+          interpretation: Climbing, still short of the target band
+        - id: met_cycle_days
+          title: Promise-to-fulfilil days
+          unit: days
+          current: 4.2
+          baseline: 9.0
+          target: 3.0
+          interpretation: Improved, not yet at target
+        - id: met_shared_wait
+          title: Shared-service wait time
+          unit: days
+          current: 3.5
+          baseline: 2.0
+          target: 1.0
+          interpretation: Bottleneck risk for two bets
+  bets:
+    - id: bet_pickup
+      outcomeId: out_promise
+      title: Same-day pickup reliability
+      successSignal: Store pickup promises miss less than five percent of orders
+      killCriteria: Hit rate stays flat after one quarter of staffing and routing changes
+      status: on_track
+      fundedTeamIds: [team_storefront, team_catalog]
+    - id: bet_fulfilil
+      outcomeId: out_promise
+      title: Shared fulfilment spine
+      successSignal: New channels reuse one fulfilment path within two weeks of launch
+      killCriteria: Fewer than two channels adopt the spine after two quarters
+      status: at_risk
+      fundedTeamIds: [team_fulfilil, team_storefront]
+    - id: bet_loyalty
+      outcomeId: out_promise
+      title: Loyalty ledger unification
+      successSignal: Points balance disputes drop by half
+      killCriteria: Promise hit rate unchanged after two quarters while programme cost rises
+      status: stop_ready
+      fundedTeamIds: [team_fulfilil]
+  teams:
+    - id: team_storefront
+      displayName: Storefront experience
+      role: stream_aligned
+      provenance: local
+      externalRefs: []
+      members:
+        - id: mem_storefront_em
+          displayName: Priya Nair
+          discipline: leadership
+          title: Engineering Manager
+          ftePercent: 100
+        - id: mem_storefront_ic
+          displayName: Jordan Blake
+          discipline: engineering
+          title: Senior Engineer
+          ftePercent: 100
+        - id: mem_storefront_pm
+          displayName: Casey Morales
+          discipline: product
+          title: Product Manager
+          ftePercent: 50
+    - id: team_catalog
+      displayName: Catalog and discovery
+      role: stream_aligned
+      provenance: local
+      externalRefs: []
+      members:
+        - id: mem_catalog_em
+          displayName: Sam Okonkwo
+          discipline: leadership
+          title: Engineering Manager
+          ftePercent: 100
+        - id: mem_catalog_ic
+          displayName: Riley Chen
+          discipline: engineering
+          title: Engineer
+          ftePercent: 100
+    - id: team_fulfilil
+      displayName: Fulfilment platform
+      role: platform
+      provenance: local
+      externalRefs: []
+      members:
+        - id: mem_fulfilil_tl
+          displayName: Alex Rivera
+          discipline: leadership
+          title: Platform Lead
+          ftePercent: 100
+        - id: mem_fulfilil_sre
+          displayName: Morgan Ellis
+          discipline: engineering
+          title: Site Reliability Engineer
+          ftePercent: 100
+        - id: mem_fulfilil_shared
+          displayName: Casey Morales
+          discipline: product
+          title: Product Manager
+          ftePercent: 50
+    - id: team_enablement
+      displayName: Ways of working
+      role: enabling
+      provenance: local
+      externalRefs: []
+      members:
+        - id: mem_enable_coach
+          displayName: Taylor Brooks
+          discipline: other
+          title: Delivery Coach
+          ftePercent: 100
+  relationships:
+    - fromTeamId: team_storefront
+      toTeamId: team_fulfilil
+      mode: x_as_a_service
+    - fromTeamId: team_catalog
+      toTeamId: team_fulfilil
+      mode: x_as_a_service
+    - fromTeamId: team_enablement
+      toTeamId: team_storefront
+      mode: facilitation
+  decisionNotes:
+    - id: dec_loyalty_stop
+      betId: bet_loyalty
+      recommendation: stop
+      title: Stop Loyalty ledger unification?
+      why: >
+        Coordination cost rose without a measurable lift in promise hit rate.
+        Dispute handling improved in pockets but not enough to justify the programme tax.
+      measured:
+        - Promise hit rate unchanged quarter-on-quarter
+        - Shared-service wait time increased
+      affectedTeamIds: [team_fulfilil, team_storefront]
+      nextStep: Pause rollout; keep the existing ledger for two quarters and revisit
+  evidence:
+    - id: ev_sample
+      metricId: met_promise_hit
+      source: sample
+      note: Synthetic sample data for Slice 1 · connect systems later for live evidence

@@ -38,28 +38,28 @@ groups:
         link: https://archlens.dev/guide/schema
 
 projects:
-  - title: SteerLens
+  - title: GPIO build monitor
     description: |
-      Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
-    link: https://steerlens.mzworthington.co.uk/
-    coming_soon: true
+      Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
+    link: https://monitor.mzworthington.co.uk
 
   - title: Agent Lifecycle Kit
     description: |
       Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.
     link: https://github.com/mzworthington/agent-lifecycle-kit
 
-  - title: dotfiles
-    description: |
-      Personal macOS machine setup: shell config, Homebrew and mise tooling, and bootstrap scripts for a fresh machine.
-    link: https://github.com/mzworthington/dotfiles
-
   - title: React on Cloudflare
     description: |
       Hosting, docs, and CI already wired, so day one is product work, not plumbing.
     link: https://react-cloudflare-template.mzworthington.co.uk/
 
-  - title: GPIO build monitor
+  - title: SteerLens
     description: |
-      Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
-    link: https://monitor.mzworthington.co.uk
+      Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
+    link: https://steerlens.mzworthington.co.uk/
+    coming_soon: true
+
+  - title: dotfiles
+    description: |
+      Personal macOS machine setup: shell config, Homebrew and mise tooling, and bootstrap scripts for a fresh machine.
+    link: https://github.com/mzworthington/dotfiles
