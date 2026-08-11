@@ -45,11 +45,10 @@
 {%- comment -%} Bust CDN/browser cache when filenames are not content-hashed. {%- endcomment -%}
 {%- assign asset_v = site.time | date: "%s" -%}
 {%- assign styles_url = "/assets/css/style.css" | relative_url | append: "?v=" | append: asset_v -%}
-{%- assign fonts_url = "https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Fraunces:opsz,wght@9..144,450;9..144,560&family=Source+Sans+3:wght@400;600&display=swap" -%}
+{%- assign fonts_url = "https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Fraunces:opsz,wght@9..144,450;9..144,560&family=Source+Sans+3:wght@400;600&display=optional" -%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="{{ fonts_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ fonts_url }}"></noscript>
+<link rel="stylesheet" href="{{ fonts_url }}">
 <link rel="preload" href="{{ styles_url }}" as="style">
 <link rel="stylesheet" href="{{ styles_url }}">
 {%- if hero_image -%}

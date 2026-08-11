@@ -147,7 +147,6 @@ body > header.site-hero {
     border-radius: 50%;
     border: 1px solid rgba(197, 212, 224, 0.28);
     box-shadow: 0 0 0 10px rgba(26, 36, 48, 0.35);
-    animation: mist-rise 1.1s ease-out both;
   }
 
   .site-hero__brand {
@@ -158,7 +157,6 @@ body > header.site-hero {
     line-height: 1.05;
     letter-spacing: -0.035em;
     color: $site-title-color;
-    animation: mist-rise 1.15s ease-out 0.08s both;
   }
 
   .site-hero__headline {
@@ -171,7 +169,6 @@ body > header.site-hero {
     letter-spacing: -0.02em;
     color: $brand-color-light;
     white-space: nowrap;
-    animation: mist-rise 1.2s ease-out 0.16s both;
   }
 
   .site-hero__lede {
@@ -182,7 +179,6 @@ body > header.site-hero {
     line-height: 1.5;
     color: $text-color;
     opacity: 0.92;
-    animation: mist-rise 1.25s ease-out 0.24s both;
   }
 
   .site-hero__actions {
@@ -191,7 +187,6 @@ body > header.site-hero {
     justify-content: center;
     gap: 0.75rem 1rem;
     margin: 0;
-    animation: mist-rise 1.3s ease-out 0.32s both;
   }
 
   .site-hero__cta {
@@ -291,24 +286,8 @@ body.is-home > main {
   }
 }
 
-@keyframes mist-rise {
-  from {
-    opacity: 0;
-    transform: translateY(0.85rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  body > header.site-hero,
-  body > header.site-hero .site-hero__visual,
-  body > header.site-hero .site-hero__brand,
-  body > header.site-hero .site-hero__headline,
-  body > header.site-hero .site-hero__lede,
-  body > header.site-hero .site-hero__actions {
+  body > header.site-hero {
     animation: none;
   }
 }
