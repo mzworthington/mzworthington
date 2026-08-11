@@ -53,10 +53,10 @@ projects:
       Hosting, docs, and CI already wired, so day one is product work, not plumbing.
     link: https://react-cloudflare-template.mzworthington.co.uk/
 
-  - title: SteerLens
+  - title: SteerCo
     description: |
       Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
-    link: https://steerlens.mzworthington.co.uk/
+    link: https://steerco.mzworthington.co.uk/
     coming_soon: true
 
   - title: dotfiles
