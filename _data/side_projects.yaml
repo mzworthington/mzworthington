@@ -38,6 +38,12 @@ groups:
         link: https://archlens.dev/guide/schema
 
 projects:
+  - title: SteerLens
+    description: |
+      Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
+    link: https://steerlens.mzworthington.co.uk/
+    coming_soon: true
+
   - title: Agent Lifecycle Kit
     description: |
       Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.

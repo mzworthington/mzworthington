@@ -4,11 +4,19 @@
 {%- if project_link contains '://' -%}
   {%- assign is_external = true -%}
 {%- endif -%}
-<li>
+{%- assign coming_soon = false -%}
+{%- if project.coming_soon -%}
+  {%- assign coming_soon = true -%}
+{%- endif -%}
+<li{%- if coming_soon %} class="side-project-card--coming-soon"{% endif -%}>
   <a
     href="{{ project_link | escape }}"
+    {%- if coming_soon %} aria-label="{{ project.title | escape }} — Coming soon"{% endif -%}
     {%- if is_external %} target="_blank" rel="noopener noreferrer"{% endif -%}
   >
+    {%- if coming_soon -%}
+      <span class="side-project-card__banner" aria-hidden="true">Coming soon</span>
+    {%- endif -%}
     <h3>{{ project.title | escape }}</h3>
     {%- if project.description and project.description != blank -%}
       <p>{{ project.description | strip }}</p>

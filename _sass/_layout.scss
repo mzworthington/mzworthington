@@ -501,6 +501,7 @@ article > section.open-source {
     scroll-snap-type: x proximity;
 
     > li {
+      position: relative;
       flex: 0 0 12.5rem;
       scroll-snap-align: start;
       list-style: none;
@@ -516,6 +517,31 @@ article > section.open-source {
       &:has(> a:focus-visible) {
         border-color: var(--panel-accent);
         box-shadow: 0 0.2rem 0.7rem rgb(15 118 110 / 0.12);
+      }
+
+      &.side-project-card--coming-soon {
+        overflow: hidden;
+
+        .side-project-card__banner {
+          position: absolute;
+          top: 0.7rem;
+          right: -1.85rem;
+          z-index: 1;
+          width: 6.75rem;
+          padding: 0.22rem 0;
+          background-color: var(--panel-accent);
+          color: #fff;
+          font-family: $base-font-family;
+          font-size: 0.55rem;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          line-height: 1.2;
+          text-align: center;
+          text-transform: uppercase;
+          transform: rotate(35deg);
+          box-shadow: 0 0.1rem 0.25rem rgb(15 118 110 / 0.2);
+          pointer-events: none;
+        }
       }
 
       > a {
