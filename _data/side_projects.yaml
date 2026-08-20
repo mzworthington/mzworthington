@@ -57,7 +57,6 @@ projects:
     description: |
       Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
     link: https://steerco.mzworthington.co.uk/
-    coming_soon: true
 
   - title: dotfiles
     description: |
