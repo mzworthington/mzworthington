@@ -29,12 +29,12 @@
     box-shadow: none;
     color: var(--text-color);
 
-    > .eyebrow,
-    > h2 {
+    >.eyebrow,
+    >h2 {
       text-align: left;
     }
 
-    > h2 {
+    >h2 {
       font-family: var(--folio-display, #{$display-font-family});
       font-weight: 560;
       letter-spacing: -0.03em;
@@ -77,14 +77,12 @@
     pointer-events: none;
     background-color: var(--background-color);
     background-image:
-      linear-gradient(
-        90deg,
+      linear-gradient(90deg,
         var(--background-color) 0%,
         var(--background-color) 38%,
         rgba(255, 255, 255, 0.88) 52%,
         rgba(255, 255, 255, 0.35) 68%,
-        transparent 86%
-      ),
+        transparent 86%),
       url("/assets/background.webp");
     background-repeat: no-repeat, no-repeat;
     background-position: center, right center;
@@ -97,9 +95,9 @@
     top: 100dvh;
   }
 
-  body > header,
-  body > main,
-  body > footer {
+  body>header,
+  body>main,
+  body>footer {
     position: relative;
     z-index: 1;
   }
@@ -174,7 +172,7 @@
   }
 
   // Inner pages: nav-led chrome, no mist hero stack
-  body:not(.is-home) > header.site-hero {
+  body:not(.is-home)>header.site-hero {
     display: none;
   }
 
@@ -184,7 +182,7 @@
       display: none;
     }
 
-    > header.site-hero {
+    >header.site-hero {
       display: flex;
       min-height: 100vh;
       min-height: 100dvh;
@@ -253,7 +251,7 @@
       }
     }
 
-    > main {
+    >main {
       background-color: var(--background-color);
     }
   }
@@ -271,12 +269,12 @@
   }
 
   article {
-    max-width: 40rem;
+    max-width: 50rem;
     margin: 0;
     padding-bottom: $footer-size;
     background: transparent;
 
-    > header {
+    >header {
       text-align: left;
       margin-bottom: 1.25rem;
 
@@ -289,9 +287,10 @@
     }
   }
 
-  article > section {
-    > ul:has(> li > a > h3) > li,
-    .side-project-cards > li {
+  article>section {
+
+    >ul:has(> li > a > h3)>li,
+    .side-project-cards>li {
       border-color: var(--border-color-01);
       background-color: rgba(255, 255, 255, 0.72);
       box-shadow: none;
@@ -302,7 +301,7 @@
         box-shadow: 0 0.35rem 1.1rem rgba(15, 95, 99, 0.08);
       }
 
-      > a h3 {
+      >a h3 {
         color: var(--brand-color);
       }
     }
@@ -310,14 +309,14 @@
 
   // Experience: editorial list rules (teal vertical bars)
   section#experience {
-    > nav {
+    >nav {
       background-color: color-mix(in srgb, var(--background-color) 92%, transparent);
       border-bottom-color: var(--border-color-01);
       box-shadow: 0 4px 12px rgba(15, 95, 99, 0.06);
     }
 
-    > section > section {
-      > header {
+    >section>section {
+      >header {
         h3 {
           font-family: $display-font-family;
           font-weight: 560;
@@ -336,7 +335,7 @@
         }
       }
 
-      > p {
+      >p {
         color: var(--text-color);
         font-family: $display-font-family;
         font-size: 1.05rem;
@@ -344,7 +343,7 @@
       }
 
       // Job-level summary bullets when present
-      > ul > li {
+      >ul>li {
         position: relative;
         margin: 0 0 0.85rem;
         padding-left: 1rem;
@@ -353,13 +352,13 @@
       }
 
       .projects-panel {
-        > nav {
+        >nav {
           background-color: color-mix(in srgb, var(--background-color) 92%, transparent);
           border-bottom-color: var(--border-color-01);
           box-shadow: 0 4px 12px rgba(15, 95, 99, 0.05);
         }
 
-        article > div {
+        article>div {
           font-family: $display-font-family;
 
           ul {
@@ -368,7 +367,7 @@
             padding: 0;
           }
 
-          ul > li {
+          ul>li {
             position: relative;
             margin: 0 0 1rem;
             padding: 0.15rem 0 0.15rem 1rem;
@@ -408,7 +407,7 @@
       }
     }
 
-    > nav > ul {
+    >nav>ul {
       border-left-color: var(--border-color-01);
     }
   }
@@ -426,6 +425,7 @@
   }
 
   body:not(.is-home) {
+
     .site-hero__cta,
     .button {
       border-color: var(--brand-color);
@@ -435,33 +435,35 @@
 }
 
 @keyframes folio-veil {
+
   0%,
   100% {
     background-position: center, 100% 50%;
   }
+
   50% {
     background-position: center, 96% 54%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   [data-theme="folio"] body::before,
-  [data-theme="folio"] body.is-home > header.site-hero {
+  [data-theme="folio"] body.is-home>header.site-hero {
     animation: none;
   }
 }
 
 @media screen and (max-width: #{ $on-large - 1px }) {
   [data-theme="folio"] {
+
     body:not(.is-home)::before,
     body.is-home::before {
       background-image:
-        linear-gradient(
-          180deg,
+        linear-gradient(180deg,
           rgba(255, 255, 255, 0.94) 0%,
           rgba(255, 255, 255, 0.9) 48%,
-          rgba(255, 255, 255, 0.72) 100%
-        ),
+          rgba(255, 255, 255, 0.72) 100%),
         url("/assets/background.webp");
       background-position: center, center 20%;
       background-size: cover, cover;

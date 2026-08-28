@@ -38,6 +38,11 @@ groups:
         link: https://archlens.dev/guide/schema
 
 projects:
+  - title: SteerCo
+    description: |
+      Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
+    link: https://steerco.mzworthington.co.uk
+    
   - title: GPIO build monitor
     description: |
       Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
@@ -46,17 +51,12 @@ projects:
   - title: Agent Lifecycle Kit
     description: |
       Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.
-    link: https://mzworthington.github.io/agent-lifecycle-kit/
+    link: https://mzworthington.github.io/agent-lifecycle-kit
 
   - title: React on Cloudflare
     description: |
       Hosting, docs, and CI already wired, so day one is product work, not plumbing.
-    link: https://react-cloudflare-template.mzworthington.co.uk/
-
-  - title: SteerCo
-    description: |
-      Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
-    link: https://steerco.mzworthington.co.uk/
+    link: https://react-cloudflare-template.mzworthington.co.uk
 
   - title: dotfiles
     description: |
