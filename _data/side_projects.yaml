@@ -46,7 +46,7 @@ projects:
   - title: Agent Lifecycle Kit
     description: |
       Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.
-    link: https://github.com/mzworthington/agent-lifecycle-kit
+    link: https://mzworthington.github.io/agent-lifecycle-kit/
 
   - title: React on Cloudflare
     description: |
