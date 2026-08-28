@@ -44,9 +44,8 @@ figure {
 }
 
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height}
-    $base-font-family;
-    
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -89,7 +88,8 @@ hr {
 }
 
 main {
-  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+  display: block;
+  /* Default value of `display` of `main` element is 'inline' in IE 11. */
 }
 
 img {
@@ -97,7 +97,7 @@ img {
   vertical-align: middle;
 }
 
-figure > img {
+figure>img {
   display: block;
 }
 
@@ -111,8 +111,9 @@ ol {
 }
 
 li {
-  > ul,
-  > ol {
+
+  >ul,
+  >ol {
     margin-bottom: 0;
   }
 }
@@ -170,7 +171,7 @@ blockquote {
 
 pre,
 code {
-  font-family: $code-font-family;
+  font-family: $display-font-family;
   font-size: 0.9375em;
   border: 1px solid $border-color-01;
   border-radius: 3px;
@@ -185,7 +186,7 @@ pre {
   padding: 8px 12px;
   overflow-x: auto;
 
-  > code {
+  >code {
     border: 0;
     padding-right: 0;
     padding-left: 0;
@@ -236,19 +237,23 @@ table {
   color: $table-text-color;
   border-collapse: collapse;
   border: 1px solid $table-border-color;
+
   tr {
     &:nth-child(even) {
       background-color: $table-zebra-color;
     }
   }
+
   th,
   td {
     padding: math.div($spacing-unit, 3) math.div($spacing-unit, 2);
   }
+
   th {
     background-color: $table-header-bg-color;
     border: 1px solid $table-header-border;
   }
+
   td {
     border: 1px solid $table-border-color;
   }
@@ -262,12 +267,14 @@ table {
 }
 
 
-header , nav, main {
+header,
+nav,
+main {
   a {
-  display: inline-block;
-  position: relative;
-  color: $link-base-color;
-  text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: $link-base-color;
+    text-decoration: none;
   }
 
   a:after {
@@ -283,7 +290,7 @@ header , nav, main {
     transition: transform 0.3s ease-out;
   }
 
-  a:hover{
+  a:hover {
     text-decoration: none;
   }
 
@@ -297,6 +304,7 @@ header {
   h1 {
     text-transform: none;
   }
+
   h2 {
     font-size: 1em;
   }

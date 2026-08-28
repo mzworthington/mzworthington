@@ -36,12 +36,12 @@ $nav-mist: var(--panel-mist, #{$background-color-light});
   border-bottom: 1px solid $nav-line;
   box-shadow: 0 4px 12px rgb(11 18 32 / 0.06);
 
-  > ul {
+  >ul {
     margin: 0;
     padding: 0.35em 0.75em 0.2em;
   }
 
-  > ul > li {
+  >ul>li {
     padding-top: 0.25em;
 
     &::before {
@@ -66,7 +66,7 @@ $nav-mist: var(--panel-mist, #{$background-color-light});
 
     time {
       color: $nav-muted;
-      font-family: $code-font-family;
+      font-family: $display-font-family;
       font-size: 0.75em;
       font-weight: 600;
       letter-spacing: 0.04em;
@@ -98,7 +98,7 @@ $nav-mist: var(--panel-mist, #{$background-color-light});
 }
 
 @mixin timeline-nav-items {
-  > ul > li {
+  >ul>li {
     position: relative;
     flex: 0 0 auto;
     display: block;
@@ -203,7 +203,7 @@ $nav-mist: var(--panel-mist, #{$background-color-light});
 }
 
 .experience-block {
-  > h2 {
+  >h2 {
     margin-top: 0;
   }
 
@@ -217,7 +217,7 @@ section#experience {
   margin-top: 0;
   color: $nav-ink;
 
-  > nav {
+  >nav {
     margin-bottom: $spacing-unit;
 
     ul {
@@ -227,21 +227,21 @@ section#experience {
     @include timeline-nav-items;
     @include timeline-nav-links;
 
-    > ul > li.is-active::before {
+    >ul>li.is-active::before {
       background-color: $nav-accent;
       border-color: $nav-accent;
       box-shadow: 0 0 0 3px rgb(15 118 110 / 0.18);
     }
 
-    > ul > li > details > ul > li.is-active::before {
+    >ul>li>details>ul>li.is-active::before {
       background-color: $nav-accent;
       border-color: $nav-accent;
     }
 
-    > ul > li > details {
+    >ul>li>details {
       margin: 0.35em 0 0;
 
-      > summary {
+      >summary {
         @include accordion-summary;
         color: $nav-muted;
         font-size: 0.8em;
@@ -253,17 +253,17 @@ section#experience {
         }
       }
 
-      &[open] > summary::before {
+      &[open]>summary::before {
         transform: rotate(90deg);
       }
 
-      > ul {
+      >ul {
         list-style: none;
         margin: 0.35em 0 0;
         padding: 0.35em 0 0;
         border-top: 1px solid $nav-line;
 
-        > li {
+        >li {
           position: relative;
           padding: 0.35em 0 0 0.85em;
 
@@ -310,8 +310,8 @@ section#experience {
     }
   }
 
-  > section {
-    > section {
+  >section {
+    >section {
       scroll-margin-top: 2.5rem;
       margin-bottom: $spacing-unit * 1.5;
       padding-bottom: $spacing-unit;
@@ -326,7 +326,7 @@ section#experience {
         text-align: left;
       }
 
-      > header {
+      >header {
         margin-bottom: math.div($spacing-unit, 2);
 
         h3 {
@@ -358,24 +358,24 @@ section#experience {
         }
       }
 
-      > p,
-      > div {
+      >p,
+      >div {
         color: $nav-ink;
         margin-bottom: math.div($spacing-unit, 2);
       }
 
-      > details {
+      >details {
         margin: math.div($spacing-unit, 2) 0;
 
-        > summary.projects-toggle {
+        >summary.projects-toggle {
           @include projects-toggle;
         }
 
-        &:not([open]) > .projects-panel {
+        &:not([open])>.projects-panel {
           display: none;
         }
 
-        &[open] > summary.projects-toggle {
+        &[open]>summary.projects-toggle {
           margin-bottom: 0.75em;
 
           .projects-toggle__chip::before {
@@ -384,7 +384,7 @@ section#experience {
         }
 
         .projects-panel {
-          > nav {
+          >nav {
             margin-bottom: math.div($spacing-unit, 2);
 
             ul {
@@ -394,13 +394,13 @@ section#experience {
             @include timeline-nav-items;
             @include timeline-nav-links;
 
-            > ul > li.is-active::before {
+            >ul>li.is-active::before {
               background-color: $nav-accent;
               border-color: $nav-accent;
             }
           }
 
-          > section {
+          >section {
             scroll-margin-top: 2.5rem;
 
             &:not(:last-child) {
@@ -439,7 +439,7 @@ section#experience {
                 }
               }
 
-              > div {
+              >div {
                 font-size: $small-font-size;
                 line-height: $base-line-height;
                 color: $nav-ink;
@@ -485,55 +485,52 @@ section#experience {
     }
   }
 
-  > nav {
-    > ul > li > details,
-    > ul > li > details > ul {
+  >nav {
+
+    >ul>li>details,
+    >ul>li>details>ul {
       display: none;
     }
   }
 
-  > section > section > details .projects-panel:has(> nav) {
-    > nav {
+  >section>section>details .projects-panel:has(> nav) {
+    >nav {
       @include sticky-timeline-nav(0, 10);
       padding-top: 1em;
       padding-bottom: 0.75em;
 
-      > ul {
+      >ul {
         padding-top: 0.35em;
         padding-bottom: 0.2em;
       }
 
-      > ul > li {
+      >ul>li {
         padding-top: 0.25em;
       }
     }
 
-    > section {
+    >section {
       scroll-margin-top: calc(#{$project-sticky-nav-height} + 0.5rem);
     }
   }
 
   @media screen and (max-width: #{ $on-large - 1px }) {
-    > nav {
+    >nav {
       @include mobile-sticky-timeline-nav-bar($nav-mist);
     }
 
-    > section > section {
+    >section>section {
       scroll-margin-top: var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height});
     }
 
-    > section > section > details .projects-panel:has(> nav) {
-      > nav {
-        @include mobile-sticky-timeline-nav-bar(
-          #fff,
-          var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height})
-        );
+    >section>section>details .projects-panel:has(> nav) {
+      >nav {
+        @include mobile-sticky-timeline-nav-bar(#fff,
+          var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height}));
       }
 
-      > section {
-        scroll-margin-top: calc(
-          var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height}) + #{$project-sticky-nav-height} + 0.5rem
-        );
+      >section {
+        scroll-margin-top: calc(var(--employment-sticky-nav-height, #{$mobile-sticky-nav-height}) + #{$project-sticky-nav-height} + 0.5rem);
       }
     }
   }
@@ -544,7 +541,7 @@ section#experience {
     h4 {
       margin-bottom: 0.5em;
       color: $nav-muted;
-      font-family: $code-font-family;
+      font-family: $display-font-family;
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.14em;
@@ -575,11 +572,13 @@ section#experience {
 }
 
 @media screen and (min-width: $on-large) {
+
   // Keep the sticky timeline inside the content column so section
   // headers stay aligned with About / Open source.
   .experience-block {
-    > .eyebrow,
-    > h2 {
+
+    >.eyebrow,
+    >h2 {
       margin-left: 0;
       text-align: left;
     }
@@ -591,7 +590,7 @@ section#experience {
     column-gap: $timeline-gap;
     width: 100%;
 
-    > nav {
+    >nav {
       grid-column: 1;
       grid-row: 1;
       margin-bottom: 0;
@@ -610,7 +609,7 @@ section#experience {
         }
       }
 
-      > ul > li {
+      >ul>li {
         padding: 0 0 1.25em 1.25em;
 
         &::before {
@@ -624,13 +623,13 @@ section#experience {
           padding-bottom: 0;
         }
 
-        > details > ul {
+        >details>ul {
           margin: 0.35em 0 0;
           padding: 0 0 0 1em;
           border-top: 0;
           border-left: 2px solid $nav-line;
 
-          > li {
+          >li {
             padding: 0 0 0.75em 1em;
 
             &::before {
@@ -651,7 +650,7 @@ section#experience {
       }
     }
 
-    > section {
+    >section {
       grid-column: 2;
       grid-row: 1;
       min-width: 0;
