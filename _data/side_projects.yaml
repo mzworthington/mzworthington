@@ -38,6 +38,11 @@ groups:
         link: https://archlens.dev/guide/schema
 
 projects:
+  - title: Agent Lifecycle Kit
+    description: |
+      Eval-Driven Development for agents that call tools: write evals for prompts and MCP schemas, then block the merge when routing accuracy drops.
+    link: https://eval-driven-development.dev
+    
   - title: SteerCo
     description: |
       Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
@@ -47,11 +52,6 @@ projects:
     description: |
       Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
     link: https://monitor.mzworthington.co.uk
-
-  - title: Agent Lifecycle Kit
-    description: |
-      Shared skills, SOPs, and playbooks so AI assistants follow the same spec, test, build, and handover rhythm on every project.
-    link: https://mzworthington.github.io/agent-lifecycle-kit
 
   - title: React on Cloudflare
     description: |
