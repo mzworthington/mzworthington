@@ -64,11 +64,11 @@ new cloudflare.PagesDomain(
 
 const zone = cloudflare.getZoneOutput({ zoneId });
 
-/** Zone RUM site. Pages HTML is not rewritten by auto-install; CI injects the beacon. */
 const webAnalytics = new cloudflare.WebAnalyticsSite('web-analytics', {
   accountId,
   zoneTag: zoneId,
-  autoInstall: false,
+  autoInstall: true,
+  enabled: true,
 });
 
 new cloudflare.ObservatoryScheduledTest('observatory-apex', {

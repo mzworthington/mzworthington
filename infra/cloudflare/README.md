@@ -11,7 +11,7 @@ The zone itself lives in [edge-dns](https://github.com/mzworthington/edge-dns); 
 | `PagesProject` | Direct-upload project (`mzworthington`) |
 | `DnsRecord` (`apex-pages`, `www-pages`) | Proxied CNAMEs → `pagesProject.subdomain` |
 | `PagesDomain` | Attaches apex + `www` to the Pages project (SSL / hostname binding) |
-| `WebAnalyticsSite` | Zone RUM site (token). Pages HTML is injected at deploy, not auto-install. |
+| `WebAnalyticsSite` | Zone RUM / Web Analytics (`autoInstall` + `enabled`) |
 | `ObservatoryScheduledTest` | Synthetic Speed test for the apex hostname |
 
 If Web Analytics or Observatory was enabled in the dashboard first, import before `pulumi up`:
