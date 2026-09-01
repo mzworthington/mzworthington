@@ -64,11 +64,11 @@ new cloudflare.PagesDomain(
 
 const zone = cloudflare.getZoneOutput({ zoneId });
 
-/** RUM beacon auto-injected for orange-clouded hosts on this zone. */
+/** Zone RUM site. Pages HTML is not rewritten by auto-install; CI injects the beacon. */
 const webAnalytics = new cloudflare.WebAnalyticsSite('web-analytics', {
   accountId,
   zoneTag: zoneId,
-  autoInstall: true,
+  autoInstall: false,
 });
 
 new cloudflare.ObservatoryScheduledTest('observatory-apex', {
@@ -82,3 +82,4 @@ export const apexDomainOut = apexDomain;
 export const wwwDomainOut = wwwDomain;
 export const zoneName = zone.name;
 export const webAnalyticsSiteTag = webAnalytics.siteTag;
+export const webAnalyticsSiteToken = webAnalytics.siteToken;
