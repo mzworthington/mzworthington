@@ -38,9 +38,9 @@ groups:
         link: https://archlens.dev/guide/schema
 
 projects:
-  - title: Agent Lifecycle Kit
+  - title: Waykit
     description: |
-      Waykit: the SDLC coding agents actually run. Skills and SOPs are a live graph, not a second catalog. EDD is the loop when the change is a prompt or a tool.
+      The SDLC coding agents actually run. Skills and SOPs are a live graph, not a second catalog. EDD is the loop when the change is a prompt or a tool.
     link: https://waykit.dev
     
   - title: SteerCo
