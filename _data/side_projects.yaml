@@ -40,8 +40,8 @@ groups:
 projects:
   - title: Agent Lifecycle Kit
     description: |
-      Eval-Driven Development for agents that call tools: write evals for prompts and MCP schemas, then block the merge when routing accuracy drops.
-    link: https://eval-driven.dev
+      Waykit: the SDLC coding agents actually run. Skills and SOPs are a live graph, not a second catalog. EDD is the loop when the change is a prompt or a tool.
+    link: https://waykit.dev
     
   - title: SteerCo
     description: |
