@@ -41,7 +41,7 @@ projects:
   - title: Agent Lifecycle Kit
     description: |
       Eval-Driven Development for agents that call tools: write evals for prompts and MCP schemas, then block the merge when routing accuracy drops.
-      link: https://eval-driven.dev
+    link: https://eval-driven.dev
     
   - title: SteerCo
     description: |
