@@ -11,6 +11,7 @@ Start from `~/.agents/AGENTS.md` (thin index). **Do not** bulk-read philosophy, 
 | Feature lifecycle | `skills/agent-orchestrator` |
 | Bug / CI / live symptom | `skills/agent-debug` |
 | Cloudflare Pages / RUM / Pulumi | `skills/agent-cloudflare-ops` (`wk mcp cloudflare-ops --project`) |
+| PostHog product analytics | `skills/agent-posthog` (`wk mcp posthog --project`) |
 | Infra under `infra/` | `skills/profile-iac` then `skills/framework-pulumi` |
 | Handshake / kit bootstrap | `wk align .`. Community files: `wk doctor .` |
 | SOP / handover lookup | kit-knowledge MCP |
@@ -30,6 +31,6 @@ For bugs and failed jobs, use `agent-debug`. Do not open the full feature lifecy
 
 Declared in `mise.toml`. Serve locally with `bin/serve.sh` after `bin/bootstrap.sh`.
 
-MCP: kit `default` in `.cursor/mcp.json`. Do not stack Cloudflare onto that file. For live CF work, `wk mcp cloudflare-ops --project`, then restore `wk mcp default --project`.
+MCP: kit `default` in `.cursor/mcp.json`. Do not stack Cloudflare or PostHog onto that file. For live CF work, `wk mcp cloudflare-ops --project`. For PostHog, `wk mcp posthog --project`. Then restore `wk mcp default --project`.
 
 Before handover of infra changes: `cd infra/cloudflare && pnpm install && pnpm typecheck` (and `pulumi preview` with stack selected when credentials are available).

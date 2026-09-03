@@ -34,9 +34,17 @@ jobs:
           bundler-cache: true
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+          POSTHOG_TOKEN: ${{ secrets.POSTHOG_TOKEN }}
+          POSTHOG_HOST: ${{ vars.POSTHOG_HOST || 'https://a.mzworthington.co.uk' }}
+        run: |
+          if [ -n "${POSTHOG_TOKEN}" ]; then
+            printf 'posthog_token: "%s"\nposthog_host: "%s"\n' "${POSTHOG_TOKEN}" "${POSTHOG_HOST}" > _config.posthog.yml
+            bundle exec jekyll build --config _config.yml,_config.posthog.yml
+          else
+            bundle exec jekyll build
+          fi
 
       - name: Upload site
         uses: actions/upload-artifact@v7

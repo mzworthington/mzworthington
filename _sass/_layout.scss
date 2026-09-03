@@ -8,7 +8,8 @@ footer {
   height: $footer-size;
   width: 100%;
 
-  &:has(.print-cv) {
+  &:has(.print-cv),
+  &:has(.footer-legal) {
     height: auto;
     min-height: $footer-size;
     padding-bottom: 1rem;
@@ -58,6 +59,16 @@ footer {
         text-decoration: underline;
         text-underline-offset: 0.18em;
       }
+    }
+  }
+
+  .footer-legal {
+    margin: 0.65rem 0 0;
+    text-align: center;
+
+    a {
+      color: var(--text-muted, #{$brand-color});
+      font-size: 0.85rem;
     }
   }
 

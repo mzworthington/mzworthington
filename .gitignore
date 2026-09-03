@@ -15,6 +15,7 @@ vendor/bundle/
 *.key
 secrets.json
 credentials.json
+_config.posthog.yml
 
 # Pulumi (infra/cloudflare)
 infra/cloudflare/node_modules/

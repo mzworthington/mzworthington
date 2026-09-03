@@ -87,3 +87,4 @@ exclude:
   - .env
   - .env.example
   - .github/
+  - _config.posthog.yml

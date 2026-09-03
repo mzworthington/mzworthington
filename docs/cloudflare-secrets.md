@@ -56,6 +56,8 @@ The zone (`DOMAIN=mzworthington.co.uk`) must already be **active** on Cloudflare
 | `PULUMI_PAGES_HOSTNAMES` | variable | Pulumi (`["mzworthington.co.uk","www.mzworthington.co.uk"]`) |
 | `PULUMI_APEX_DOMAIN` | variable | Legacy stack keys (`apexDomain`) |
 | `PULUMI_WWW_DOMAIN` | variable | Legacy stack keys (`wwwDomain`) |
+| `POSTHOG_TOKEN` | secret | Jekyll production bake (`phc_` project key) |
+| `POSTHOG_HOST` | variable | Optional ingest host; defaults to `https://a.mzworthington.co.uk` |
 
 Prefer a **dedicated BWS project** per site so zone ids are not shared. Bootstrap always resolves the zone from `DOMAIN`.
 
