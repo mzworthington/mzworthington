@@ -3,15 +3,9 @@
 {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
 {%- assign is_home = false -%}
 {%- if page.layout == "home" -%}{%- assign is_home = true -%}{%- endif -%}
-{%- comment -%}
-  Keep the circular hero portrait on the author photo. page.image is for
-  SEO/social (og-default) and must not replace the avatar on home.
-{%- endcomment -%}
-{%- if is_home -%}
-  {%- assign hero_visual = site.author.picture -%}
-{%- else -%}
-  {%- assign hero_visual = page.image | default: site.author.picture -%}
-{%- endif -%}
+{%- unless is_home -%}
+<header>
+{%- endunless -%}
 <nav class="site-nav" aria-label="Primary">
    <a class="site-nav__mark" href="{{ "/" | relative_url }}" aria-label="{{ site.author.name | escape }} home">M</a>
    <ul class="site-nav__links">
@@ -29,12 +23,15 @@
       </li>
    </ul>
 </nav>
+{%- unless is_home -%}
+</header>
+{%- endunless -%}
+{%- if is_home -%}
 <header class="site-hero">
-   <img class="site-hero__visual no-print" loading="eager" fetchpriority="high" width="176" height="176" alt="{{ site.author.name | escape }}" src="{{ hero_visual }}" />
+   <img class="site-hero__visual no-print" loading="eager" fetchpriority="high" width="176" height="176" alt="{{ site.author.name | escape }}" src="{{ site.author.picture }}" />
    <p class="site-hero__brand">{{ site.author.name | escape }}</p>
    <h1 class="site-hero__headline">{{ site.title | escape }}</h1>
    <p class="site-hero__lede no-print">{{ site.tagline | default: site.description }}</p>
-   {%- if is_home -%}
    <ul class="print-contact" aria-hidden="true">
       <li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
       {%- if site.author.url -%}
@@ -50,17 +47,13 @@
       <li><a href="{{ site.social_links.archlens }}">{{ site.social_links.archlens | remove: "https://" | remove: "http://" | split: "/" | first }}</a></li>
       {%- endif -%}
    </ul>
-   {%- endif -%}
    <p class="site-hero__actions no-print">
-      {%- if is_home -%}
       <a class="site-hero__cta" href="#about">About</a>
       <a class="site-hero__cta site-hero__cta--ghost" href="#experience-heading">Experience</a>
-      {%- else -%}
-      <a class="site-hero__cta" href="{{ "/" | relative_url }}">Home</a>
-      {%- endif -%}
       <a class="site-hero__cta site-hero__cta--ghost" href="mailto:{{ site.author.email }}">Contact</a>
       {%- if titles_size > 0 -%}
       {%- include get_the_code.html -%}
       {%- endif -%}
    </p>
 </header>
+{%- endif -%}

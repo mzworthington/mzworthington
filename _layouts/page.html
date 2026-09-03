@@ -2,10 +2,9 @@
 layout: default
 ---
 <article>
-  <header>
-     <h1>{{ page.title | escape }}</h1>
-  </header>
-  <div>
-     {{ content }}
-  </div>
+  <section class="page-prose coastal-panel" aria-labelledby="page-heading">
+    <p class="eyebrow">{{ page.eyebrow | default: page.title | escape }}</p>
+    <h1 id="page-heading">{{ page.title | escape }}</h1>
+    {{ content }}
+  </section>
 </article>

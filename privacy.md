@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Privacy policy
+eyebrow: Privacy
 permalink: /privacy/
 ---
 
-Last updated 3 September 2026.
+<p class="page-prose__meta"><time datetime="2026-09-03">Last updated 3 September 2026</time></p>
 
 This page says what this site does with information when you use [mzworthington.co.uk](https://mzworthington.co.uk). It is a plain-language notice, not legal advice.
 

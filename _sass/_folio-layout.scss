@@ -30,10 +30,12 @@
     color: var(--text-color);
 
     >.eyebrow,
+    >h1,
     >h2 {
       text-align: left;
     }
 
+    >h1,
     >h2 {
       font-family: var(--folio-display, #{$display-font-family});
       font-weight: 560;
@@ -96,6 +98,7 @@
   }
 
   body>header,
+  body>nav,
   body>main,
   body>footer {
     position: relative;
