@@ -97,6 +97,39 @@
     top: 100dvh;
   }
 
+  // Legal / static pages: homepage paper, no mist plane, brand mark only
+  body.is-page::before {
+    display: none;
+  }
+
+  body.is-page {
+    >header {
+      text-align: center;
+    }
+
+    >header .site-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .site-nav__mark {
+      margin-inline: auto;
+    }
+
+    >main {
+      background-color: var(--background-color);
+    }
+
+    article {
+      margin-inline: auto;
+    }
+
+    >footer {
+      text-align: center;
+    }
+  }
+
   body>header,
   body>nav,
   body>main,

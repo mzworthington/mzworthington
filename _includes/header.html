@@ -3,9 +3,16 @@
 {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
 {%- assign is_home = false -%}
 {%- if page.layout == "home" -%}{%- assign is_home = true -%}{%- endif -%}
+{%- assign is_page = false -%}
+{%- if page.layout == "page" -%}{%- assign is_page = true -%}{%- endif -%}
 {%- unless is_home -%}
 <header>
 {%- endunless -%}
+{%- if is_page -%}
+<div class="site-nav">
+   <a class="site-nav__mark" href="{{ "/" | relative_url }}" aria-label="{{ site.author.name | escape }} home">M</a>
+</div>
+{%- else -%}
 <nav class="site-nav" aria-label="Primary">
    <a class="site-nav__mark" href="{{ "/" | relative_url }}" aria-label="{{ site.author.name | escape }} home">M</a>
    <ul class="site-nav__links">
@@ -23,6 +30,7 @@
       </li>
    </ul>
 </nav>
+{%- endif -%}
 {%- unless is_home -%}
 </header>
 {%- endunless -%}
