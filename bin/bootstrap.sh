@@ -18,4 +18,10 @@ mise install
 echo "==> Installing gems"
 mise exec -- bundle install
 
+echo "==> Installing git commit-msg hook (conventional commits)"
+if [ -d "$ROOT/.git" ]; then
+  git -C "$ROOT" config core.hooksPath .githooks
+  chmod +x "$ROOT/.githooks/commit-msg"
+fi
+
 echo "==> Done. Run ./bin/serve to start the dev server."
