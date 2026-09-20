@@ -1,17 +1,17 @@
 {
-  "name": "mzworthington-infra",
-  "private": true,
-  "packageManager": "pnpm@11.20.0",
-  "main": "index.ts",
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@pulumi/cloudflare": "6.20.0",
-    "@pulumi/pulumi": "3.261.0"
-  },
-  "devDependencies": {
-    "@types/node": "22.20.2",
-    "typescript": "6.0.3"
-  }
+    "name": "mzworthington-infra",
+    "private": true,
+    "packageManager": "pnpm@11.20.0",
+    "main": "index.ts",
+    "scripts": {
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@pulumi/cloudflare": "6.20.0",
+        "@pulumi/pulumi": "3.263.0"
+    },
+    "devDependencies": {
+        "@types/node": "26.6.1",
+        "typescript": "6.0.3"
+    }
 }
