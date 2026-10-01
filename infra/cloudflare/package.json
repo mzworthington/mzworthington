@@ -7,11 +7,11 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@pulumi/cloudflare": "6.20.0",
-        "@pulumi/pulumi": "3.263.0"
+        "@pulumi/cloudflare": "6.21.0",
+        "@pulumi/pulumi": "3.264.0"
     },
     "devDependencies": {
-        "@types/node": "26.6.1",
+        "@types/node": "26.6.2",
         "typescript": "6.0.3"
     }
 }
