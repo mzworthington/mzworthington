@@ -97,6 +97,18 @@ Most of the player was written before that wiring existed. On a laptop the same 
 
 [![Parts before the enclosure](/assets/2026-10-03-building-a-story-box-for-romy/parts.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/parts.webp)
 
+## The wooden cube
+
+The wiring needed a box she can hold. One sheet of 3 mm birch, cut as a 130 mm cube. The lid carries the mark as a shallow engrave, about 0.5 mm, so the wood stays closed. The walls and the lid are glued. The bottom is not. Four screws into dowels in the corners let that panel come off when the Pi, the battery or the card needs a hand.
+
+A shelf halfway up those dowels lifts the Pi toward the reader under the lid. The front is a grille. Behind it, a smaller plate has two openings for a pair of small enclosed speakers. They still need an amp.
+
+![The 3 mm sheet](/assets/2026-10-03-building-a-story-box-for-romy/sheet.png)
+
+![The lid](/assets/2026-10-03-building-a-story-box-for-romy/lid.png)
+
+The cut file, the shop letter and these renders are in the repo: [fabrication](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md).
+
 ## The page we use
 
 She never opens this. We do, on the house network, at `romini.local`. Upload a file, map a tag, set how loud it is, see what is actually on the pad without walking in.
@@ -150,6 +162,6 @@ Making that story uses the network only when we ask: once for Gemini to draft, o
 
 ## If you want the build
 
-The code is [on GitHub](https://github.com/mzworthington/RoMini). Start with the [parts and wiring](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md) if you are building a box, or the [parent pages](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md) if you want to see the screens without one. How the player is put together, including the laptop that pretends to be a Pi, is [the architecture note](https://github.com/mzworthington/RoMini/blob/main/docs/architecture.md).
+The code is [on GitHub](https://github.com/mzworthington/RoMini). Start with the [parts and wiring](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md) if you are building a box, the [wooden cube](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md) if you want the sheet the shop cuts, or the [parent pages](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md) if you want to see the screens without one. How the player is put together, including the laptop that pretends to be a Pi, is [the architecture note](https://github.com/mzworthington/RoMini/blob/main/docs/architecture.md).
 
 This post is about why I started. She taps a thing she already loves on a wooden box, and she gets a story. Sometimes that is one of us, recorded. Sometimes it was written that afternoon, about her and the people around her, and a voice that is neither of ours reads it to her.
