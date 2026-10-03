@@ -1,4 +1,4 @@
 {% assign tags = include.tags | default: false %}
 {%- if tags -%}
-<span>🏷️ {{ tags | join: ",  " }} </span>
+<span>{{ tags | join: ", " }}</span>
 {%- endif -%}

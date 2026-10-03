@@ -667,12 +667,46 @@ article>section.open-source {
 
 .go-to-top {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  font-size: $large-font-size;
-  margin: 0.5em;
-  background-color: $background-color-light;
-  border-radius: 10%;
+  right: clamp(1rem, 3vw, 1.5rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border-color-01, #{$border-color-01});
+  border-radius: 0.5rem;
+  background: var(--background-color, #{$background-color});
+  box-shadow: 0 0.35rem 1.25rem rgb(11 18 32 / 0.08);
+  color: var(--brand-color, #{$brand-color});
+  font-family: $base-font-family;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+
+  svg {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  &::after {
+    content: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--brand-color, #{$brand-color});
+    color: var(--brand-color-dark, #{$brand-color-dark});
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-color, #{$brand-color});
+    outline-offset: 2px;
+  }
 }
 
 article {

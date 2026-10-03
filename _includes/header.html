@@ -6,7 +6,7 @@
 {%- assign is_page = false -%}
 {%- if page.layout == "page" -%}{%- assign is_page = true -%}{%- endif -%}
 {%- unless is_home -%}
-<header>
+<header id="top">
 {%- endunless -%}
 {%- if is_page -%}
 <div class="site-nav">
@@ -21,9 +21,6 @@
       </li>
       <li>
          <a href="{{ "/#experience-heading" | relative_url }}">Experience</a>
-      </li>
-      <li>
-         <a href="{{ "/blog/" | relative_url }}"{% if page.url == "/blog/" %} aria-current="page"{% endif %}>Writing</a>
       </li>
       <li>
          <a href="mailto:{{ site.author.email }}">Contact</a>

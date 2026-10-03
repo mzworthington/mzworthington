@@ -1,4 +1,4 @@
 {% assign tech = include.tech | default: false %}
 {%- if tech -%}
-<span>🎒 {{ tech | join: ",  " }} </span>
+<span>{{ tech | join: ", " }}</span>
 {%- endif -%}

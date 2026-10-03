@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}" data-theme="folio">
 {%- include head.html -%}
-<body{% if page.layout == "home" %} class="is-home"{% elsif page.layout == "page" %} class="is-page"{% endif %}>
+<body{% if page.layout == "home" %} class="is-home"{% elsif page.layout == "page" %} class="is-page"{% elsif page.layout == "post" or page.layout == "blog" or page.layout == "category" %} class="is-writing"{% endif %}>
    {%- include header.html -%}
    <main>
       {{ content }}

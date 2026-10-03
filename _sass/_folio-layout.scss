@@ -454,10 +454,6 @@
     a {
       color: var(--brand-color);
     }
-
-    .go-to-top {
-      background-color: var(--background-color-light);
-    }
   }
 
   body:not(.is-home) {
@@ -466,6 +462,155 @@
     .button {
       border-color: var(--brand-color);
       color: var(--brand-color);
+    }
+  }
+
+  // Writing: same paper column as the homepage sections, not the mist plane.
+  body.is-writing {
+    &::before {
+      display: none;
+    }
+
+    >header,
+    >main {
+      width: min(100%, 50rem);
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 3vw, 2.5rem);
+    }
+
+    >header .site-nav {
+      width: auto;
+      max-width: none;
+      margin: 0;
+      padding-inline: 0;
+    }
+
+    >main {
+      padding-top: 0.35rem;
+      background-color: var(--background-color);
+    }
+
+    article {
+      max-width: none;
+      margin: 0;
+    }
+
+    article>header {
+      margin-bottom: 1.75rem;
+
+      h1 {
+        margin: 0.2rem 0 0.85rem;
+        font-size: clamp(2.15rem, 5vw, 3.25rem);
+        font-weight: 560;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+
+      .eyebrow a {
+        color: inherit;
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.35rem 0;
+      margin: 0;
+      color: var(--text-muted);
+      font-family: $base-font-family;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.5;
+
+      >*+*::before {
+        content: "·";
+        margin: 0 0.55rem;
+        color: var(--border-color-01);
+      }
+
+      a,
+      time,
+      span {
+        color: inherit;
+      }
+
+      a::after {
+        background-color: var(--brand-color);
+        height: 1px;
+      }
+    }
+
+    article>section>p:first-of-type {
+      margin-top: 0;
+      color: var(--site-title-color);
+      font-family: var(--folio-display, #{$display-font-family});
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      font-weight: 560;
+      letter-spacing: -0.02em;
+      line-height: 1.45;
+    }
+
+    article>section>p {
+      margin: 0 0 0.95rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    article>section>h2,
+    article>section>h3 {
+      font-weight: 560;
+      letter-spacing: -0.03em;
+      text-align: left;
+    }
+
+    article a:has(>img) {
+      display: block;
+      margin: 1.35rem 0 1.6rem;
+      border: 1px solid var(--border-color-01);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: var(--background-color-light);
+
+      &::after {
+        content: none;
+      }
+    }
+
+    article img {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 12rem;
+      margin: 0;
+      object-fit: cover;
+      background: transparent;
+    }
+
+    article .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      padding: 0.55rem 0.9rem;
+      border: 1px solid var(--border-color-01);
+      border-radius: 0.5rem;
+      background: var(--background-color);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-transform: none;
+
+      &::after {
+        content: none;
+      }
     }
   }
 }

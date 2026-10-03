@@ -3,17 +3,16 @@ layout: default
 ---
 <article itemscope itemtype="http://schema.org/BlogPosting">
   <header>
-     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
-     
      {%- if page.category -%}
      {% assign category_name = page.category | default: "" %}
      {% assign pretty_category_name = category_name | replace: "-", " " | capitalize %}
-     <p><a aria-label="Go to '{{ pretty_category_name }}' landing page" href="{{ category_name | relative_url }}">{{ pretty_category_name }}</a></p>
+     <p class="eyebrow"><a aria-label="Go to '{{ pretty_category_name }}' landing page" href="{{ category_name | relative_url }}">{{ pretty_category_name }}</a></p>
      {% endif %}
-     <p>
+     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+     <p class="post-meta">
         {%- assign date_format = "%b %-d, %Y" -%}
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-           🗓 {{ page.date | date: date_format }}
+           {{ page.date | date: date_format }}
         </time>
         {%- if page.author -%}
         {% for author in page.author %}
@@ -30,9 +29,14 @@ layout: default
      </p>
   </header>
   <section itemprop="articleBody">
-   {% include toc.html html=content sanitize=true  h_min=1 h_max=3 %}
    {{ content }}
    {%- include get_the_code.html -%}
   </section>
+  <a class="go-to-top no-print" href="#top">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+      <path d="M7 2.5 2.5 7.5M7 2.5 11.5 7.5M7 2.5V11.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Top
+  </a>
   <a class="u-url visually-hidden" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
 </article>
