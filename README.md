@@ -3,7 +3,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/mzworthington/mzworthington/ci.yml?branch=main&style=for-the-badge&logo=github-actions&label=CI)](https://github.com/mzworthington/mzworthington/actions/workflows/ci.yml)
 [![Quality gate](https://img.shields.io/sonar/alert_status/mzworthington_mzworthington?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqube)](https://sonarcloud.io/summary/new_code?id=mzworthington_mzworthington)
 
-Engineering leader with over two decades of experence building and scaling software organisations, from music and fashion publishing to banking, public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture at organisations from Resident Advisor and Thoughtworks to Betway, with a consistent focus on delivery speed, reliability, and developer experience.
+Engineering leader with over two decades of experience building and scaling software organisations, from music and fashion publishing to banking, the public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture across global consultancies, high-growth consumer platforms, and large-scale enterprises, with a consistent focus on delivery speed, reliability, and developer experience.
 
 I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work, including wellbeing and professional growth, not as perks but as part of how good software gets built.
 
