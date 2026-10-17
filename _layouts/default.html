@@ -10,6 +10,7 @@
    {%- include posthog.html -%}
    {%- assign asset_v = site.time | date: "%s" -%}
    <script src="{{ '/assets/js/theme.js' | relative_url | append: '?v=' | append: asset_v }}" defer></script>
+   <script src="{{ '/assets/js/build-status.js' | relative_url | append: '?v=' | append: asset_v }}" defer></script>
 </body>
 {%- include pwa.html -%}
 </html>

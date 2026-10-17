@@ -7,6 +7,13 @@
   var scrollRaf = null;
   var stickyOffsetRaf = null;
 
+  function syncSiteHeaderOffset() {
+    var header = document.querySelector(".site-header");
+    if (!header) return;
+    var height = Math.ceil(header.getBoundingClientRect().height);
+    document.documentElement.style.setProperty("--site-header-offset", height + "px");
+  }
+
   function getJobSections() {
     return experience.querySelectorAll(":scope > section > section[id^='experience-']");
   }
@@ -40,6 +47,7 @@
   }
 
   function updateStickyNavOffsets() {
+    syncSiteHeaderOffset();
     if (!mobileQuery.matches) {
       experience.style.removeProperty("--employment-sticky-nav-height");
       return;

@@ -1,49 +1,78 @@
 {%- assign side_projects_data = site.data.side_projects -%}
 {%- if side_projects_data.groups or side_projects_data.projects -%}
-<section class="open-source coastal-panel" aria-labelledby="open-source-heading">
-  <p class="eyebrow">Build in public</p>
+<section class="open-source" aria-labelledby="open-source-heading">
   <h2 id="open-source-heading">Open source</h2>
   {%- if side_projects_data.intro and side_projects_data.intro != blank -%}
-    <p class="open-source__intro">{{ side_projects_data.intro | strip }}</p>
+  <p class="open-source__intro">{{ side_projects_data.intro | strip }}</p>
   {%- endif -%}
   <p class="open-source__print-note">
     See <a href="{{ site.url | default: 'https://mzworthington.co.uk' }}">mzworthington.co.uk</a> for current contributions
   </p>
 
-  <div class="open-source__catalog no-print">
-  {%- for group in side_projects_data.groups -%}
-    <section class="side-project-group" aria-label="{{ group.title | escape }}">
-      <header class="side-project-group__header">
-        <h3 class="side-project-group__title">
-          {%- assign group_link = group.link | strip -%}
-          {%- if group_link != blank -%}
-            <a
-              href="{{ group_link | escape }}"
-              {%- if group_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif -%}
-            >{{ group.title | escape }}</a>
-          {%- else -%}
-            {{ group.title | escape }}
-          {%- endif -%}
-        </h3>
-        {%- if group.description and group.description != blank -%}
-          <p class="side-project-group__description">{{ group.description | strip }}</p>
+  <ul class="work-cards no-print">
+    {%- for group in side_projects_data.groups -%}
+    <li class="work-card work-card--group">
+      <h3>
+        {%- assign group_link = group.link | strip -%}
+        {%- if group_link != blank -%}
+        <a href="{{ group_link | escape }}"{% if group_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ group.title | escape }}</a>
+        {%- else -%}
+        {{ group.title | escape }}
         {%- endif -%}
-      </header>
-      <ul class="side-project-cards">
+      </h3>
+      {%- if group.description and group.description != blank -%}
+      <p>{{ group.description | strip }}</p>
+      {%- endif -%}
+      {%- if group.projects and group.projects.size > 0 -%}
+      {%- assign group_slug = group.title | slugify -%}
+      <ul class="work-card__parts">
         {%- for item in group.projects -%}
-          {%- include side_project_card.html project=item -%}
+        {%- assign part_id = group_slug | append: '-' | append: item.title | slugify -%}
+        <li>
+          <button type="button" class="work-card__chip" id="chip-{{ part_id }}" aria-expanded="false" aria-controls="part-{{ part_id }}">{{ item.title | escape }}</button>
+        </li>
         {%- endfor -%}
       </ul>
-    </section>
-  {%- endfor -%}
+      <div class="work-card__part-panels">
+        {%- for item in group.projects -%}
+        {%- assign part_id = group_slug | append: '-' | append: item.title | slugify -%}
+        {%- assign item_link = item.link | strip -%}
+        <div id="part-{{ part_id }}" class="work-card__part-panel" role="region" aria-labelledby="chip-{{ part_id }}" hidden>
+          {%- if item.description and item.description != blank -%}
+          <p>{{ item.description | strip }}</p>
+          {%- endif -%}
+          {%- if item_link != blank -%}
+          <p class="work-card__part-link"><a href="{{ item_link | escape }}"{% if item_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item_link | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a></p>
+          {%- endif -%}
+        </div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+      {%- if group_link != blank -%}
+      <p class="work-card__host"><a href="{{ group_link | escape }}"{% if group_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ group_link | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a></p>
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
 
-  {%- if side_projects_data.projects and side_projects_data.projects.size > 0 -%}
-    <ul class="side-project-cards">
-      {%- for project in side_projects_data.projects -%}
-        {%- include side_project_card.html project=project -%}
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
-  </div>
+    {%- for project in side_projects_data.projects -%}
+    {%- assign project_link = project.link | strip -%}
+    <li class="work-card">
+      <h3>
+        {%- if project_link != blank -%}
+        <a href="{{ project_link | escape }}"{% if project_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.title | escape }}</a>
+        {%- else -%}
+        {{ project.title | escape }}
+        {%- endif -%}
+      </h3>
+      {%- if project.description and project.description != blank -%}
+      <p>{{ project.description | strip }}</p>
+      {%- endif -%}
+      {%- if project_link != blank -%}
+      <p class="work-card__host"><a href="{{ project_link | escape }}"{% if project_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ project_link | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a></p>
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
 </section>
+<script type="module" src="{{ '/assets/js/work-cards.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {%- endif -%}

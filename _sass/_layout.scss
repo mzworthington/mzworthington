@@ -309,7 +309,7 @@ body.is-home>main {
   }
 }
 
-nav:not(#toc) {
+nav:not([id="toc"]) {
   text-align: left;
 
   ul {

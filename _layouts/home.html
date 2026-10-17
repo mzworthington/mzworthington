@@ -3,20 +3,46 @@ layout: default
 ---
 
 <article>
-  <section id="about" class="about coastal-panel" aria-labelledby="about-heading" itemprop="articleBody">
-    <p class="eyebrow">About</p>
+  <header class="site-hero">
+    <p class="site-hero__name print-only">{{ site.author.name | escape }}</p>
+    <h1>{{ site.tagline | escape }}</h1>
+    <p class="site-hero__kicker">{{ site.title | escape }}</p>
+    <p class="site-hero__lead">
+      Engineering leader with over two decades of experience building and scaling software organisations, from music and fashion publishing to banking, the public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture across global consultancies, high-growth consumer platforms, and large-scale enterprises.
+    </p>
+    <ul class="print-contact" aria-hidden="true">
+      <li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+      {%- if site.author.url -%}
+      <li><a href="{{ site.author.url }}">{{ site.author.url | remove: "https://" | remove: "http://" | split: "/" | first }}</a></li>
+      {%- endif -%}
+      {%- if site.social_links.linkedin -%}
+      <li><a href="https://www.linkedin.com/in/{{ site.social_links.linkedin | cgi_escape | escape }}">linkedin.com/in/{{ site.social_links.linkedin | escape }}</a></li>
+      {%- endif -%}
+      {%- if site.social_links.github -%}
+      <li><a href="https://github.com/{{ site.social_links.github | cgi_escape | escape }}">github.com/{{ site.social_links.github | escape }}</a></li>
+      {%- endif -%}
+    </ul>
+  </header>
+
+  <section id="about" class="how-i-work" aria-labelledby="about-heading">
     <h2 id="about-heading">How I work</h2>
-    <p class="about__lead">
-      Engineering leader with over two decades of experience building and scaling software organisations, from music and fashion publishing to banking, the public sector, and global iGaming. I've led development and platform engineering, technical transformation, and architecture across global consultancies, high-growth consumer platforms, and large-scale enterprises, with a consistent focus on delivery speed, reliability, and developer experience.
-    </p>
-    <p>
-      I align engineering with business outcomes: clearer priorities, better platforms, and teams that can sustain the pace. That means practical attention to time-to-value, product quality, and how people work, including wellbeing and professional growth, not as perks but as part of how good software gets built.
-    </p>
-    <p>
-      Check out <a href="https://archlens.dev/">ArchLens</a> (Canvas, CLI, BlueprintSpec, TraceLens, ChaosLens, and AdviceLens) for living systems architecture; <a href="https://steerco.mzworthington.co.uk">SteerCo</a> for the investment contract (outcomes, bets, organisation shape, and decision notes); and <a href="https://waykit.dev">Waykit</a> for the software lifecycle coding agents actually run. For a production-ready starting point, see the <a href="https://react-cloudflare-template.mzworthington.co.uk/">React Cloudflare Template</a> (<a href="https://github.com/mzworthington/react-cloudflare-template">GitHub</a>). Check out the state of my builds at <a href="https://monitor.mzworthington.co.uk">monitor.mzworthington.co.uk</a>.
-    </p>
+    <ul class="bento">
+      <li>
+        <h3>Business Alignment</h3>
+        <p>Time-to-value and product quality. Engineering priorities stay tied to the outcome the business is buying.</p>
+      </li>
+      <li>
+        <h3>Platform Engineering</h3>
+        <p>Reliability and developer experience. Platforms, observability, and paved paths that keep delivery moving.</p>
+      </li>
+      <li>
+        <h3>People &amp; Teams</h3>
+        <p>Wellbeing and growth. Teams that can sustain the pace, because that is how good software gets built.</p>
+      </li>
+    </ul>
   </section>
-   {%- include side_projects.html -%}
-   {%- include experience.html -%}
-<a class="u-url visually-hidden" href="{{ page.url | relative_url }}">{{ page.title | default: site.title | escape }}</a>
+
+  {%- include side_projects.html -%}
+  {%- include experience.html -%}
+  <a class="u-url visually-hidden" href="{{ page.url | relative_url }}">{{ page.title | default: site.title | escape }}</a>
 </article>

@@ -4,13 +4,13 @@
 // Matches the brand-led editorial reference: white content, teal accents,
 // Fraunces display, Source Sans 3 UI.
 
-$folio-teal:            #0f5f63 !default;
-$folio-teal-deep:       #0a4548 !default;
-$folio-ink:             #1c2428 !default;
-$folio-muted:           #5b676d !default;
-$folio-paper:           #ffffff !default;
-$folio-paper-soft:      #f4f7f8 !default;
-$folio-rule:            #d5dee2 !default;
+$folio-teal:            #2c3e50 !default;
+$folio-teal-deep:       #1a2836 !default;
+$folio-ink:             #1a1a1a !default;
+$folio-muted:           #666666 !default;
+$folio-paper:           #f7f7f5 !default;
+$folio-paper-soft:      #f7f7f5 !default;
+$folio-rule:            #e5e5e5 !default;
 
 $brand-color:           $folio-teal !default;
 $brand-color-light:     color.adjust($brand-color, $lightness: 12%) !default;
@@ -18,7 +18,7 @@ $brand-color-dark:      $folio-teal-deep !default;
 
 $site-title-color:      $folio-ink !default;
 
-$text-color:            #2a3338 !default;
+$text-color:            $folio-ink !default;
 $background-color:      $folio-paper !default;
 $background-color-light:     $folio-paper-soft !default;
 $background-color-dark:      #e8eef0 !default;
@@ -68,7 +68,8 @@ $table-border-color:    $folio-rule !default;
   --ci-accent-hover: #{$folio-teal-deep};
   --ci-line: #{$folio-rule};
   --theme-color: #{$folio-paper};
-  --folio-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --folio-display: "Lora", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --folio-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color-scheme: light;
 }
 
