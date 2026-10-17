@@ -105,8 +105,6 @@ A shelf halfway up those dowels lifts the Pi toward the reader under the lid. Th
 
 ![The 3 mm sheet](/assets/2026-10-03-building-a-story-box-for-romy/sheet.png)
 
-![The lid](/assets/2026-10-03-building-a-story-box-for-romy/lid.png)
-
 The cut file, the shop letter and these renders are in the repo: [fabrication](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md).
 
 ## The page we use

@@ -1,6 +1,14 @@
-- name: Betway Global
-  start: 2025-03
+- name: SuperGroup
+  start: 2026-09
   current: true
+  link: https://supergroup.com/
+  role: Director of Software Engineering
+  domain: Sports & iGaming
+  description: |
+    Director of Software Engineering and Quality Assurance leading globally distributed teams to drive technical strategy, delivery, and architecture across multiple domains including: Player/Customer, MarTech & AdTech, Verification & Compliance, and our Core Platform.
+- name: Betway Global (A SuperGroup company)
+  start: 2025-03
+  end: 2026-09
   link: https://betway.com
   role: Head of Development & Platform Engineering
   domain: Sports & iGaming

@@ -358,6 +358,10 @@ section#experience {
         }
       }
 
+      &:first-child > header h3 {
+        margin-top: 0;
+      }
+
       >p,
       >div {
         color: $nav-ink;
