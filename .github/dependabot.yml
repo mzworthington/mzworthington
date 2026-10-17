@@ -1,25 +1,73 @@
 version: 2
 updates:
-  - package-ecosystem: bundler
-    directory: /
+  - package-ecosystem: "bundler"
+    directory: "/"
     schedule:
-      interval: weekly
-      day: sunday
-      time: '00:00'
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: npm
-    directory: /infra/cloudflare
-    schedule:
-      interval: weekly
-      day: sunday
-      time: '00:00'
+      interval: "weekly"
+      day: "sunday"
+      time: "00:00"
     open-pull-requests-limit: 5
+    # Direct gems only. Transitive security fixes otherwise land as
+    # lockfile-only PRs (Gemfile.lock with no Gemfile change).
+    allow:
+      - dependency-type: "direct"
+    # Always raise the Gemfile constraint so the lockfile never moves alone.
+    versioning-strategy: "increase"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    groups:
+      bundler-security:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+      bundler-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
-  - package-ecosystem: github-actions
-    directory: /
+  - package-ecosystem: "npm"
+    directory: "/infra/cloudflare"
     schedule:
-      interval: weekly
-      day: sunday
-      time: '00:00'
+      interval: "weekly"
+      day: "sunday"
+      time: "00:00"
     open-pull-requests-limit: 5
+    allow:
+      - dependency-type: "direct"
+    versioning-strategy: "increase"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    groups:
+      npm-security:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+      npm-minor-patch:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "00:00"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      actions:
+        patterns:
+          - "*"
