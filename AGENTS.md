@@ -31,6 +31,6 @@ For bugs and failed jobs, use `agent-debug`. Do not open the full feature lifecy
 
 Declared in `mise.toml`. Serve locally with `bin/serve.sh` after `bin/bootstrap.sh`.
 
-MCP: kit `default` in `.cursor/mcp.json`. Do not stack Cloudflare or PostHog onto that file. For live CF work, `wk mcp cloudflare-ops --project`. For PostHog, `wk mcp posthog --project`. Then restore `wk mcp default --project`.
+MCP: kit `default` in `.cursor/mcp.json`, including the public build monitor at `https://monitor.mzworthington.co.uk/mcp`. Do not stack Cloudflare or PostHog onto that file. For live CF work, `wk mcp cloudflare-ops --project`. For PostHog, `wk mcp posthog --project`. Then restore `wk mcp default --project`.
 
 Before handover of infra changes: `cd infra/cloudflare && pnpm install && pnpm typecheck` (and `pulumi preview` with stack selected when credentials are available).
