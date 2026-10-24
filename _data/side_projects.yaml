@@ -53,6 +53,11 @@ projects:
       Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
     link: https://monitor.mzworthington.co.uk
 
+  - title: RoMini
+    description: |
+      A screen-free story box. She taps a tagged toy and the story starts. Parents upload tracks and map tags on the house network.
+    link: https://mzworthington.co.uk/guides/building-a-story-box-for-romy
+
   - title: React on Cloudflare
     description: |
       Hosting, docs, and CI already wired, so day one is product work, not plumbing.

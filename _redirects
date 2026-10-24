@@ -1,2 +1,6 @@
 # Apex is canonical — consolidate www to avoid duplicate indexing.
 https://www.mzworthington.co.uk/* https://mzworthington.co.uk/:splat 301
+
+# Guides live under /guides/. The blog index is /blog/.
+/blog/building-a-story-box-for-romy /guides/building-a-story-box-for-romy 301
+/blog/building-a-story-box-for-romy/ /guides/building-a-story-box-for-romy 301
