@@ -13,6 +13,16 @@ function writingMainRule() {
   return writing.slice(start, writing.indexOf("}", start));
 }
 
+test("writing code button keeps the github mark at icon size", () => {
+  const writing = folio.slice(folio.indexOf("body.is-writing {"));
+  const mediaRule = writing.slice(writing.indexOf("article svg"));
+  const buttonRule = writing.slice(writing.indexOf("article .button {"));
+
+  assert.match(mediaRule, /article svg:not\(\.svg-icon\)/);
+  assert.match(buttonRule, /\.svg-icon\s*\{[^}]*height:\s*1rem/);
+  assert.match(buttonRule, /\.svg-icon\s*\{[^}]*width:\s*1rem/);
+});
+
 test("writing column padding sits inside the viewport width", () => {
   const main = writingMainRule();
 

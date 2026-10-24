@@ -21,9 +21,7 @@ Bedtime still happens on the nights my wife and I are both working late. One of 
 
 <!--more-->
 
-<!-- PHOTO box.webp: the finished box where she uses it. Toy on the plate if you have the shot. This is also the post hero. Not in the repo. -->
-
-[![The story box](/assets/2026-10-03-building-a-story-box-for-romy/box.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/box.webp)
+[![The birch cube on the table, with the engraved lid and speaker grille](/assets/2026-10-03-building-a-story-box-for-romy/box.webp){:style="object-fit:contain;height:auto;max-height:none;min-height:0"}](/assets/2026-10-03-building-a-story-box-for-romy/box.webp)
 
 ## What it had to be
 
@@ -53,17 +51,13 @@ flowchart LR
   again --> resume["One more tap carries on from the same place"]
 ```
 
+[![Lifting the figure off the pad](/assets/2026-10-03-building-a-story-box-for-romy/toy.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/toy.webp)
+
 A book works the same way. The tag is on the book. She taps the book on the box and hears one of us reading it.
 
-<!-- PHOTO toy.webp: a tagged toy on the box, mid-story if the light or the speaker makes that obvious. -->
-
-[![A toy on the box](/assets/2026-10-03-building-a-story-box-for-romy/toy.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/toy.webp)
-
-<!-- PHOTO book.webp: a book with the tag visible, on the box or open so the tag shows. -->
-
-[![A tagged book](/assets/2026-10-03-building-a-story-box-for-romy/book.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/book.webp)
-
 The box has a charge port and a single button, and that button wakes the device and puts it to sleep with a welcome and goodbye chime. Loudness is ours to set from the dashboard.
+
+[![The power button and the USB-C port](/assets/2026-10-03-building-a-story-box-for-romy/side-button-and-usb-c.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/side-button-and-usb-c.webp)
 
 ## What went in the box
 
@@ -92,19 +86,17 @@ Most of the player was written before that wiring existed. On a laptop the same 
 
 [![The laptop stand-in](/assets/2026-10-03-building-a-story-box-for-romy/harness.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/harness.webp)
 
-<!-- PHOTO bench.webp: the Pi during the build, reader and wiring still out in the open. -->
-
-[![The Pi on the bench](/assets/2026-10-03-building-a-story-box-for-romy/bench.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/bench.webp)
-
-<!-- PHOTO parts.webp: the pile of parts before they went in the box. Optional if bench.webp already shows this. -->
-
-[![Parts before the enclosure](/assets/2026-10-03-building-a-story-box-for-romy/parts.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/parts.webp)
-
 ## The wooden cube
 
 The wiring needed a box she can hold. One sheet of 3 mm birch, cut as a 130 mm cube. The lid carries the mark as a shallow engraving, about 0.5 mm, so it does not cut through. The walls and the lid are glued. The bottom is not. Four screws into dowels in the corners let that panel come off when the Pi, the battery or the card needs a hand.
 
 A shelf halfway up those dowels lifts the Pi toward the reader under the lid. The front is a grille. Behind it, a smaller plate has two openings for a pair of small enclosed speakers. Those are passive, so they still need an amp. The box she uses has a powered speaker.
+
+[Cutting Edge CNC](https://cuttingedgecnc.co.uk/) laser-cut the birch. They turned the job around quickly and were straightforward to work with.
+
+[![The birch cube, with the speaker grille and the engraved lid](/assets/2026-10-03-building-a-story-box-for-romy/enclosure-three-quarter.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/enclosure-three-quarter.webp)
+
+[![The lid engraving](/assets/2026-10-03-building-a-story-box-for-romy/lid-logo-closeup.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/lid-logo-closeup.webp)
 
 ![The 3 mm sheet](/assets/2026-10-03-building-a-story-box-for-romy/sheet.png)
 
@@ -169,7 +161,7 @@ Making that story uses the network only when we ask: once for Gemini to draft, o
 
 ## If you want the build
 
-The code is [on GitHub](https://github.com/mzworthington/RoMini). Start with the [parts and wiring](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md) if you are building a box, the [wooden cube](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md) if you want the sheet the shop cuts, or the [parent pages](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md) if you want to see the screens without one. How the player is put together, including the laptop that pretends to be a Pi, is [the architecture note](https://github.com/mzworthington/RoMini/blob/main/docs/architecture.md).
+The code is [on GitHub](https://github.com/mzworthington/RoMini). Start with the [parts and wiring](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md) if you are building a box, the [wooden cube](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md) if you want the sheet [Cutting Edge CNC](https://cuttingedgecnc.co.uk/) laser-cut for us, or the [parent pages](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md) if you want to see the screens without one. How the player is put together, including the laptop that pretends to be a Pi, is [the architecture note](https://github.com/mzworthington/RoMini/blob/main/docs/architecture.md).
 
 She taps a thing she already loves on a wooden box, and she gets a story. Sometimes that is one of us, recorded. Sometimes it was written that afternoon, about her and the people around her, and a voice that is neither of ours reads it to her.
 

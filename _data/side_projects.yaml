@@ -45,6 +45,12 @@ projects:
     link: https://waykit.dev
     logo: /assets/projects/waykit.svg
 
+  - title: RoMini
+    description: |
+      A screen-free story box, built for my daughter. Trigger stories with NFC tags. Upload voice recordings or use AI to draft and narrate your story.
+    link: https://mzworthington.co.uk/open-source/building-a-story-box-for-romy
+    logo: /assets/projects/romini.svg
+
   - title: SteerCo
     description: |
       Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
@@ -56,12 +62,6 @@ projects:
       Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
     link: https://monitor.mzworthington.co.uk
     logo: /assets/projects/gpio-build-monitor.svg
-
-  - title: RoMini
-    description: |
-      A screen-free story box, built for my daughter. Trigger stories with NFC tags. Upload voice recordings or use AI to draft and narrate your story.
-    link: https://mzworthington.co.uk/open-source/building-a-story-box-for-romy
-    logo: /assets/projects/romini.svg
 
   - title: React on Cloudflare
     description: |
