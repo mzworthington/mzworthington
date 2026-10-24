@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Building a story box for Romy
-date: 2026-10-03 09:00:00 +0100
+date: 2026-10-24 09:00:00 +0100
 category: open-source
 tags:
   - Side projects

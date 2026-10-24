@@ -5,7 +5,7 @@ import test from "node:test";
 import { activeHeadingId, chipScrollDelta } from "../assets/js/section-nav.js";
 
 const story = readFileSync(
-  new URL("../_posts/2026-10-03-building-a-story-box-for-romy.markdown", import.meta.url),
+  new URL("../_posts/2026-10-24-building-a-story-box-for-romy.markdown", import.meta.url),
   "utf8",
 );
 const layout = readFileSync(new URL("../_layouts/post.html", import.meta.url), "utf8");
