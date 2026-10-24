@@ -28,6 +28,9 @@ layout: default
         {%- include tech_stack.html tech=page.tech-%}
      </p>
   </header>
+  {%- if page.section_nav -%}
+  {%- include section_nav.html html=content -%}
+  {%- endif -%}
   <section itemprop="articleBody">
    {{ content }}
    {%- include get_the_code.html -%}
@@ -40,3 +43,6 @@ layout: default
   </a>
   <a class="u-url visually-hidden" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
 </article>
+{%- if page.section_nav -%}
+<script type="module" src="{{ '/assets/js/section-nav.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{%- endif -%}

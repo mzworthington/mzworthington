@@ -14,6 +14,7 @@ tech:
   - NFC
 code: https://github.com/mzworthington/RoMini
 mermaid: true
+section_nav: true
 ---
 
 Bedtime still happens on the nights my wife and I are both working late. One of us is in the room. The other is stuck at the office. Romy, my daughter, gets only one voice during story time. I wanted her to hear the other one too, and I didn't want a screen in there to do it.

@@ -1,0 +1,26 @@
+{%- comment -%}
+  Horizontal section nav for a post that opts in with `section_nav: true`.
+  Reads rendered h2s only, so the chips stay the page's sections.
+{%- endcomment -%}
+{%- assign nodes = include.html | split: '<h2' -%}
+{%- capture section_nav_items -%}
+  {%- for node in nodes -%}
+    {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+    {%- assign head = node | split: '</h2>' | first -%}
+    {%- unless head contains 'id="' -%}{%- continue -%}{%- endunless -%}
+    {%- if head contains 'no_toc' -%}{%- continue -%}{%- endif -%}
+    {%- assign heading_id = head | split: 'id="' | last | split: '"' | first -%}
+    {%- assign heading_text = head | split: '>' | last | strip_html | strip -%}
+    {%- if heading_id != blank and heading_text != blank -%}
+      <li><a href="#{{ heading_id }}">{{ heading_text }}</a></li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign section_nav_items = section_nav_items | strip -%}
+{%- if section_nav_items != "" -%}
+<nav class="section-nav no-print" aria-label="On this page">
+  <ul>
+    {{ section_nav_items }}
+  </ul>
+</nav>
+{%- endif -%}
