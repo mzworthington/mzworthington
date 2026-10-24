@@ -84,13 +84,13 @@
       {%- if project.description and project.description != blank -%}
       <p>{{ project.description | strip }}</p>
       {%- endif -%}
-      {%- if project_link != blank or article_link != blank -%}
+      {%- if project_link != blank -%}
       <p class="work-card__host">
-        {%- if project_link != blank -%}
         <a href="{{ project_link | escape }}"{% if project_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ project_link | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
-        {%- endif -%}
-        {%- if article_link != blank and article_title != blank -%}
+        {%- if article_link.size > 0 -%}
+        {%- if article_title.size > 0 -%}
         <a href="{% if article_link contains '://' %}{{ article_link | escape }}{% else %}{{ article_link | relative_url }}{% endif %}"{% if article_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ article_title | escape }}</a>
+        {%- endif -%}
         {%- endif -%}
       </p>
       {%- endif -%}
