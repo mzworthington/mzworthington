@@ -48,7 +48,7 @@ projects:
   - title: RoMini
     description: |
       A screen-free story box, built for my daughter. Trigger stories with NFC tags. Upload voice recordings or use AI to draft and narrate your story.
-    link: https://mzworthington.co.uk/open-source/building-a-story-box-for-romy
+    link: https://romini.party
     logo: /assets/projects/romini.svg
 
   - title: SteerCo
