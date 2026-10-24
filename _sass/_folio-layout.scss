@@ -472,7 +472,12 @@
     }
 
     >main {
+      // Width is the viewport. Padding has to live inside it, or the column
+      // sticks out by the side padding (about 34px on a phone).
+      box-sizing: border-box;
       width: min(100%, 50rem);
+      max-width: 100%;
+      min-width: 0;
       margin-inline: auto;
       padding-inline: clamp(1rem, 3vw, 2.5rem);
     }
@@ -483,8 +488,22 @@
     }
 
     article {
-      max-width: none;
+      max-width: 100%;
+      min-width: 0;
       margin: 0;
+    }
+
+    article>section {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    article svg,
+    article img,
+    article pre,
+    article .mermaid {
+      max-width: 100%;
+      height: auto;
     }
 
     article>header {
@@ -602,6 +621,81 @@
 
       &::after {
         content: none;
+      }
+    }
+
+    // Section chips sit under the title, then stick beneath the site header.
+    nav.section-nav:not([id="toc"]) {
+      position: sticky;
+      top: var(--site-header-offset, 4.25rem);
+      z-index: 18;
+      margin: 0 0 0.35rem;
+      min-width: 0;
+      max-width: 100%;
+      background: color-mix(in srgb, var(--background-color) 92%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      >ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0;
+        padding: 0.45rem 0 0.7rem;
+        min-width: 0;
+        list-style: none;
+      }
+
+      >ul>li {
+        display: flex;
+        flex: 0 0 auto;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.32rem 0.65rem;
+        border: 1px solid var(--border-color-01);
+        background: transparent;
+        color: var(--text-muted);
+        font-family: var(--folio-sans, #{$base-font-family});
+        font-size: 0.82rem;
+        font-weight: 500;
+        line-height: 1.3;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &::after {
+          content: none;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &.is-active,
+        &[aria-current="location"] {
+          border-color: var(--brand-color);
+          color: var(--brand-color);
+          text-decoration: none;
+        }
+
+        &:focus-visible {
+          outline: 2px solid var(--brand-color);
+          outline-offset: 2px;
+        }
+      }
+
+      @media screen and (max-width: #{ $on-large - 1px }) {
+        >ul {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
       }
     }
   }

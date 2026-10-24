@@ -13,6 +13,10 @@
   --panel-mist: var(--background-color);
   scroll-padding-top: 5.5rem;
 
+  &:has(nav.section-nav) {
+    scroll-padding-top: var(--section-nav-anchor, calc(var(--site-header-offset, 4.25rem) + 3.25rem));
+  }
+
   body {
     background-color: var(--background-color);
     color: var(--text-color);
