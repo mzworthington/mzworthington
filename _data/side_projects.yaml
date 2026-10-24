@@ -50,6 +50,9 @@ projects:
       A screen-free story box, built for my daughter. Trigger stories with NFC tags. Upload voice recordings or use AI to draft and narrate your story.
     link: https://romini.party
     logo: /assets/projects/romini.svg
+    article:
+      title: Building a story box for Romy
+      link: /open-source/building-a-story-box-for-romy
 
   - title: SteerCo
     description: |
