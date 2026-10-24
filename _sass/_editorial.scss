@@ -299,14 +299,30 @@
   .work-cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+    align-items: stretch;
     gap: 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  .work-cards + .work-cards {
+    margin-top: 1rem;
+  }
+
+  // Same height for every project card, including across rows.
+  // The group card stays in its own list so its taller body does not set this size.
+  @media screen and (min-width: 801px) {
+    .work-cards--projects {
+      grid-auto-rows: 1fr;
+    }
+  }
+
   .work-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 24px;
     border: 1px solid var(--border-color-01);
     background: transparent;
@@ -324,15 +340,29 @@
       font-weight: 600;
 
       a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
         color: inherit;
         text-decoration: none;
 
         &:hover,
         &:focus-visible {
-          text-decoration: underline;
-          text-underline-offset: 0.15em;
+          text-decoration: none;
+
+          span {
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+          }
         }
       }
+    }
+
+    &__logo {
+      width: 2.5rem;
+      height: 2.5rem;
+      flex: none;
+      object-fit: contain;
     }
 
     > p {
@@ -348,8 +378,8 @@
   }
 
   .work-card__host {
-    margin: 1.1rem 0 0;
-    padding-top: 0.85rem;
+    margin-top: auto;
+    padding-top: 1.1rem;
     font-size: 0.92rem;
 
     a {

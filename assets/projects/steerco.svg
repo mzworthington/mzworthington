@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="SteerCo">
+  <rect width="32" height="32" rx="7" fill="#041c38"/>
+  <!-- Same optical centre + ~78% fill as mark.svg (legible at 16/24/32). -->
+  <g transform="translate(16 16) scale(0.096516) rotate(-45) translate(17.3702 0)">
+    <path fill="#f7f5f3"
+          d="M 117.98 -15.16
+             A 18 18 0 0 1 117.98 15.16
+             L -130 102
+             Q -48 0 -130 -102
+             Z"/>
+  </g>
+</svg>

@@ -9,13 +9,19 @@
     See <a href="{{ site.url | default: 'https://mzworthington.co.uk' }}">mzworthington.co.uk</a> for current contributions
   </p>
 
+  {%- if side_projects_data.groups -%}
   <ul class="work-cards no-print">
     {%- for group in side_projects_data.groups -%}
     <li class="work-card work-card--group">
       <h3>
         {%- assign group_link = group.link | strip -%}
         {%- if group_link != blank -%}
-        <a href="{{ group_link | escape }}"{% if group_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ group.title | escape }}</a>
+        <a href="{{ group_link | escape }}"{% if group_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+          {%- if group.logo -%}
+          <img class="work-card__logo" src="{{ group.logo | relative_url }}" alt="" width="40" height="40">
+          {%- endif -%}
+          <span>{{ group.title | escape }}</span>
+        </a>
         {%- else -%}
         {{ group.title | escape }}
         {%- endif -%}
@@ -53,13 +59,22 @@
       {%- endif -%}
     </li>
     {%- endfor -%}
+  </ul>
+  {%- endif -%}
 
+  {%- if side_projects_data.projects -%}
+  <ul class="work-cards work-cards--projects no-print">
     {%- for project in side_projects_data.projects -%}
     {%- assign project_link = project.link | strip -%}
     <li class="work-card">
       <h3>
         {%- if project_link != blank -%}
-        <a href="{{ project_link | escape }}"{% if project_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.title | escape }}</a>
+        <a href="{{ project_link | escape }}"{% if project_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+          {%- if project.logo -%}
+          <img class="work-card__logo" src="{{ project.logo | relative_url }}" alt="" width="40" height="40">
+          {%- endif -%}
+          <span>{{ project.title | escape }}</span>
+        </a>
         {%- else -%}
         {{ project.title | escape }}
         {%- endif -%}
@@ -73,6 +88,7 @@
     </li>
     {%- endfor -%}
   </ul>
+  {%- endif -%}
 </section>
 <script type="module" src="{{ '/assets/js/work-cards.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {%- endif -%}

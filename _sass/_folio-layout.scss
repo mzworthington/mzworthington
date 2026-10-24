@@ -471,18 +471,10 @@
       display: none;
     }
 
-    >header,
     >main {
       width: min(100%, 50rem);
       margin-inline: auto;
       padding-inline: clamp(1rem, 3vw, 2.5rem);
-    }
-
-    >header .site-nav {
-      width: auto;
-      max-width: none;
-      margin: 0;
-      padding-inline: 0;
     }
 
     >main {

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Build monitor">
+  <defs>
+    <radialGradient id="wash-blue" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#6aa8ff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#6aa8ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wash-green" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#3dd68c" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3dd68c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wash-yellow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#efc15a" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#efc15a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wash-red" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ff6b6b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wash-purple" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#000000"/>
+  <circle cx="64" cy="64" r="36" fill="none" stroke="#1c2430" stroke-width="6.5"/>
+  <circle cx="64" cy="64" r="36" fill="none" stroke="#3dd68c" stroke-width="6.5"
+          stroke-linecap="round" stroke-dasharray="56.5 169.7" transform="rotate(-90 64 64)"/>
+  <!-- glow washes -->
+  <circle cx="64" cy="28" r="16" fill="url(#wash-blue)"/>
+  <circle cx="98.2" cy="52.9" r="16" fill="url(#wash-green)"/>
+  <circle cx="85.2" cy="93.1" r="16" fill="url(#wash-yellow)"/>
+  <circle cx="42.8" cy="93.1" r="16" fill="url(#wash-red)"/>
+  <circle cx="29.8" cy="52.9" r="16" fill="url(#wash-purple)"/>
+  <!-- bulbs -->
+  <circle cx="64" cy="28" r="8.5" fill="#6aa8ff"/>
+  <circle cx="62.2" cy="26.1" r="2.8" fill="#e8f1ff" opacity="0.9"/>
+  <circle cx="98.2" cy="52.9" r="8.5" fill="#3dd68c"/>
+  <circle cx="96.4" cy="51" r="2.8" fill="#e6fff2" opacity="0.9"/>
+  <circle cx="85.2" cy="93.1" r="8.5" fill="#efc15a"/>
+  <circle cx="83.4" cy="91.2" r="2.8" fill="#fff6d6" opacity="0.9"/>
+  <circle cx="42.8" cy="93.1" r="8.5" fill="#ff6b6b"/>
+  <circle cx="41" cy="91.2" r="2.8" fill="#ffe0e0" opacity="0.9"/>
+  <circle cx="29.8" cy="52.9" r="8.5" fill="#c084fc"/>
+  <circle cx="28" cy="51" r="2.8" fill="#f5e8ff" opacity="0.9"/>
+</svg>

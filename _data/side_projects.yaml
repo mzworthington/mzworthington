@@ -6,6 +6,7 @@ groups:
     description: |
       Platform, intelligence, resilience, and contract - composed around BlueprintSpec.
     link: https://archlens.dev
+    logo: /assets/projects/archlens.svg
     projects:
       - title: ArchLens Canvas
         description: |
@@ -42,26 +43,31 @@ projects:
     description: |
       The SDLC coding agents actually run. Skills and SOPs are a live graph, not a second catalog. EDD is the loop when the change is a prompt or a tool.
     link: https://waykit.dev
-    
+    logo: /assets/projects/waykit.svg
+
   - title: SteerCo
     description: |
       Steering workspace for investment clarity: outcomes, bets, organisation shape, and decision notes.
     link: https://steerco.mzworthington.co.uk
-    
+    logo: /assets/projects/steerco.svg
+
   - title: GPIO build monitor
     description: |
       Glanceable CI status for GitHub Actions and CircleCI: live on the web, or glowing on a Raspberry Pi desk light.
     link: https://monitor.mzworthington.co.uk
+    logo: /assets/projects/gpio-build-monitor.svg
 
   - title: RoMini
     description: |
-      A screen-free story box. She taps a tagged toy and the story starts. Parents upload tracks and map tags on the house network.
-    link: https://mzworthington.co.uk/guides/building-a-story-box-for-romy
+      A screen-free story box, built for my daughter. Trigger stories with NFC tags. Upload voice recordings or use AI to draft and narrate your story.
+    link: https://mzworthington.co.uk/open-source/building-a-story-box-for-romy
+    logo: /assets/projects/romini.svg
 
   - title: React on Cloudflare
     description: |
       Hosting, docs, and CI already wired, so day one is product work, not plumbing.
     link: https://react-cloudflare-template.mzworthington.co.uk
+    logo: /assets/projects/react-cloudflare.svg
 
   - title: dotfiles
     description: |

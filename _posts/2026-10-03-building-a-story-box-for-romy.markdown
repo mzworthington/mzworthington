@@ -2,10 +2,11 @@
 layout: post
 title: Building a story box for Romy
 date: 2026-10-03 09:00:00 +0100
-category: guides
+category: open-source
 tags:
   - Side projects
   - Hardware
+  - Open source
 image: /assets/2026-10-03-building-a-story-box-for-romy/box.webp
 tech:
   - Raspberry-pi
@@ -15,7 +16,7 @@ code: https://github.com/mzworthington/RoMini
 mermaid: true
 ---
 
-Bedtime still happens on the nights my wife and I are both working late. One of us is in the room. The other one is still at a laptop. Romy gets one voice. I wanted her to hear the other one too, and I didn't want a screen in there to do it.
+Bedtime still happens on the nights my wife and I are both working late. One of us is in the room. The other is stuck at the office. Romy, my daughter gets only one voice during story time. I wanted her to hear the other one too, and I didn't want a screen in there to do it.
 
 <!--more-->
 
@@ -60,13 +61,13 @@ A book works the same way. The tag is on the book. She taps the book on the box 
 
 [![A tagged book](/assets/2026-10-03-building-a-story-box-for-romy/book.webp){:style="max-height:500px"}](/assets/2026-10-03-building-a-story-box-for-romy/book.webp)
 
-When power comes back she gets a light and a short ready sound, so the box can announce itself without a screen. The first box has one real button, and that button puts it to sleep cleanly. Loudness is ours to set. She does not get a volume knob yet.
+The box has a charge port and a single button, and that button wakes the device and puts it to sleep with a welcome and goodbye chime. Loudness is ours to set via the companion app/ dashboard.
 
 ## What went in the box
 
-The reader sits under a wooden lid. Wood is fine. A metal lid would block the tag. The tags are the clear stick-on kind, fixed to toys and books she already owns. The computer is a Raspberry Pi 4. Sound comes out of a powered speaker and amp. A battery hat means it can sit away from a socket, something for her to hold during bedtime. The card is split so a yanked plug is less likely to take the system with it. Stories live on that card.
+The reader sits under a wooden lid. Wood is fine. A metal lid would block the tag. We have a bunch of different NFC tag styles- stickers, buttons, key rings. They are fixed to toys and books she already owns. The computer is a Raspberry Pi 4. Sound comes out of a powered speaker and amp. A battery hat means it can sit away from a socket, something for her to hold during bedtime. The card is split so a yanked plug is less likely to take the system with it. Stories live on that card.
 
-The parts list, the wiring and the "please don't yank it" notes are in the repo: [hardware](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md). This post is not that list.
+The parts list and the wiring notes are in the repo: [hardware](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md).
 
 ```mermaid
 flowchart TB
@@ -81,13 +82,13 @@ flowchart TB
   studio --> library
 ```
 
-Listening never waits on that second half. If the laptop is shut, the toy still works.
-
 ## On the bench
 
 The box came together on the bench before it was a thing she could put a toy on. A Pi, the NFC reader, a speaker and a lot of wiring that does not belong in her room.
 
 Most of the player was written before that wiring existed. On a laptop the same software pretends to be the box: fake reader, fake buttons, real library. I could paste a tag id, check that a story starts, stops and remembers its place, and only then move those rules onto the Pi.
+
+[![The laptop stand-in](/assets/2026-10-03-building-a-story-box-for-romy/harness.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/harness.webp)
 
 <!-- PHOTO bench.webp: the Pi during the build, reader and wiring still out in the open. -->
 
@@ -107,33 +108,39 @@ A shelf halfway up those dowels lifts the Pi toward the reader under the lid. Th
 
 The cut file, the shop letter and these renders are in the repo: [fabrication](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md).
 
-## The page we use
+## The companion app
 
 She never opens this. We do, on the house network, at `romini.local`. Upload a file, map a tag, set how loud it is, see what is actually on the pad without walking in.
 
-The shots here are the parent pages from the repo. The frog is sample data so the screens have something to show. On our box the names are whatever we have stuck a tag to. A few labels in those shots (a night-light colour, a DAC name) are further along than this wooden box, or they describe a board it does not use. What I actually look at is the figure, the place in the story and the volume cap.
+### The live player
 
 The live player is the one I open when I want to know if she is mid-story: which figure, how far through, and the volume cap. The cap is the point. Bedtime should not be able to creep up to the speaker's idea of loud.
 
 [![What is playing](/assets/2026-10-03-building-a-story-box-for-romy/player.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/player.webp)
 
+### Figures & Tags
+
+Figures & Tags page lets me register a new tag, assign a picture and wire up to a story.
+
+[![Figures and their stories](/assets/2026-10-03-building-a-story-box-for-romy/figures.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/figures.webp)
+
+### The library
+
 The library is a folder with a form in front of it. Drop in an MP3, give it a title, point it at a figure. Unassigned files sit there until they have a toy. I can play a track back on the laptop before it is hers.
 
 [![The library](/assets/2026-10-03-building-a-story-box-for-romy/library.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/library.webp)
 
-Figures are the other direction. The reader sees a tag, we name it, and we choose the file. A tag with no story is a toy that does nothing, which is worse than no toy, so the page keeps those visible.
+### The system page
 
-[![Figures and their stories](/assets/2026-10-03-building-a-story-box-for-romy/figures.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/figures.webp)
+Volume lives on the system page, next to whether a figure is on the plate. The keys for drafting and speaking a story are on this page too. We have a couple activity streams, one taken from the logs within the PI to aid in debugging, and the other captured from the domain events the app emmits.
 
-Volume lives on the system page, next to whether a figure is on the plate. The keys for drafting and speaking a story are on this page too. The page shows that they are set. It does not show the secrets.
+We can also trigger over the air updates, reboot the toy, change the play mode, increase volume caps, etc.
 
 [![Volume and the box](/assets/2026-10-03-building-a-story-box-for-romy/settings.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/settings.webp)
 
-The same screens, with a bit less of me talking, are written up as [the parent dashboard](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md).
-
 ## A story about today
 
-Recording ourselves is the book. Put the tag in the cover, read it once, and she can hear that parent again. I wanted another kind of track too. One we would not sit down and perform. A story that only exists because this week happened, told in a voice that is not mine and not my wife's, then stuck to a toy she already takes to bed.
+Recording ourselves is the book. Put the tag in the cover, read it once, and she can hear that parent again. I wanted another kind of track too. One we would not sit down and perform. A story that only exists because this week happened, told in a voice that is not mine and not my wife's, then stuck to a toy she already takes to bed- the story studio.
 
 We start with the people in her life. Each one is a name and a bit of background: who they are to her, how they behave, what she would recognise. Romy is in that list on purpose. So are we. So is anyone else who keeps turning up, toys included. Those notes stay on the box. The next story should not have to be told who lives in the house, or what is around her.
 
@@ -154,7 +161,7 @@ We read that script before anyone speaks it. This is the part that matters. The 
 
 When the words are the ones we want, we send that script to ElevenLabs and pick a voice. It comes back as an MP3 on the box, the same kind of file as a book we recorded. We bind it to a figure. She taps that toy and gets a story about her, about us and about the place she is actually in. Next week we open the same notes, change the outline and do it again.
 
-Making that story uses the network only when we ask: once for Gemini to draft, once for ElevenLabs to read. Listening does not.
+Making that story uses the network only when we ask: once for Gemini to draft, once for ElevenLabs to read.
 
 [![Notes, the script and the voice](/assets/2026-10-03-building-a-story-box-for-romy/stories.webp){:style="object-fit:contain;height:auto;max-height:none"}](/assets/2026-10-03-building-a-story-box-for-romy/stories.webp)
 

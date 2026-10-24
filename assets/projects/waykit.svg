@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Waykit">
+  <polygon
+    fill="none"
+    stroke="#0f766e"
+    stroke-width="2.25"
+    stroke-linejoin="round"
+    points="32,7 53.95,19.75 53.95,44.25 32,57 10.05,44.25 10.05,19.75"
+  />
+  <path
+    fill="none"
+    stroke="#0f766e"
+    stroke-width="3.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M18.8 20.2 24.6 44.2 32 29.2 39.4 44.2 45.2 20.2"
+  />
+  <circle cx="32" cy="29.2" r="2.65" fill="#0f766e"/>
+</svg>
