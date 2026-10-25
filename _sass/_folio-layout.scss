@@ -642,6 +642,18 @@
       }
     }
 
+    article .post-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+
+      .button {
+        margin-top: 0;
+      }
+    }
+
     // Section chips sit under the title, then stick beneath the site header.
     nav.section-nav:not([id="toc"]) {
       position: sticky;

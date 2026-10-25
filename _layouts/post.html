@@ -33,7 +33,12 @@ layout: default
   {%- endif -%}
   <section itemprop="articleBody">
    {{ content }}
-   {%- include get_the_code.html -%}
+   {%- if page.code or page.demo -%}
+   <div class="post-actions">
+     {%- include try_the_demo.html -%}
+     {%- include get_the_code.html -%}
+   </div>
+   {%- endif -%}
   </section>
   <a class="go-to-top no-print" href="#top">
     <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">

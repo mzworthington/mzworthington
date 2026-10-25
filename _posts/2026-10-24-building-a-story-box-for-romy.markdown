@@ -13,6 +13,7 @@ tech:
   - Python
   - NFC
 code: https://github.com/mzworthington/RoMini
+demo: https://romini.party
 mermaid: true
 section_nav: true
 ---
@@ -106,6 +107,8 @@ The cut file, the shop letter and these renders are in the repo: [fabrication](h
 
 She never opens this. We do, on the house network, at `romini.local`. Upload a file, map a tag, set how loud it is, see what is actually on the pad without walking in.
 
+The same pages are on the public demo at [romini.party](https://romini.party). Walk the player, the figures, the library and the story studio. Studio keys, uploads and other changes stay off.
+
 ### The live player
 
 The live player is the one I open when I want to know if she is mid-story: which figure, how far through, and the volume cap. The cap is the point. Bedtime should not be able to creep up to the speaker's idea of loud.
@@ -161,7 +164,7 @@ Making that story uses the network only when we ask: once for Gemini to draft, o
 
 ## If you want the build
 
-The code is [on GitHub](https://github.com/mzworthington/RoMini). Start with the [parts and wiring](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md) if you are building a box, the [wooden cube](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md) if you want the sheet [Cutting Edge CNC](https://cuttingedgecnc.co.uk/) laser-cut for us, or the [parent pages](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md) if you want to see the screens without one. How the player is put together, including the laptop that pretends to be a Pi, is [the architecture note](https://github.com/mzworthington/RoMini/blob/main/docs/architecture.md).
+The code is [on GitHub](https://github.com/mzworthington/RoMini). Start with the [parts and wiring](https://github.com/mzworthington/RoMini/blob/main/docs/hardware.md) if you are building a box, the [wooden cube](https://github.com/mzworthington/RoMini/blob/main/docs/fabrication.md) if you want the sheet [Cutting Edge CNC](https://cuttingedgecnc.co.uk/) laser-cut for us, or [play with the demo dashboard](https://romini.party) if you want the screens without a box. The notes for those pages stay [in the repo](https://github.com/mzworthington/RoMini/blob/main/docs/dashboard.md). How the player is put together, including the laptop that pretends to be a Pi, is [the architecture note](https://github.com/mzworthington/RoMini/blob/main/docs/architecture.md).
 
 She taps a thing she already loves on a wooden box, and she gets a story. Sometimes that is one of us, recorded. Sometimes it was written that afternoon, about her and the people around her, and a voice that is neither of ours reads it to her.
 
