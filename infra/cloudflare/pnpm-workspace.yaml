@@ -3,6 +3,8 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@pulumi/cloudflare'
   - js-yaml
+  - '@isaacs/nonrecursive-glob-match@1.1.0'
+  - minimatch@11.0.5
 overrides:
   http-cache-semantics: '>=4.3.0'
   'undici@6': 6.29.1
@@ -14,3 +16,5 @@ overrides:
   postcss-selector-parser: '>=7.1.6'
   # GHSA-3g3m-2fjr-6pw4: an aborted glob walk kept reading the filesystem.
   "glob@>=9.0.0 <14.0.2": 14.0.3
+  # GHSA-g3hv-75wg-m249: minimatch 10 has no in-range patch. Parents still declare ^10.
+  'minimatch@10': 11.0.5
