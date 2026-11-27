@@ -65,6 +65,10 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v7
+      - name: Read Cloudflare account
+        id: cloudflare-account
+        uses: ./.github/actions/cloudflare-account
+
 
       - name: Download site
         uses: actions/download-artifact@v8
@@ -76,5 +80,5 @@ jobs:
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          accountId: ${{ steps.cloudflare-account.outputs.id }}
           command: pages deploy _site --project-name=${{ vars.PULUMI_PAGES_PROJECT_NAME || 'mzworthington' }} --branch=main
