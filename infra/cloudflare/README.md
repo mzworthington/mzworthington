@@ -63,4 +63,4 @@ pulumi up
 | `_redirects` | www → apex 301 |
 | `.github/workflows/pulumi-cloudflare.yml` | Thin caller → edge-dns reusable workflow |
 | `.github/workflows/ci.yml` | Jekyll build + wrangler deploy |
-| `bin/setup-cloudflare-hosting.sh` | Thin shim → edge-dns bootstrap script |
+| `bin/setup-cloudflare-hosting.sh` | Domain defaults, then `setup-cloudflare-hosting` on PATH |

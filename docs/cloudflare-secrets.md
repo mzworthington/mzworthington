@@ -26,7 +26,7 @@ pulumi login
 bin/setup-cloudflare-hosting.sh
 ```
 
-The shim downloads [`scripts/setup-cloudflare-hosting.sh`](https://github.com/mzworthington/edge-dns/blob/main/scripts/setup-cloudflare-hosting.sh) from edge-dns (`EDGE_DNS_REF`, default `main`).
+The local script sets the domain defaults, then runs [`setup-cloudflare-hosting`](https://github.com/mzworthington/edge-dns/blob/main/cmd/setup-cloudflare-hosting) from the edge-dns checkout (`cmd` on `PATH`).
 
 ### BWS project keys
 
